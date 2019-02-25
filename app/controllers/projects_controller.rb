@@ -3,12 +3,13 @@ class ProjectsController < ApplicationController
 
   skip_before_action :authenticate_user!, only: :search
   # permit non-user to see the index and show
-  
+
   skip_before_action :authenticate_user!, only: [:index, :show]
-  
+
   def index
     @projects = policy_scope(Project)
     @projects = Project.all
+    authorize @project
   end
 
   def show
@@ -57,6 +58,7 @@ class ProjectsController < ApplicationController
       parameter = params[:search_city].downcase
       @result = @result.where(city: parameter)
     end
+    authorize @result
   end
 
   private
