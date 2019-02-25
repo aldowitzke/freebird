@@ -1,5 +1,4 @@
 class EventsController < ApplicationController
-
   before_action :set_event, only: %i[show edit update destroy]
   def index
     @events = Event.all
@@ -14,6 +13,8 @@ class EventsController < ApplicationController
 
   def create
     @event.save
+
+    redirect_to event_path(@event)
   end
 
   def edit
@@ -21,10 +22,14 @@ class EventsController < ApplicationController
 
   def update
     @event.update(params[:event])
+
+    redirect_to event_path(@event)
   end
 
   def destroy
     @event.destroy
+
+    redirect_to events_path
   end
 
   private
