@@ -1,9 +1,11 @@
-<div class="container">
+<div class="container text-center">
   <h1><%= @project[:artistic_name] %></h1>
   <p>Descrição: <%= @project[:description] %></p>
   <p>Gênero: <%= @project[:genre] %></p>
   <p>Formato: <%= @project[:band_format] %></p>
-  <p>Cidade:<%= @project[:city] %></p>
+  <p>Cidade: <%= @project[:city] %></p>
   <%= @project[:photo] %>
   <%= @project[:video] %>
+  <%= link_to "Editar", edit_project_path(@project) %>
+  <%= link_to "Contratar", project_events_path(@project), method: :post %>
 </div>

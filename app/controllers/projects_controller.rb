@@ -7,6 +7,7 @@ class ProjectsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   
   def index
+    @projects = policy_scope(Project)
     @projects = Project.all
   end
 
@@ -23,7 +24,7 @@ class ProjectsController < ApplicationController
 
   def new
     # returns true if user is artist
-    current_user.artist
+    # current_user.artist
     @project = Project.new
     # authorize access to project/new page for all users
     authorize @project
@@ -37,6 +38,7 @@ class ProjectsController < ApplicationController
       redirect_to project_path(@project)
     else
       render :new
+    end
   end
 
   def destroy
