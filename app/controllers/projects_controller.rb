@@ -1,8 +1,11 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
-  # permit non-user to see the index and show
-  skip_before_action :authenticate_user!, only: [:index, :show]
 
+  skip_before_action :authenticate_user!, only: :search
+  # permit non-user to see the index and show
+  
+  skip_before_action :authenticate_user!, only: [:index, :show]
+  
   def index
     @projects = Project.all
   end
@@ -40,6 +43,18 @@ class ProjectsController < ApplicationController
     @project.destroy
     # should send artist to site for a new offer
     redirect_to new_project_path
+  end
+
+  def search
+    @result = Project.all
+    if params[:search_genre].present?
+      parameter = params[:search_genre].downcase
+      @result = @result.where(genre: parameter)
+    end
+    if params[:search_city].present?
+      parameter = params[:search_city].downcase
+      @result = @result.where(city: parameter)
+    end
   end
 
   private
