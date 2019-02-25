@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: :search
 
   def index
     @projects = Project.all
@@ -26,6 +27,18 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project.destroy
+  end
+
+  def search
+    @result = Project.all
+    if params[:search_genre].present?
+      parameter = params[:search_genre].downcase
+      @result = @result.where(genre: parameter)
+    end
+    if params[:search_city].present?
+      parameter = params[:search_city].downcase
+      @result = @result.where(city: parameter)
+    end
   end
 
   private
