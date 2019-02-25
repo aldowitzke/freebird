@@ -23,7 +23,7 @@ class ProjectPolicy < ApplicationPolicy
 
   def update?
     # if user created, returns true, authorize
-    record.user == user
+    record.artist == user
   end
 
   def destroy?

@@ -23,11 +23,11 @@ class EventPolicy < ApplicationPolicy
 
   def update?
     # if user created, returns true, authorize
-    record.artist == user
+    record.contractor == user
   end
 
   def destroy?
     # if user created, returns true, authorize
-    record.artist == user
+    record.contractor == user
   end
 end
