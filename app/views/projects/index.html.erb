@@ -1,0 +1,11 @@
+<div class="container text-center">
+  <% @projects.each do |project| %>
+  <%= link_to project_path(project) do %>
+  <h1><%= project.artistic_name %></h1>
+  <% end %>
+  <p><%= project.description %></p>
+  <p><%= project.genre %></p>
+  <p><%= project.band_format %></p>
+  <p><%= project.city %></p>
+  <% end %>
+</div>
