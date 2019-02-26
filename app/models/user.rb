@@ -14,6 +14,6 @@ class User < ApplicationRecord
   has_many :reviews
 
   # pictures
-  mount_uploader :picture, PhotoUploader
+  mount_uploader :photo, PhotoUploader
 
 end
