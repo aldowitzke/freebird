@@ -25,7 +25,7 @@ class ProjectsController < ApplicationController
 
   def new
     # returns true if user is artist
-    # current_user.artist
+    current_user.artist
     @project = Project.new
     # authorize access to project/new page for all users
     authorize @project
