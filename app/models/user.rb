@@ -9,9 +9,7 @@ class User < ApplicationRecord
            foreign_key: :artist_id,
            dependent: :destroy
 
-  has_many :contractor_events,
-           class_name: 'Event',
-           foreign_key: :contractor_id
+  has_many :events
 
   has_many :reviews
 end

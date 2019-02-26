@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    @review.contractor = current_user
+    @review.user = current_user
     @review.project = Project.find(params[:project_id])
     @review.save
     authorize @review
@@ -17,6 +17,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:content, :contractor_id, :artist_id)
+    params.require(:review).permit(:content, :user_id)
   end
 end

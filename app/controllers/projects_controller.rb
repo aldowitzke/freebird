@@ -45,7 +45,7 @@ class ProjectsController < ApplicationController
   def destroy
     @project.destroy
     # should send artist to site for a new offer
-    redirect_to new_project_path
+    redirect_to projects_path
   end
 
   def search
@@ -69,6 +69,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:genre, :artistic_name, :description, :band_format, :photo, :video, :city)
+    params.require(:project).permit(:name, :description, :photo, :video, :city)
   end
 end
