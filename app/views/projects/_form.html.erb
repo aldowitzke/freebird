@@ -11,6 +11,8 @@
     <%= f.input :photo %>
     <%= f.input :video %>
     <%#= f.input :photo_cache, as: :hidden %>
+    <%= f.association :category %>
+    <%= f.association :genres, as: :check_boxes %>
     <%= f.button :submit %>
   </div>
   <% end %>
