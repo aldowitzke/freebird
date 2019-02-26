@@ -47,6 +47,11 @@ class EventsController < ApplicationController
     redirect_to project_path
   end
 
+  def my_events
+    @events = policy_scope(Event).where(artist: current_user)
+    authorize my_events
+  end
+
   private
 
   def event_params

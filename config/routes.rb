@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get "/search", to: "projects#search"
+  get "/my_events", to: "events#my_events"
 
   # events nested to use projects_id
   resources :projects do

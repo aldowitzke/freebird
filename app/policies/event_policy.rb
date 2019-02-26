@@ -30,4 +30,8 @@ class EventPolicy < ApplicationPolicy
     # if user created, returns true, authorize
     record.contractor == user
   end
+
+  def my_events_artist?
+    true
+  end
 end
