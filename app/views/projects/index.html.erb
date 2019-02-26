@@ -1,11 +1,13 @@
 <div class="container text-center">
-  <% @projects.each do |project| %>
-  <%= link_to project_path(project) do %>
-  <h1><%= project.artistic_name %></h1>
+  <% if current_user.artist == true %>
+  <%= link_to "Crie seu projeto", new_project_path, class: "btn btn-primary" %>
   <% end %>
-  <p><%= project.description %></p>
-  <p><%= project.genre %></p>
-  <p><%= project.band_format %></p>
-  <p><%= project.city %></p>
+
+  <% @projects.each do |project| %>
+    <%= link_to project_path(project) do %>
+      <h1><%= project.name %></h1>
+      <p><%= project.description %></p>
+      <p><%= project.city %></p>
+    <% end %>
   <% end %>
 </div>
