@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_26_155411) do
+ActiveRecord::Schema.define(version: 2019_02_26_171219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,8 +38,17 @@ ActiveRecord::Schema.define(version: 2019_02_26_155411) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "project_genres", force: :cascade do |t|
+    t.bigint "genre_id"
+    t.bigint "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["genre_id"], name: "index_project_genres_on_genre_id"
+    t.index ["project_id"], name: "index_project_genres_on_project_id"
+  end
+
   create_table "projects", force: :cascade do |t|
-    t.bigint "user_id"
+    t.bigint "artist_id"
     t.bigint "category_id"
     t.string "name"
     t.text "description"
@@ -49,8 +58,8 @@ ActiveRecord::Schema.define(version: 2019_02_26_155411) do
     t.string "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_projects_on_artist_id"
     t.index ["category_id"], name: "index_projects_on_category_id"
-    t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -85,8 +94,10 @@ ActiveRecord::Schema.define(version: 2019_02_26_155411) do
 
   add_foreign_key "events", "projects"
   add_foreign_key "events", "users"
+  add_foreign_key "project_genres", "genres"
+  add_foreign_key "project_genres", "projects"
   add_foreign_key "projects", "categories"
-  add_foreign_key "projects", "users"
+  add_foreign_key "projects", "users", column: "artist_id"
   add_foreign_key "reviews", "projects"
   add_foreign_key "reviews", "users"
 end
