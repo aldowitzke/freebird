@@ -9,7 +9,7 @@ class ProjectsController < ApplicationController
   def index
     @projects = policy_scope(Project)
     @projects = Project.all
-    authorize @project
+    # authorize @project
   end
 
   def show
