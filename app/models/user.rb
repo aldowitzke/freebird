@@ -12,4 +12,6 @@ class User < ApplicationRecord
   has_many :contractor_events,
            class_name: 'Event',
            foreign_key: :contractor_id
+
+  has_many :reviews
 end
