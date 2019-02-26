@@ -75,7 +75,4 @@ Genre.create!(name: 'Folk')
 #  artist: ian,
 #  )
 
-
-
-
 puts 'done!'
