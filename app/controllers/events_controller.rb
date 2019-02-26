@@ -31,6 +31,7 @@ class EventsController < ApplicationController
       redirect_to event_path(@event)
     else
       render :new
+    end
   end
 
   def edit
@@ -50,7 +51,6 @@ class EventsController < ApplicationController
 
   def event_params
     params.require(:event).permit(:date, :time, :price)
-
   end
 
   def set_event

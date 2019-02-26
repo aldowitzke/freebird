@@ -9,13 +9,7 @@
 
     <% if user_signed_in? %>
 
-      <!-- Links when logged in -->
-      <% if current_user.teacher %>
-      <%= link_to "Create your class!", new_offer_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "My classes", your_classes_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <% else %>
-      <%= link_to "My classes", student_classes_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <% end %>
+
 
       <!-- <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %> -->
 
