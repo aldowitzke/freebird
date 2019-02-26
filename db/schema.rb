@@ -10,35 +10,56 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_26_155411) do
+ActiveRecord::Schema.define(version: 2019_02_26_171219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "events", force: :cascade do |t|
     t.bigint "project_id"
-    t.date "date"
-    t.time "time"
+    t.bigint "user_id"
+    t.date "datetime"
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "contractor_id"
-    t.index ["contractor_id"], name: "index_events_on_contractor_id"
     t.index ["project_id"], name: "index_events_on_project_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "project_genres", force: :cascade do |t|
+    t.bigint "genre_id"
+    t.bigint "project_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["genre_id"], name: "index_project_genres_on_genre_id"
+    t.index ["project_id"], name: "index_project_genres_on_project_id"
   end
 
   create_table "projects", force: :cascade do |t|
-    t.string "genre"
-    t.string "artistic_name"
+    t.bigint "artist_id"
+    t.bigint "category_id"
+    t.string "name"
     t.text "description"
-    t.string "band_format"
     t.string "photo"
     t.string "video"
     t.string "city"
+    t.string "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "artist_id"
     t.index ["artist_id"], name: "index_projects_on_artist_id"
+    t.index ["category_id"], name: "index_projects_on_category_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -46,9 +67,9 @@ ActiveRecord::Schema.define(version: 2019_02_26_155411) do
     t.bigint "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "contractor_id"
-    t.index ["contractor_id"], name: "index_reviews_on_contractor_id"
+    t.bigint "user_id"
     t.index ["project_id"], name: "index_reviews_on_project_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -72,8 +93,11 @@ ActiveRecord::Schema.define(version: 2019_02_26_155411) do
   end
 
   add_foreign_key "events", "projects"
-  add_foreign_key "events", "users", column: "contractor_id"
+  add_foreign_key "events", "users"
+  add_foreign_key "project_genres", "genres"
+  add_foreign_key "project_genres", "projects"
+  add_foreign_key "projects", "categories"
   add_foreign_key "projects", "users", column: "artist_id"
   add_foreign_key "reviews", "projects"
-  add_foreign_key "reviews", "users", column: "contractor_id"
+  add_foreign_key "reviews", "users"
 end
