@@ -12,4 +12,7 @@ class User < ApplicationRecord
   has_many :contractor_events,
            class_name: 'Event',
            foreign_key: :contractor_id
+
+  # pictures
+  mount_uploader :picture, PhotoUploader
 end
