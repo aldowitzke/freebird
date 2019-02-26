@@ -11,7 +11,11 @@
   <p><%= review.content %></p>
   <% end %>
 
-  <%= link_to "Criar novo review", new_project_review_path(@project) %>
-  <%= link_to "Editar", edit_project_path(@project) %>
-  <%= link_to "Contratar", new_project_event_path(@project) %>
+  <% if current_user == @project.artist %>
+    <%= link_to "Editar", edit_project_path(@project), class: "btn btn-primary" %>
+    <%= link_to "Deletar", project_path(@project), method: :delete, class: "btn btn-danger" %>
+  <% else %>
+    <%= link_to "Criar novo review", new_project_review_path(@project), class: "btn btn-primary" %>
+    <%= link_to "Contratar", new_project_event_path(@project), class: "btn btn-success" %>
+  <% end %>
 </div>
