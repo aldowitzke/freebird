@@ -7,9 +7,6 @@ Rails.application.routes.draw do
 
   get "/search", to: "projects#search"
 
-  resources :events
-  resources :projects
-
   # events nested to use projects_id
   resources :projects do
     resources :events, only: [ :new, :create ]

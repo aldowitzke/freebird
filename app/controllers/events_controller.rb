@@ -12,18 +12,18 @@ class EventsController < ApplicationController
 
   def new
     # nested resource - events#create
-    @project = Project.find(params[:project_id])
+    # @project = Project.find(params[:project])
     @event = Event.new
     authorize @event
     # do we need authorize project?
-    authorize @project
+    # authorize @project
   end
 
   def create
     @event = Event.new(event_params)
     @event.contractor = current_user
     # nested resource - events#create
-    @event.project = Project.find(params[:project_id])
+    @event.project = Project.find(params[:project])
     authorize @event
     # do we need authorize project?
     authorize @project
@@ -50,7 +50,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:date, :time, :price)
+    params.require(:event).permit(:date, :time, :price, :project)
   end
 
   def set_event
