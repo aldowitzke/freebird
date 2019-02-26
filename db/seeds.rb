@@ -27,35 +27,27 @@ ian = User.create!(
 puts 'Creating new projects...'
 
 Project.create!(
- genre: "rock",
- band_format: "som de barzinho",
- artistic_name: "rei dos palcos",
  city: "são paulo",
  artist: ian,
+ name: "rock"
  )
 
 Project.create!(
- genre: "mpb",
- band_format: "orquestra",
- artistic_name: "ian orchestra",
  city: "rio de janeiro",
  artist: ian,
+ name: "rap"
  )
 
 Project.create(
- genre: "psicodelico",
- band_format: "banda",
- artistic_name: "di boa band",
  city: "recife",
  artist: ian,
+ name: "mpb"
  )
 
 Project.create(
- genre: "rap",
- band_format: "solo",
- artistic_name: "mc joao",
  city: "marilia",
  artist: ian,
+ name: "seila"
  )
 
 puts 'done!'
