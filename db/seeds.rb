@@ -1,36 +1,61 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+puts 'Destroying users'
+
+User.destroy_all
+
+puts 'Destroying projects'
+
 Project.destroy_all
+
+puts 'Creating new users...'
+
+aldo = User.create!(
+  first_name: 'Aldo',
+  last_name: 'Witzke',
+  email: 'aldinholindo@gmail.com',
+  artist: false,
+  password: '123456',
+)
+
+ian = User.create!(
+  first_name: 'Ian' ,
+  last_name: 'Gigliotti',
+  email: 'ianlindo@gmail.com',
+  artist: true,
+  password: '123456',
+)
+
+puts 'Creating new projects...'
 
 Project.create!(
  genre: "rock",
  band_format: "som de barzinho",
  artistic_name: "rei dos palcos",
- city: "são paulo"
+ city: "são paulo",
+ artist: ian,
  )
 
-Project.create(
+Project.create!(
  genre: "mpb",
  band_format: "orquestra",
  artistic_name: "ian orchestra",
- city: "rio de janeiro"
+ city: "rio de janeiro",
+ artist: ian,
  )
 
 Project.create(
  genre: "psicodelico",
  band_format: "banda",
  artistic_name: "di boa band",
- city: "recife"
+ city: "recife",
+ artist: ian,
  )
 
 Project.create(
  genre: "rap",
  band_format: "solo",
  artistic_name: "mc joao",
- city: "marilia"
+ city: "marilia",
+ artist: ian,
  )
+
+puts 'done!'
