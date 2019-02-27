@@ -21,7 +21,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @event.contractor = current_user
+    @event.user = current_user
     # nested resource - events#create
     @event.project = Project.find(params[:project])
     authorize @event
@@ -45,6 +45,16 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     redirect_to project_path
+  end
+
+  def my_events
+    @events = policy_scope(Event).joins(:project).where(projects: { artist: current_user })
+    authorize @events
+  end
+
+  def my_events_user
+    @events = current_user.events
+    authorize @events
   end
 
   private

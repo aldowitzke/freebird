@@ -96,8 +96,8 @@ ActiveRecord::Schema.define(version: 2019_02_27_134853) do
     t.string "phone"
     t.string "city"
     t.string "state"
-    t.boolean "artist", default: false
-    t.boolean "admin", default: false
+    t.boolean "artist"
+    t.boolean "admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

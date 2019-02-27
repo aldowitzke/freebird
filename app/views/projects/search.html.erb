@@ -1,5 +1,10 @@
-<% @result.each do |project| %>
 
-<p><%= project.name %></p>
-<% end %>
+<div class="container">
+  <% @result.each do |project| %>
+  <%= link_to project_path(project) do %>
+  <p><%= project.name %></p>
+  <p><%= project.city %></p>
+  <% end %>
+  <% end %>
+</div>
 

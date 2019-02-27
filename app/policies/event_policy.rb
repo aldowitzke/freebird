@@ -23,11 +23,19 @@ class EventPolicy < ApplicationPolicy
 
   def update?
     # if user created, returns true, authorize
-    record.contractor == user
+    record.user == user
   end
 
   def destroy?
     # if user created, returns true, authorize
-    record.contractor == user
+    record.user == user
+  end
+
+  def my_events?
+    true
+  end
+
+  def my_events_user?
+    true
   end
 end
