@@ -60,6 +60,15 @@ class ProjectsController < ApplicationController
     # end
     if params[:query].present?
       @result = PgSearch.multisearch(params[:query])
+
+    @result = Project.all
+    if params[:search_name].present?
+      parameter = params[:search_name].downcase
+      @result = @result.where(name: parameter)
+    end
+    if params[:search_city].present?
+      parameter = params[:search_city].downcase
+      @result = @result.where(city: parameter)
     end
     authorize @result
   end
@@ -72,6 +81,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:name, :description, :photo, :video, :city)
+    params.require(:project).permit(:name, :description, :photo, :video, :city, :category_id)
   end
 end

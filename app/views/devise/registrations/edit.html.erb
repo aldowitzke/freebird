@@ -23,12 +23,20 @@
                 input_html: { autocomplete: "current-password" } %>
   </div>
 
+  <!-- added button for user to add a photo -->
+  <div class="add-photo">
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
+  </div>
+
   <div class="form-actions">
     <%= f.button :submit, "Update" %>
   </div>
 <% end %>
 
 <h3>Cancel my account</h3>
+
+
 
 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 

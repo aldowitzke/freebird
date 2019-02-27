@@ -8,9 +8,13 @@
     <%= f.input :name %>
     <%= f.input :description %>
     <%= f.input :city %>
+    <%= f.input :state %>
     <%= f.input :photo %>
     <%= f.input :video %>
     <%#= f.input :photo_cache, as: :hidden %>
+    <!-- association pulls categories as dropdown and genres as checkbox to form -->
+    <%= f.association :category %>
+    <%= f.association :genres, as: :check_boxes %>
     <%= f.button :submit %>
   </div>
   <% end %>

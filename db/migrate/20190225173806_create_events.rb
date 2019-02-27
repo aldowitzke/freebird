@@ -4,7 +4,7 @@ class CreateEvents < ActiveRecord::Migration[5.2]
       t.references :project, foreign_key: true
       t.references :user, foreign_key: true
       t.date :datetime
-      t.integer :price
+      t.text :description
 
       t.timestamps
     end
