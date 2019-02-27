@@ -1,19 +1,25 @@
 <div class="container text-center">
   <h1><%= @project[:name] %></h1>
   <p>Descrição: <%= @project[:description] %></p>
-  <p>Cidade: <%= @project[:city] %></p>
-  <%= @project[:photo] %>
-  <%= @project[:video] %>
+  <p>Cidade: <%= @project[:city] %>, Estado: <%= @project[:state] %></p>
+  <%= @project.category.name %>
+  <% @project.genres.each do |t| %>
+  <p><%= t.name %></p>
+  <% end %>
+  <p>Preço: <%= @project[:price] %></p>
+  <%= cl_image_tag @project.photo, height: 300, width: 400, crop: :fill %>
+  <%= cl_image_tag @project.artist.photo, height: 300, width: 400, crop: :fill %>
+  <iframe width="560" height="315" src="<%= @project[:video] %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
   <% @project.reviews.each do |review| %>
   <p><%= review.content %></p>
   <% end %>
 
   <% if current_user == @project.artist %>
-    <%= link_to "Editar", edit_project_path(@project), class: "btn btn-primary" %>
-    <%= link_to "Deletar", project_path(@project), method: :delete, class: "btn btn-danger" %>
+  <%= link_to "Editar", edit_project_path(@project), class: "btn btn-primary" %>
+  <%= link_to "Deletar", project_path(@project), method: :delete, class: "btn btn-danger" %>
   <% else %>
-    <%= link_to "Criar novo review", new_project_review_path(@project), class: "btn btn-primary" %>
-    <%= link_to "Contratar", new_project_event_path(@project), class: "btn btn-success" %>
+  <%= link_to "Criar novo review", new_project_review_path(@project), class: "btn btn-primary" %>
+  <%= link_to "Contratar", new_project_event_path(@project), class: "btn btn-success" %>
   <% end %>
 </div>
