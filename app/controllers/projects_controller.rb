@@ -50,9 +50,9 @@ class ProjectsController < ApplicationController
 
   def search
     @result = Project.all
-    if params[:search_genre].present?
-      parameter = params[:search_genre].downcase
-      @result = @result.where(genre: parameter)
+    if params[:search_name].present?
+      parameter = params[:search_name].downcase
+      @result = @result.where(name: parameter)
     end
     if params[:search_city].present?
       parameter = params[:search_city].downcase
@@ -69,6 +69,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:name, :description, :photo, :video, :city)
+    params.require(:project).permit(:name, :description, :photo, :video, :city, :category_id)
   end
 end

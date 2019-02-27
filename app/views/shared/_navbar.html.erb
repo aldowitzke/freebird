@@ -1,7 +1,7 @@
 <div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "", height: 50 %>
+    <%= image_tag "logo.png", height: 50 %>
   <% end %>
 
   <!-- Right Navigation -->
@@ -9,7 +9,8 @@
 
     <% if user_signed_in? %>
 
-
+      <!-- linha 20, não sei o que colocar no lugar de @picture para pegar a foto que o usuario
+           da upload no edit -->
 
       <%= link_to "Meus eventos", my_events_artist_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
