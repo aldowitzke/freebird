@@ -1,7 +1,10 @@
 <div class="container text-center">
   <h1><%= @project[:name] %></h1>
   <p>Descrição: <%= @project[:description] %></p>
-  <p>Cidade: <%= @project[:city] %></p>
+  <p>Cidade: <%= @project[:city] %>, Estado: <%= @project[:state] %></p>
+  <%= @project[:category] %>
+  <%= @project[:genres] %>
+  <%= @project[:price] %>
   <%= @project[:photo] %>
   <%= @project[:video] %>
 
