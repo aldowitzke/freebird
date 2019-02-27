@@ -10,6 +10,7 @@ class CreateProjects < ActiveRecord::Migration[5.2]
       t.string :video
       t.string :city
       t.string :state
+      t.integer :price
 
       t.timestamps
     end
