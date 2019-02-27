@@ -30,4 +30,12 @@ class EventPolicy < ApplicationPolicy
     # if user created, returns true, authorize
     record.user == user
   end
+
+  def my_events?
+    true
+  end
+
+  def my_events_user?
+    true
+  end
 end

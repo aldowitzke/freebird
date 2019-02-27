@@ -11,8 +11,12 @@
 
       <!-- linha 20, não sei o que colocar no lugar de @picture para pegar a foto que o usuario
            da upload no edit -->
-
-      <!-- <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %> -->
+      <% if current_user.artist == true %>
+        <%= link_to "Meus eventos", my_events_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to "Contratados", my_events_user_path, class: "navbar-wagon-item navbar-wagon-link"%>
+      <% else %>
+        <%= link_to "Contratados", my_events_user_path, class: "navbar-wagon-item navbar-wagon-link"%>
+      <% end %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
