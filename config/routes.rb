@@ -13,7 +13,9 @@ Rails.application.routes.draw do
 
   # events nested to use projects_id
   resources :projects do
-    resources :events, only: [ :new, :create ]
+    resources :events, only: [ :new, :create ] do
+      patch :accept
+    end
     resources :reviews, only: [ :new, :create ]
   end
   resources :reviews, only: [ :show, :edit, :update, :destroy ]

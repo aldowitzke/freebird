@@ -38,4 +38,8 @@ class EventPolicy < ApplicationPolicy
   def my_events_user?
     true
   end
+
+  def accept?
+    true
+  end
 end

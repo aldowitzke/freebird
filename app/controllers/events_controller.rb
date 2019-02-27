@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[show edit update destroy]
+  before_action :set_event, only: %i[show edit update destroy accept]
 
   def index
     @events = Event.search(params[:search])
@@ -55,6 +55,11 @@ class EventsController < ApplicationController
   def my_events_user
     @events = current_user.events
     authorize @events
+  end
+
+  def accept
+    @event.accept = true
+    authorize @event
   end
 
   private
