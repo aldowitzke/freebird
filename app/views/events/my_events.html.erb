@@ -3,5 +3,19 @@
     <p>Meu projeto: <%= event.project.name %></p>
     <p>Data: <%= event.datetime %></p>
     <p>Quem me contratou: <%= event.user.first_name %> <%= event.user.last_name %>
+
+    <p>Aceitado?</p>
+    <% if event.accepted == true %>
+      <p>Aceito</p>
+    <% else %>
+      <p>Não aceito</p>
+    <% end %>
+
+    <% if event.accepted == false  %>
+    <%= link_to "Aceitar proposta", event_path(event), class: "btn btn-success", method: :patch %>
+    <% else %>
+    <%= link_to "Aceitar proposta", event_path(event), class: "btn btn-success", method: :patch %>
+    <% end %>
+
   <% end %>
 </div>

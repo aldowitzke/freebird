@@ -3,5 +3,19 @@
     <p>Projeto: <%= event.project.name %></p>
     <p>Data: <%= event.datetime %></p>
     <p>Quem eu contratei: <%= event.project.artist.first_name %> <%= event.project.artist.last_name %>
+
+    <p>Aceitado?</p>
+    <% if event.accepted == true %>
+      <p>Aceito</p>
+    <% else %>
+      <p>Não aceito</p>
+    <% end %>
+
+    <!-- <% if current_user == event.project.artist %>
+      <% link_to "Aceitar proposta" do %>
+        <% event.accepted = true %>
+      <% end %>
+    <% end %> -->
+
   <% end %>
 </div>
