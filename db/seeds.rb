@@ -83,7 +83,6 @@ amanha = Project.create!(
   city: "recife",
   state: "PE",
   price: 4000,
-
 )
 
 balanca = Project.create!(
