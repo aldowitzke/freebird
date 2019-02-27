@@ -17,6 +17,8 @@ Category.destroy_all
 puts 'Creating new users...'
 
 freebird = User.create!(
+   first_name: 'admin',
+   last_name: 'admin',
    email: 'freebird@freebird.com',
    admin: true,
    password: '123456',
