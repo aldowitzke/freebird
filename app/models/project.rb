@@ -6,6 +6,17 @@ class Project < ApplicationRecord
   has_many :project_genres, dependent: :destroy
   has_many :genres, through: :project_genres
 
+  include PgSearch
+  pg_search_scope :global_search,
+    against: [:name, :city],
+    associated_against: {
+      genres: [:name],
+      category: [:name]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
+  
   accepts_nested_attributes_for :genres, :project_genres
   validates :first_name, presence: true
   validates :last_name, presence: true

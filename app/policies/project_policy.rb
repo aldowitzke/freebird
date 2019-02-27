@@ -30,4 +30,8 @@ class ProjectPolicy < ApplicationPolicy
     # if user created, returns true, authorize
     record.artist == user
   end
+
+  def search?
+    @result = true
+  end
 end
