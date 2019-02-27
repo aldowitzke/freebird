@@ -7,8 +7,9 @@
     <p>Aceitado?</p>
     <% if event.accepted == true %>
       <p>Aceito</p>
+      <%= link_to "Contacte #{event.project.artist.first_name}", "#", class: "btn btn-primary" %>
     <% else %>
-      <p>Não aceito</p>
+      <p><%= "#{event.project.artist.first_name} ainda não aceitou sua proposta" %></p>
     <% end %>
 
     <!-- <% if current_user == event.project.artist %>

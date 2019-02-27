@@ -39,7 +39,11 @@ class EventPolicy < ApplicationPolicy
     true
   end
 
-  def accept?
+  def accepted?
+    true
+  end
+
+  def unaccepted?
     true
   end
 end

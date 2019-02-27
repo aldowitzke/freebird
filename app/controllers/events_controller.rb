@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[show edit update destroy accept]
+  before_action :set_event, only: %i[show edit update destroy accepted unaccepted]
 
   def index
     @events = Event.search(params[:search])
@@ -57,15 +57,22 @@ class EventsController < ApplicationController
     authorize @events
   end
 
-  def accept
-    @event.accept = true
+  def accepted
+    @event.update(accepted: true)
     authorize @event
+    redirect_to my_events_path
+  end
+
+  def unaccepted
+    @event.update(accepted: false)
+    authorize @event
+    redirect_to my_events_path
   end
 
   private
 
   def event_params
-    params.require(:event).permit(:date, :time, :price, :project)
+    params.require(:event).permit(:datetime, :description, :accepted, :project_id, :user_id)
   end
 
   def set_event
