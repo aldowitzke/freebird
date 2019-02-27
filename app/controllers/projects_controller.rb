@@ -49,27 +49,20 @@ class ProjectsController < ApplicationController
   end
 
   def search
+    # if params[:query].present?
+    #   @result = PgSearch.multisearch(params[:query])
+    # end
     # @result = Project.all
-    # if params[:search_genre].present?
-    #   parameter = params[:search_genre].downcase
-    #   @result = @result.where(genre: parameter)
-    # end
-    # if params[:search_city].present?
-    #   parameter = params[:search_city].downcase
-    #   @result = @result.where(city: parameter)
-    # end
-    if params[:query].present?
-      @result = PgSearch.multisearch(params[:query])
-
-    @result = Project.all
     if params[:search_name].present?
       parameter = params[:search_name].downcase
-      @result = @result.where(name: parameter)
+      # @result = @result.where(name: parameter)
+      @result = Project.global_search(parameter)
     end
     if params[:search_city].present?
       parameter = params[:search_city].downcase
-      @result = @result.where(city: parameter)
+      @result = Project.global_search(parameter)
     end
+
     authorize @result
   end
 

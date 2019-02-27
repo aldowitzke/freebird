@@ -5,5 +5,15 @@ class Project < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :project_genres, dependent: :destroy
   has_many :genres, through: :project_genres
-  belongs_to :category
+
+  include PgSearch
+  pg_search_scope :global_search,
+    against: [:name, :city],
+    associated_against: {
+      genres: [:name],
+      category: [:name]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
 end

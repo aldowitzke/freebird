@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_26_193956) do
+ActiveRecord::Schema.define(version: 2019_02_27_134853) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,8 +59,7 @@ ActiveRecord::Schema.define(version: 2019_02_26_193956) do
   create_table "projects", force: :cascade do |t|
     t.bigint "artist_id"
     t.bigint "category_id"
-    # Para que serve o name?
-    t.string "name" #titulo do projeto
+    t.string "name"
     t.text "description"
     t.string "photo"
     t.string "video"
