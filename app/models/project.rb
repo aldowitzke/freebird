@@ -1,4 +1,5 @@
 class Project < ApplicationRecord
+  mount_uploader :photo, PhotoUploader
   belongs_to :artist, class_name: 'User', foreign_key: :artist_id
   belongs_to :category
   has_many :events

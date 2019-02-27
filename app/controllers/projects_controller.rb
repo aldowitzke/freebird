@@ -35,7 +35,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.artist = current_user
     authorize @project
-    if @project.save
+    if @project.save!
       redirect_to project_path(@project)
     else
       render :new
@@ -74,6 +74,6 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.require(:project).permit(:name, :description, :photo, :video, :city, :category_id, :genre_ids => [], :project_genres_ids =>[])
+    params.require(:project).permit(:name, :description, :photo, :video, :city, :state, :price, :category_id, :genre_ids => [], :project_genres_ids =>[])
   end
 end
