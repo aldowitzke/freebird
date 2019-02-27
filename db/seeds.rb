@@ -56,56 +56,68 @@ folk = Genre.create!(name: 'Folk')
 puts 'Creating new projects...'
 
 encanta = Project.create!(
-  # não sei colocar as coisas que estao em outra tabela
   artist: ian,
   category: banquinho,
   name: "Ian Canta & Encanta",
-  # genre: mpb,
-  # artistic_name: "rei dos palcos",
+  description: "Todo charme e elegância do artista Ian em formato intimista",
   city: "são paulo",
-
+  state: "SP",
+  price: 500,
 )
 
 casar = Project.create!(
-  # não sei colocar as coisas que estao em outra tabela
   artist: ian,
   category: casamento,
   name: "Case e se arrependa",
-  # genre: "mpb",
-  # artistic_name: "ian orchestra",
+  description: "O projeto perfeito para destruir sua festa de casamento",
   city: "rio de janeiro",
+  state: "RJ",
+  price: 2500,
 )
 
-amanha = Project.create(
-  # não sei colocar as coisas que estao em outra tabela
+amanha = Project.create!(
   artist: ian,
   category: cover,
   name: "Eu sou você amanhã",
-  # genre: "psicodelico",
-  # artistic_name: "di boa band",
+  description: "Ian em seu melhor cover de si mesmo",
   city: "recife",
+  state: "PE",
+  price: 4000,
 
 )
 
-balanca = Project.create(
-  # não sei colocar as coisas que estao em outra tabela
+balanca = Project.create!(
   artist: ian,
   category: pauleira,
   name: "Balançando a cabeça com o Ianzão",
-  # genre: "rap",
-  # artistic_name: "mc joao",
+  description: "Ian inovando com toda sua rebeldia e irreverência",
   city: "marilia",
+  state: "SP",
+  price: 1500,
 )
-
 
 puts 'Creating project genres'
 
 ProjectGenre.create!(genre: rock, project: balanca)
-
 ProjectGenre.create!(genre: folk, project: encanta)
-
 ProjectGenre.create!(genre: tecnobrega, project: amanha)
-
 ProjectGenre.create!(genre: mpb, project: casar)
 
 puts 'done!'
+
+
+puts 'Creating events'
+
+Event.create!(
+  datetime: "2019-05-20 12:00:00",
+  description: "Quero me casar",
+  project: amanha,
+  user: aldo,
+  )
+
+Event.create!(
+  datetime: "2019-05-15 13:00:00",
+  description: "Quero um pro meu churrasco",
+  project: balanca,
+  user: aldo,
+  )

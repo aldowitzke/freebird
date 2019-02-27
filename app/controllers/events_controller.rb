@@ -21,7 +21,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @event.contractor = current_user
+    @event.user = current_user
     # nested resource - events#create
     @event.project = Project.find(params[:project])
     authorize @event
