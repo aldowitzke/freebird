@@ -1,5 +1,7 @@
 <div class="container">
   <% @events.each do |event| %>
-  <%= event.time %>
-  <%= event.price %>
+    <p>Meu projeto: <%= event.project.name %></p>
+    <p>Data: <%= event.datetime %></p>
+    <p>Quem me contratou: <%= event.user.first_name %> <%= event.user.last_name %>
+  <% end %>
 </div>

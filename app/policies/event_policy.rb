@@ -31,7 +31,11 @@ class EventPolicy < ApplicationPolicy
     record.contractor == user
   end
 
-  def my_events_artist?
+  def my_events?
+    true
+  end
+
+  def my_events_user?
     true
   end
 end

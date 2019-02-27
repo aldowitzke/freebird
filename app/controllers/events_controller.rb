@@ -48,8 +48,13 @@ class EventsController < ApplicationController
   end
 
   def my_events
-    @events = policy_scope(Event).where(artist: current_user)
-    authorize my_events
+    @events = policy_scope(Event).joins(:project).where(projects: { artist: current_user })
+    authorize @events
+  end
+
+  def my_events_user
+    @events = current_user.events
+    authorize @events
   end
 
   private
