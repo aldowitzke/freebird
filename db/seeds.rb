@@ -59,3 +59,8 @@ Project.create(
  )
 
 puts 'done!'
+
+
+# Criar seed de categories e de genres
+# Depois criar o seed com os foreign keys das tabelas de categories e genres]
+# Para depois poder testar a função de search com multitabelas

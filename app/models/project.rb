@@ -4,4 +4,5 @@ class Project < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :project_genres
   has_many :genres, through: :project_genres
+  belongs_to :category
 end
