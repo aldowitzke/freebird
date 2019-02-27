@@ -3,6 +3,6 @@ class Project < ApplicationRecord
   belongs_to :category
   has_many :events
   has_many :reviews, dependent: :destroy
-  has_many :project_genres
+  has_many :project_genres, dependent: :destroy
   has_many :genres, through: :project_genres
 end

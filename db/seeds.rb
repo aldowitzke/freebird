@@ -1,22 +1,31 @@
-puts 'Destroying categories'
-Category.destroy_all
 
 puts 'Destroying users'
 User.destroy_all
 
-puts 'Destroying projects'
-Project.destroy_all
+puts 'Destroying project genres'
+ProjectGenre.destroy_all
 
 puts 'Destroying genres'
 Genre.destroy_all
 
+puts 'Destroying projects'
+Project.destroy_all
+
+puts 'Destroying categories'
+Category.destroy_all
+
 puts 'Creating new users...'
+
+freebird = User.create!(
+   email: 'freebird@freebird.com',
+   admin: true,
+   password: '123456',
+)
 
 aldo = User.create!(
    first_name: 'Aldo',
    last_name: 'Witzke',
    email: 'aldinholindo@gmail.com',
-   artist: false,
    password: '123456',
 )
 
