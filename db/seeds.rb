@@ -22,6 +22,7 @@ freebird = User.create!(
    email: 'freebird@freebird.com',
    admin: true,
    password: '123456',
+   remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1551298452/darth.jpg",
 )
 
 aldo = User.create!(
@@ -29,6 +30,7 @@ aldo = User.create!(
    last_name: 'Witzke',
    email: 'aldinholindo@gmail.com',
    password: '123456',
+   remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1551298205/aldo.jpg",
 )
 
  ian = User.create!(
@@ -37,6 +39,7 @@ aldo = User.create!(
    email: 'ianlindo@gmail.com',
    artist: true,
    password: '123456',
+   remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1551298289/ian_log_in.jpg",
 )
 
 puts 'Creating categories'
@@ -65,6 +68,7 @@ encanta = Project.create!(
   city: "são paulo",
   state: "SP",
   price: 500,
+  remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1551295802/ljdrp2xhodn1ku5kj477.jpg",
 )
 
 casar = Project.create!(
@@ -75,6 +79,7 @@ casar = Project.create!(
   city: "rio de janeiro",
   state: "RJ",
   price: 2500,
+  remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1551297488/wedding.jpg",
 )
 
 amanha = Project.create!(
@@ -85,6 +90,7 @@ amanha = Project.create!(
   city: "recife",
   state: "PE",
   price: 4000,
+  remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1551297588/bradley.jpg",
 )
 
 balanca = Project.create!(
@@ -95,6 +101,7 @@ balanca = Project.create!(
   city: "marilia",
   state: "SP",
   price: 1500,
+  remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1551297724/metal.jpg",
 )
 
 puts 'Creating project genres'

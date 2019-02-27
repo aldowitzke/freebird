@@ -1,17 +1,26 @@
-<div class="container text-center">
+<div class="container">
 
-  <% if user_signed_in? %>
-  <% if current_user.artist == true %>
-  <%= link_to "Crie seu projeto", new_project_path, class: "btn btn-primary" %>
-  <% end %>
-  <% end %>
+  <div class=row>
+    <div class="container text-center">
+      <% if user_signed_in? %>
+      <% if current_user.artist == true %>
+      <%= link_to "Crie seu projeto", new_project_path, class: "btn btn-primary" %>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
 
-
-  <% @projects.each do |project| %>
-  <%= link_to project_path(project) do %>
-  <h1><%= project.name %></h1>
-  <p><%= project.description %></p>
-  <p><%= project.city %></p>
-  <% end %>
-  <% end %>
+  <div class="row">
+    <% @projects.each do |project| %>
+    <div class="col-xs-3">
+      <%= cl_image_tag project.photo %>
+      <%= link_to project_path(project) do %>
+      <h1><%= project.name %></h1>
+      <p> <%= project.category.name %></p>
+      <p><%= project.description %></p>
+      <p>R$<%= project.price %></p>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
 </div>
