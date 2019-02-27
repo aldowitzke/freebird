@@ -5,4 +5,6 @@ class Project < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :project_genres, dependent: :destroy
   has_many :genres, through: :project_genres
+
+  accepts_nested_attributes_for :genres, :project_genres
 end
