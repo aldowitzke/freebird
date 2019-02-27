@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2019_02_26_193956) do
     t.bigint "project_id"
     t.bigint "user_id"
     t.date "datetime"
-    t.integer "price"
+    t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_events_on_project_id"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 2019_02_26_193956) do
     t.string "video"
     t.string "city"
     t.string "state"
+    t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["artist_id"], name: "index_projects_on_artist_id"
