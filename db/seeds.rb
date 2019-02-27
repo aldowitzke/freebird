@@ -63,6 +63,7 @@ encanta = Project.create!(
   # genre: mpb,
   # artistic_name: "rei dos palcos",
   city: "são paulo",
+  price: 100,
 
 )
 
@@ -74,6 +75,7 @@ casar = Project.create!(
   # genre: "mpb",
   # artistic_name: "ian orchestra",
   city: "rio de janeiro",
+  price: 200,
 )
 
 amanha = Project.create(
@@ -84,6 +86,7 @@ amanha = Project.create(
   # genre: "psicodelico",
   # artistic_name: "di boa band",
   city: "recife",
+  price: 300,
 
 )
 
@@ -95,6 +98,7 @@ balanca = Project.create(
   # genre: "rap",
   # artistic_name: "mc joao",
   city: "marilia",
+  price: 400,
 )
 
 
