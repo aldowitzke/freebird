@@ -6,16 +6,15 @@
 
     <p>Aceitado?</p>
     <% if event.accepted == true %>
-      <p>Aceito</p>
+      <p>Proposta aceita</p>
     <% else %>
       <p>Não aceito</p>
     <% end %>
 
     <% if event.accepted == false  %>
-    <%= link_to "Aceitar proposta", event_path(event), class: "btn btn-success", method: :patch %>
-    <% else %>
-    <%= link_to "Aceitar proposta", event_path(event), class: "btn btn-success", method: :patch %>
+      <%= link_to "Aceitar proposta", accepted_path(event), class: "btn btn-success", method: :patch %>
+    <% elsif event.accepted == true %>
+      <%= link_to "Cancelar", unaccepted_path(event), class: "btn btn-danger", method: :patch %>
     <% end %>
-
   <% end %>
 </div>

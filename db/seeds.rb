@@ -62,7 +62,7 @@ encanta = Project.create!(
   category: banquinho,
   name: "Ian Canta & Encanta",
   description: "Todo charme e elegância do artista Ian em formato intimista",
-  city: "são paulo",
+  city: "São Paulo",
   state: "SP",
   price: 500,
 )
@@ -72,7 +72,7 @@ casar = Project.create!(
   category: casamento,
   name: "Case e se arrependa",
   description: "O projeto perfeito para destruir sua festa de casamento",
-  city: "rio de janeiro",
+  city: "Rio de Janeiro",
   state: "RJ",
   price: 2500,
 )
@@ -82,7 +82,7 @@ amanha = Project.create!(
   category: cover,
   name: "Eu sou você amanhã",
   description: "Ian em seu melhor cover de si mesmo",
-  city: "recife",
+  city: "Recife",
   state: "PE",
   price: 4000,
 )
@@ -92,7 +92,7 @@ balanca = Project.create!(
   category: pauleira,
   name: "Balançando a cabeça com o Ianzão",
   description: "Ian inovando com toda sua rebeldia e irreverência",
-  city: "marilia",
+  city: "Marilia",
   state: "SP",
   price: 1500,
 )
