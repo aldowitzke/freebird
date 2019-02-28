@@ -1,4 +1,5 @@
 import "bootstrap";
+import "select2";
 // Can also be included with a regular script tag
 import Typed from 'typed.js';
 
@@ -9,4 +10,8 @@ var options = {
   loop: true
 }
 
-var typed = new Typed(".search-name", options);
+var typed = new Typed(".home-search-name", options);
+
+$( ".home-search-city select" ).select2({
+    theme: "bootstrap"
+});

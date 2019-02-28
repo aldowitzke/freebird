@@ -93,7 +93,7 @@ amanha = Project.create!(
   category: cover,
   name: "Eu sou você amanhã",
   description: "Ian em seu melhor cover de si mesmo",
-  city: "Recife",
+  city: "Vila Bela Da Santíssima Trindade",
   state: "PE",
   price: 4000,
   remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1551297588/bradley.jpg",

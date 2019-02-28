@@ -2,7 +2,7 @@
   <div class="search">
     <%= form_tag(search_path, class: 'form-inline' , method: :get) do %>
     <div class="input-group">
-      <%= search_field_tag :search_name, params[:search_name], placeholder: "Nome", class: "search-name" %>
+      <%= search_field_tag :search_name, params[:search_name], placeholder: "O que procura?", class: "search-name" %>
     </div>
     <div class="input-group">
       <%= search_field_tag :search_city, params[:search_city], placeholder: "Cidade", class: "search-city" %>
