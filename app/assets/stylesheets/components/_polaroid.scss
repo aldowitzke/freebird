@@ -1,0 +1,13 @@
+.card-trip > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+.card-trip .card-trip-infos {
+  max-height: 100px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}

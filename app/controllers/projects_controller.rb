@@ -19,7 +19,7 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    @project.update(project_params)
+    # @project.update(project_params)
     redirect_to @project
   end
 
