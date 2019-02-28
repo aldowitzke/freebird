@@ -12,14 +12,61 @@
   <iframe width="560" height="315" src="<%= @project[:video] %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
   <% @project.reviews.each do |review| %>
-  <p><%= review.content %></p>
+    <p><%= review.content %></p>
   <% end %>
 
   <% if current_user == @project.artist %>
-  <%= link_to "Editar", edit_project_path(@project), class: "btn btn-primary" %>
-  <%= link_to "Deletar", project_path(@project), method: :delete, class: "btn btn-danger" %>
-  <% else %>
-  <%= link_to "Criar novo review", new_project_review_path(@project), class: "btn btn-primary" %>
-  <%= link_to "Contratar", new_project_event_path(@project), class: "btn btn-success" %>
+    <%= link_to "Editar", edit_project_path(@project), class: "btn btn-primary" %>
+    <%= link_to "Deletar", project_path(@project), method: :delete, class: "btn btn-danger" %>
+  <% elsif user_signed_in? == false %>
+    <%=  link_to "Contratar", new_user_session_path, class: "btn btn-success" %>
+  <% elsif current_user != @project.artist %>
+    <%= link_to "Criar novo review", new_project_review_path(@project), class: "btn btn-primary" %>
+    <%= link_to "Contratar", new_project_event_path(@project), class: "btn btn-success" %>
   <% end %>
+
+</div>
+
+<div class="container">
+
+<div class="row">
+
+  <div class="col-xs-offset-2 col-xs-8">
+    <% @project.anonymous_messages.each do |message| %>
+      <div class="card-product">
+        <div class="card-product-infos">
+          <p><i class="far fa-comment icon"></i><%= message.question %></p>
+          <p><i class="far fa-comments icon"></i><%= message.answer %></p>
+        <% if current_user == @project.artist && message.answer.nil? %>
+          <%= simple_form_for([@project, message]) do |f| %>
+            <div class="form-inputs">
+              <%= f.input :answer %>
+            </div>
+            <div class="form-actions">
+              <%= f.button :submit, "Enviar" %>
+            </div>
+          <% end %>
+        <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+  <% if current_user != @project.artist && user_signed_in? %>
+    <%= simple_form_for([@project, @anonymous_message]) do |f| %>
+      <div class="form-inputs">
+        <%= f.input :question %>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit, "Enviar" %>
+      </div>
+    <% end %>
+  <% elsif user_signed_in? == false %>
+  <div class="text-center">
+    <%=  link_to "Faça uma pergunta", new_user_session_path, class: "btn btn-primary do-a-question" %>
+  </div>
+  <% end %>
+
+
 </div>

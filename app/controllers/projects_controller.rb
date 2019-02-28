@@ -13,6 +13,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @anonymous_message = AnonymousMessage.new
   end
 
   def edit

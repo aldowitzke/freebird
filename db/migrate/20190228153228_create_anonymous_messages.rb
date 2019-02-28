@@ -1,6 +1,6 @@
-class CreateAnonymousmessages < ActiveRecord::Migration[5.2]
+class CreateAnonymousMessages < ActiveRecord::Migration[5.2]
   def change
-    create_table :anonymousmessages do |t|
+    create_table :anonymous_messages do |t|
       t.text :question
       t.text :answer
       t.references :project, foreign_key: true
