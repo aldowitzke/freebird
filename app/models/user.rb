@@ -12,7 +12,8 @@ class User < ApplicationRecord
            foreign_key: :artist_id,
            dependent: :destroy
 
-  has_many :events
+  has_many :events,
+            dependent: :destroy
 
   has_many :reviews
 
