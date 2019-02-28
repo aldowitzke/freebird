@@ -1,33 +1,35 @@
-<div class="container">
 
-  <div class=row>
-    <div class="container text-center">
-      <% if user_signed_in? %>
-      <% if current_user.artist == true %>
-      <%= link_to "Crie seu projeto", new_project_path, class: "btn btn-primary" %>
-      <% end %>
-      <% end %>
+<div class="wrapper">
+
+      <div class="container text-center">
+        <% if user_signed_in? %>
+        <% if current_user.artist == true %>
+        <%= link_to "Crie seu projeto", new_project_path, class: "btn btn-primary" %>
+        <% end %>
+        <% end %>
+      </div>
+
+
+      <div class="polaroid-images">
+        <% @projects.each do |project| %>
+        <%= link_to project_path(project) do %>
+        <img height="200" src="assets/freddie.jpg" alt="test" title="test" />
+        <%= project.name %>
+        <p><i class="fas fa-microphone-alt"></i>
+          <%= project.category.name %>
+          <i class="fas fa-map-marker-alt"></i>
+          <%= project.city %>, <%= project.state %>
+        </p>
+        <p>
+          <i class="fas fa-music"></i>
+          <% project.genres.each do |t| %>
+          <%= t.name %>
+          <% end %>
+        </p>
+        <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
-
-
-<div class="polaroid-images">
-  <% @projects.each do |project| %>
-    <%= link_to project_path(project) do %>
-      <img height="200" src="assets/freddie.jpg" alt="test" title="test" />
-        <%= project.name %>
-          <p><i class="fas fa-microphone-alt"></i>
-            <%= project.category.name %>
-          <i class="fas fa-map-marker-alt"></i>
-            <%= project.city %>, <%= project.state %>
-          </p>
-          <p>
-          <i class="fas fa-music"></i>
-            <% project.genres.each do |t| %>
-              <%= t.name %>
-            <% end %>
-          </p>
-    <% end %>
-  <% end %>
-
 </div>
+
