@@ -1,4 +1,4 @@
-<div class="navbar-wagon">
+<div class="<%= controller_name == 'pages' ? 'navbar-wagon navbar-landing' : 'navbar-wagon' %>">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "logo.png", height: 50 %>
