@@ -1,5 +1,3 @@
-
-<<<<<<< HEAD
 <div class="wrapper">
 
       <div class="container text-center">
@@ -14,7 +12,7 @@
       <div class="polaroid-images">
         <% @projects.each do |project| %>
         <%= link_to project_path(project) do %>
-        <img height="200" src="assets/freddie.jpg" alt="test" title="test" />
+        <%= cl_image_tag project.photo, height: 200, width: 250, crop: :fill %>
         <%= project.name %>
         <p><i class="fas fa-microphone-alt"></i>
           <%= project.category.name %>
