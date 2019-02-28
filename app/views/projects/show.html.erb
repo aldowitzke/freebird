@@ -4,7 +4,7 @@
   <p>Cidade: <%= @project[:city] %>, Estado: <%= @project[:state] %></p>
   <%= @project.category.name %>
   <% @project.genres.each do |t| %>
-  <p><%= t.name %></p>
+    <p><%= t.name %></p>
   <% end %>
   <p>Preço: <%= @project[:price] %></p>
   <%= cl_image_tag @project.photo, height: 300, width: 400, crop: :fill %>
@@ -29,44 +29,59 @@
 
 <div class="container">
 
-<div class="row">
-
-  <div class="col-xs-offset-2 col-xs-8">
-    <% @project.anonymous_messages.each do |message| %>
-      <div class="card-product">
-        <div class="card-product-infos">
-          <p><i class="far fa-comment icon"></i><%= message.question %></p>
-          <p><i class="far fa-comments icon"></i><%= message.answer %></p>
-        <% if current_user == @project.artist && message.answer.nil? %>
-          <%= simple_form_for([@project, message]) do |f| %>
-            <div class="form-inputs">
-              <%= f.input :answer %>
-            </div>
-            <div class="form-actions">
-              <%= f.button :submit, "Enviar" %>
-            </div>
-          <% end %>
-        <% end %>
-        </div>
-      </div>
-    <% end %>
-  </div>
-</div>
-
-  <% if current_user != @project.artist && user_signed_in? %>
-    <%= simple_form_for([@project, @anonymous_message]) do |f| %>
-      <div class="form-inputs">
-        <%= f.input :question %>
-      </div>
-      <div class="form-actions">
-        <%= f.button :submit, "Enviar" %>
-      </div>
-    <% end %>
-  <% elsif user_signed_in? == false %>
   <div class="text-center">
-    <%=  link_to "Faça uma pergunta", new_user_session_path, class: "btn btn-primary do-a-question" %>
+    <h2>Pergunte algo para <%= @project.artist.first_name %></h2>
+
+    <div class="row">
+
+      <% if current_user != @project.artist && user_signed_in? %>
+        <%= simple_form_for([@project, @anonymous_message]) do |f| %>
+          <div class="form-inputs">
+            <%= f.input :question, placeholder: "Exemplo: Possui disponibilidade para quarta-feira?", label: false %>
+          </div>
+          <div class="form-actions">
+            <%= f.button :submit, "Enviar" %>
+          </div>
+        <% end %>
+      <% elsif user_signed_in? == false %>
+        <div class="text-center">
+          <%=  link_to "Faça uma pergunta", new_user_session_path, class: "btn btn-primary do-a-question" %>
+        </div>
+      <% end %>
+
+    </div>
   </div>
-  <% end %>
 
+  <div class="questions">
 
+    <div class="col-xs-offset-2 col-xs-8">
+      <% @project.anonymous_messages.each do |message| %>
+        <div class="card-product">
+          <div class="card-product-infos">
+
+            <p><i class="far fa-comment icon"></i><%= message.question %></p>
+
+            <% if message.answer.nil? %>
+              <p><i class="far fa-comments icon"></i><strong><%= @project.artist.first_name %> ainda não respondeu sua pergunta</p></strong>
+
+            <% else %>
+
+              <p><i class="far fa-comments icon"></i><%= message.answer %></p>
+            <% end %>
+
+            <% if current_user == @project.artist && message.answer.nil? %>
+              <%= simple_form_for([@project, message]) do |f| %>
+                <div class="form-inputs">
+                  <%= f.input :answer %>
+                </div>
+                <div class="form-actions">
+                  <%= f.button :submit, "Enviar" %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
