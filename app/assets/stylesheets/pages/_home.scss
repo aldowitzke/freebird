@@ -5,9 +5,13 @@
   height: 100vh;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
-  display: flex;
   align-items: center;
   justify-content: center;
+}
+.banner-content {
+  text-align: center;
+  margin: 0;
+  padding-top: 5rem;
 }
 .banner h1 {
   font-size: 50px;
@@ -19,5 +23,14 @@
   font-weight: lighter;
   color: rgb(255, 255, 255);
   opacity: 0.6;
-  margin-bottom: 30px;
+}
+.home-search-name {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(255,221,204,0.5);
+}
+.home-search-city {
+  background: transparent;
+  margin-left: 5px;
+  text-align: center;
 }

@@ -9,4 +9,5 @@ var options = {
   loop: true
 }
 
-var typed = new Typed(".search-name", options);
+var typed = new Typed(".home-search-name", options);
+
