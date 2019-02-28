@@ -24,4 +24,5 @@ class Project < ApplicationRecord
   validates :state, presence: true
   validates :price, presence: true
   validates :description, presence: true
+  end
 end
