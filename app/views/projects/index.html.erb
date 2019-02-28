@@ -8,8 +8,9 @@
 
 <div class="polaroid-images">
   <% @projects.each do |project| %>
-  <%= link_to project_path(project) do %>
-  <a href=""><img height="200" src="assets/freddie.jpg" alt="test" title="test" /><%= project.name %><p><i class="fas fa-music"><%= project.genres.name %></i></p></a>
-  <% end %>
+    <%= link_to project_path(project) do %>
+      <a href=""><img height="200" src="assets/freddie.jpg" alt="test" title="test" /><%= project.name %>
+        <p><i class="fas fa-music"> <%= project.genres.name %></i></p></a>
+    <% end %>
   <% end %>
 </div>
