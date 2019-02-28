@@ -90,7 +90,7 @@ amanha = Project.create!(
 balanca = Project.create!(
   artist: ian,
   category: pauleira,
-  name: "Balançando a cabeça com o Ianzão",
+  name: "Balança a cabeça com o Ian",
   description: "Ian inovando com toda sua rebeldia e irreverência",
   city: "marilia",
   state: "SP",
