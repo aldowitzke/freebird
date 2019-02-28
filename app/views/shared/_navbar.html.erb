@@ -3,14 +3,14 @@
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "logo.png", height: 50 %>
   <% end %>
+  <% unless controller_name == "pages" %>
+    <%= render 'shared/search' %>
+  <% end  %>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <% if user_signed_in? %>
-
-      <!-- linha 20, não sei o que colocar no lugar de @picture para pegar a foto que o usuario
-           da upload no edit -->
       <% if current_user.artist == true %>
         <%= link_to "Meus eventos", my_events_path, class: "navbar-wagon-item navbar-wagon-link" %>
         <%= link_to "Contratados", my_events_user_path, class: "navbar-wagon-item navbar-wagon-link"%>
