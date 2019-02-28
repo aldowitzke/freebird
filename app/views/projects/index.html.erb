@@ -10,17 +10,12 @@
     </div>
   </div>
 
-  <div class="row">
-    <% @projects.each do |project| %>
-    <div class="col-xs-3">
-      <%= cl_image_tag project.photo %>
-      <%= link_to project_path(project) do %>
-      <h1><%= project.name %></h1>
-      <p> <%= project.category.name %></p>
-      <p><%= project.description %></p>
-      <p>R$<%= project.price %></p>
-      <% end %>
-    </div>
+
+<div class="polaroid-images">
+  <% @projects.each do |project| %>
+    <%= link_to project_path(project) do %>
+      <a href=""><img height="200" src="assets/freddie.jpg" alt="test" title="test" /><%= project.name %>
+        <p><i class="fas fa-music"> <%= project.genres.name %></i></p></a>
     <% end %>
-  </div>
+  <% end %>
 </div>
