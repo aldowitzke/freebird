@@ -29,8 +29,17 @@
   border: 0;
   border-bottom: 1px solid rgba(255,221,204,0.5);
 }
-.home-search-city {
+#select2-search_city-container {
+  margin-top: 2px;
+  min-width: 20rem;
+  width: fit-content;
+  position: relative;
   background: transparent;
-  margin-left: 5px;
-  text-align: center;
+  border: 0;
+  border-bottom: 1px solid rgba(255,221,204,0.5) !important;
 }
+
+.input-group-btn {
+  margin-right: 1000px;
+}
+
