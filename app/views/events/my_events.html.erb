@@ -4,17 +4,12 @@
     <p>Data: <%= event.datetime %></p>
     <p>Quem me contratou: <%= event.user.first_name %> <%= event.user.last_name %>
 
-    <p>Aceitado?</p>
     <% if event.accepted == true %>
-      <p>Proposta aceita</p>
-    <% else %>
-      <p>Não aceito</p>
-    <% end %>
-
-    <% if event.accepted == false  %>
-      <%= link_to "Aceitar proposta", accepted_path(event), class: "btn btn-success", method: :patch %>
-    <% elsif event.accepted == true %>
+      <p><i class="fas fa-check"></i>  Você aceitou essa proposta</p>
       <%= link_to "Cancelar", unaccepted_path(event), class: "btn btn-danger", method: :patch %>
+    <% else %>
+      <p><i class="fas fa-times-circle"></i>  Você ainda não aceitou essa proposta</p>
+      <%= link_to "Aceitar proposta", accepted_path(event), class: "btn btn-success", method: :patch %>
     <% end %>
   <% end %>
 </div>
