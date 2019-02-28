@@ -4,7 +4,7 @@
   display: inline;
   float: left;
   margin: 0 15px 30px;
-  padding: 10px 10px 25px;
+  padding: 10px 10px 10px;
   text-align: center;
   text-decoration: none;
   font-family: 'Permanent Marker', cursive;
@@ -19,9 +19,10 @@
 
 .polaroid-images p {
   font-family: Open Sans;
-  font-size: 14px;
+  font-size: 12px;
   color: $gray;
   opacity: 0.6;
+  margin: 0px;
 }
 
 .polaroid-images a:after {
@@ -72,4 +73,14 @@
   -webkit-box-shadow: 0 10px 20px rgba(0, 0, 0, .7);
   -moz-box-shadow: 0 10px 20px rgba(0,0,0,.7);
         box-shadow: 0 10px 20px rgba(0,0,0,.7);
+}
+
+.polaroid-text {
+  display: inline;
+  justify-content: space-around;
+}
+
+.wrapper {
+  margin: 20px 0px 0px 140px;
+  text-align: center;
 }

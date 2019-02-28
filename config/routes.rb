@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  # post 'anonymous_messages/create', to: 'anonymous_messages#create'
   get 'contact', to: 'pages#contact', as: :contact
   get 'about', to: 'pages#about', as: :about
 
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
   resources :projects do
     resources :events, only: [ :new, :create ]
     resources :reviews, only: [ :new, :create ]
+    resources :anonymous_messages, only: [ :create, :update ]
   end
   resources :reviews, only: [ :show, :edit, :update, :destroy ]
 

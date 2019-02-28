@@ -6,6 +6,7 @@ class Project < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :project_genres, dependent: :destroy
   has_many :genres, through: :project_genres
+  has_many :anonymous_messages, dependent: :destroy
 
   include PgSearch
   pg_search_scope :global_search,
