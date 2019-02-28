@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_27_173848) do
+ActiveRecord::Schema.define(version: 2019_02_28_153228) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "anonymous_messages", force: :cascade do |t|
+    t.text "question"
+    t.text "answer"
+    t.bigint "project_id"
+    t.index ["project_id"], name: "index_anonymous_messages_on_project_id"
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -103,6 +110,7 @@ ActiveRecord::Schema.define(version: 2019_02_27_173848) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "anonymous_messages", "projects"
   add_foreign_key "events", "projects"
   add_foreign_key "events", "users"
   add_foreign_key "project_genres", "genres"
