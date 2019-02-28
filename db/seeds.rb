@@ -31,6 +31,9 @@ aldo = User.create!(
    email: 'aldinholindo@gmail.com',
    password: '123456',
    remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1551298205/aldo.jpg",
+   phone: "(11)9999-4567",
+   city: "São Paulo",
+   state: "SP",
 )
 
  ian = User.create!(
@@ -40,6 +43,9 @@ aldo = User.create!(
    artist: true,
    password: '123456',
    remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1551298289/ian_log_in.jpg",
+   phone: "(14)99789-1234",
+   city: "Marília",
+   state: "SP",
 )
 
 puts 'Creating categories'
@@ -107,11 +113,21 @@ balanca = Project.create!(
 puts 'Creating project genres'
 
 ProjectGenre.create!(genre: rock, project: balanca)
-ProjectGenre.create!(genre: folk, project: encanta)
-ProjectGenre.create!(genre: tecnobrega, project: amanha)
-ProjectGenre.create!(genre: mpb, project: casar)
+ProjectGenre.create!(genre: mpb, project: balanca)
+ProjectGenre.create!(genre: folk, project: balanca)
 
-puts 'done!'
+ProjectGenre.create!(genre: folk, project: encanta)
+ProjectGenre.create!(genre: tecnobrega, project: encanta)
+ProjectGenre.create!(genre: sertanejo, project: encanta)
+
+ProjectGenre.create!(genre: tecnobrega, project: amanha)
+ProjectGenre.create!(genre: mpb, project: amanha)
+ProjectGenre.create!(genre: folk, project: amanha)
+
+ProjectGenre.create!(genre: mpb, project: casar)
+ProjectGenre.create!(genre: rock, project: casar)
+ProjectGenre.create!(genre: sertanejo, project: casar)
+
 
 
 puts 'Creating events'
@@ -129,3 +145,32 @@ Event.create!(
   project: balanca,
   user: aldo,
   )
+
+
+puts 'Creating reviews'
+
+Review.create!(
+  project: balanca,
+  content: "Essa Coca é fanta... de Rock não tem nada!",
+  user: aldo,
+  )
+
+Review.create!(
+  project: encanta,
+  content: "O Ian é um gato, se puder me ligar depois te agradeço!",
+  user: aldo,
+  )
+
+Review.create!(
+  project: amanha,
+  content: "Lindo, emocionante e sensível",
+  user: aldo,
+  )
+
+Review.create!(
+  project: casar,
+  content: "Animou muito meu casamento, agora é trabaiar",
+  user: aldo,
+  )
+
+puts 'done!'
