@@ -1,6 +1,15 @@
-.navbar-search {
-  position: absolute;
-  max-width: 600px;
-  border: none;
-  margin-top: 8px;
+.search-name {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(255,221,204,0.5);
+  color: black;
+}
+
+.search-city {
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(255,221,204,0.5);
+  color: black;
 }
