@@ -1,10 +1,15 @@
-<div class="container text-center">
+<div class="container">
 
-  <% if user_signed_in? %>
-  <% if current_user.artist == true %>
-  <%= link_to "Crie seu projeto", new_project_path, class: "btn btn-primary" %>
-  <% end %>
-  <% end %>
+  <div class=row>
+    <div class="container text-center">
+      <% if user_signed_in? %>
+      <% if current_user.artist == true %>
+      <%= link_to "Crie seu projeto", new_project_path, class: "btn btn-primary" %>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+
 
 <div class="polaroid-images">
   <% @projects.each do |project| %>

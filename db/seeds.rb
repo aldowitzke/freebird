@@ -22,6 +22,7 @@ freebird = User.create!(
    email: 'freebird@freebird.com',
    admin: true,
    password: '123456',
+   remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1551298452/darth.jpg",
 )
 
 aldo = User.create!(
@@ -29,6 +30,7 @@ aldo = User.create!(
    last_name: 'Witzke',
    email: 'aldinholindo@gmail.com',
    password: '123456',
+   remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1551298205/aldo.jpg",
 )
 
  ian = User.create!(
@@ -37,6 +39,7 @@ aldo = User.create!(
    email: 'ianlindo@gmail.com',
    artist: true,
    password: '123456',
+   remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1551298289/ian_log_in.jpg",
 )
 
 puts 'Creating categories'
@@ -62,9 +65,10 @@ encanta = Project.create!(
   category: banquinho,
   name: "Ian Canta & Encanta",
   description: "Todo charme e elegância do artista Ian em formato intimista",
-  city: "são paulo",
+  city: "São Paulo",
   state: "SP",
   price: 500,
+  remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1551295802/ljdrp2xhodn1ku5kj477.jpg",
 )
 
 casar = Project.create!(
@@ -72,9 +76,10 @@ casar = Project.create!(
   category: casamento,
   name: "Case e se arrependa",
   description: "O projeto perfeito para destruir sua festa de casamento",
-  city: "rio de janeiro",
+  city: "Rio de Janeiro",
   state: "RJ",
   price: 2500,
+  remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1551297488/wedding.jpg",
 )
 
 amanha = Project.create!(
@@ -82,9 +87,10 @@ amanha = Project.create!(
   category: cover,
   name: "Eu sou você amanhã",
   description: "Ian em seu melhor cover de si mesmo",
-  city: "recife",
+  city: "Recife",
   state: "PE",
   price: 4000,
+  remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1551297588/bradley.jpg",
 )
 
 balanca = Project.create!(
@@ -92,9 +98,10 @@ balanca = Project.create!(
   category: pauleira,
   name: "Balança a cabeça com o Ian",
   description: "Ian inovando com toda sua rebeldia e irreverência",
-  city: "marilia",
+  city: "Marilia",
   state: "SP",
   price: 1500,
+  remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1551297724/metal.jpg",
 )
 
 puts 'Creating project genres'
