@@ -15,3 +15,6 @@ var typed = new Typed(".home-search-name", options);
 $( ".home-search-city select" ).select2({
     theme: "bootstrap"
 });
+
+import { initUpdateNavbarOnScroll } from '../components/navbar';
+initUpdateNavbarOnScroll();

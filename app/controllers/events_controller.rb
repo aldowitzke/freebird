@@ -12,23 +12,22 @@ class EventsController < ApplicationController
 
   def new
     # nested resource - events#create
-    # @project = Project.find(params[:project])
+    @project = Project.find(params[:project_id])
     @event = Event.new
     authorize @event
     # do we need authorize project?
-    # authorize @project
+    authorize @project
   end
 
   def create
     @event = Event.new(event_params)
     @event.user = current_user
-    # nested resource - events#create
-    @event.project = Project.find(params[:project])
+    @project = Project.find(params[:project_id])
+    @event.project = @project
     authorize @event
-    # do we need authorize project?
     authorize @project
     if @event.save
-      redirect_to event_path(@event)
+      redirect_to my_events_user_path
     else
       render :new
     end

@@ -1,11 +1,10 @@
 <div class="container">
-
   <div class="row">
     <div class="col-xs-12 col-md-6 col-md-offset-3">
 
       <div class="log-in-form">
         <span class="log-title">
-          ACCOUNT LOGIN
+          LOGIN
         </span>
 
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -15,13 +14,14 @@
           autofocus: true,
           input_html: { autocomplete: "email" } %>
           <%= f.input :password,
+          label: "Senha",
           required: false,
           input_html: { autocomplete: "current-password" } %>
-          <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+          <%= f.input :remember_me, label: "Manter conectado", as: :boolean if devise_mapping.rememberable? %>
         </div>
 
         <div class="form-actions">
-          <%= f.button :submit, "Log in" %>
+          <%= f.button :submit, "Entrar" %>
         </div>
         <% end %>
 
@@ -29,5 +29,4 @@
       </div>
     </div>
   </div>
-
 </div>
