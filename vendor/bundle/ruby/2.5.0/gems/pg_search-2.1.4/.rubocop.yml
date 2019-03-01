@@ -1,0 +1,56 @@
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    - bin/**/*
+
+Style/StringLiterals:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/MethodLength:
+  Max: 21
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Style/HashSyntax:
+  Enabled: false
+
+Style/NumericPredicate:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%w': '[]'
+    '%W': '[]'
+
+Style/GuardClause:
+  Enabled: false
+
+Naming/VariableNumber:
+  EnforcedStyle: snake_case
+
+Bundler/OrderedGems:
+  Enabled: false
+
+Bundler/DuplicatedGem:
+  Enabled: false
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+  
+Layout/IndentArray:
+  EnforcedStyle: consistent
+
+Style/Documentation:
+  Enabled: false
+
+Style/WordArray:
+  EnforcedStyle: percent
+  MinSize: 3
