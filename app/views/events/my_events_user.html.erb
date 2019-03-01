@@ -2,6 +2,7 @@
   <% @events.each do |event| %>
     <p>Projeto: <%= event.project.name %></p>
     <p>Data: <%= event.datetime %></p>
+    <p>Descrição: <%= event.description %>
     <p>Quem eu contratei: <%= event.project.artist.first_name %> <%= event.project.artist.last_name %>
 
     <p>Aceito?</p>
