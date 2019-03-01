@@ -1,10 +1,14 @@
 <div class="container text-center">
+
   <div class="show-banner text-center" style="background-image: url('<%= @project.photo %>')">
     <h1 class="shadow"><%= @project[:name] %></h1>
   </div>
 </div>
 
-<%= cl_image_tag @project.artist.photo, class: "avatar" %>
+  <%= cl_image_tag @project.artist.photo, class: "musician-avatar" %>
+
+<div class="container text-center">
+
 
 <div class="container">
   <div class="show-box">
