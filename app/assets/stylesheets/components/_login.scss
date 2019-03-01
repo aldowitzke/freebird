@@ -1,0 +1,43 @@
+// login css
+.log-in-form {
+  background: #fff;
+  border-radius: 3px;
+  overflow: hidden;
+  padding-right: 85px;
+  padding-left: 85px;
+  padding-bottom: 55px;
+  padding-top: 55px;
+  margin-top: 24px;
+}
+
+.log-title {
+  font-size: 30px;
+  color: #555;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-align: left;
+  width: 100%;
+  display: block;
+  padding-bottom: 32px;
+}
+.the-background {
+  background-color: #ebebeb;
+}
+.form-control-label.email.optional {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+.form-control-label.password.optional {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+.form-check-label.boolean.optional {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
