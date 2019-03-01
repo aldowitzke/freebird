@@ -29,6 +29,9 @@
   background: transparent;
   border: 0;
   border-bottom: 1px solid rgba(255,221,204,0.5);
+  &:focus {
+    outline: 0;
+  }
 }
 #select2-search_city-container {
   margin-top: 2px;
@@ -52,7 +55,6 @@
 
 /* Add some content at the bottom of the video/page */
 .content {
-  z-index: 10;
   position: relative;
   top: 0;
   left: 0;
