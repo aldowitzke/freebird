@@ -40,3 +40,45 @@
 .do-a-question {
   margin-bottom: 20px;
 }
+
+.btn-round {
+  background-color: $green;
+  border: 3px;
+  color: $white;
+  border-radius: 100px;
+  height: 40px;
+  width: 40px;
+  transition: opacity 0.3s ease;
+  text-align: center;
+  position: absolute;
+  left: 560px;
+  top: 4px;
+  padding-left: 10px;
+}
+
+.btn-round:hover {
+  opacity: 0.5;
+  height: 39px;
+  width: 39px;
+}
+
+.btn-circle {
+  background-color: $green;
+  border: 3px;
+  color: $white;
+  border-radius: 100px;
+  height: 40px;
+  width: 40px;
+  transition: opacity 0.3s ease;
+  text-align: center;
+  // position: absolute;
+  // left: 560px;
+  // top: 4px;
+  padding-left: 10px;
+}
+
+.btn-circle:hover {
+  opacity: 0.5;
+  height: 39px;
+  width: 39px;
+}

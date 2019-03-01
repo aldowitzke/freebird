@@ -74,6 +74,7 @@ encanta = Project.create!(
   city: "São Paulo",
   state: "SP",
   price: 500,
+  video: "https://www.youtube.com/embed/0sB3Fjw3Uvc",
   remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1551295802/ljdrp2xhodn1ku5kj477.jpg",
 )
 
