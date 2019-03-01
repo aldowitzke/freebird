@@ -1,15 +1,28 @@
-<div class="container text-center">
-  <% @events.each do |event| %>
-    <p>Meu projeto: <%= event.project.name %></p>
-    <p>Data: <%= event.datetime %></p>
-    <p>Quem me contratou: <%= event.user.first_name %> <%= event.user.last_name %>
+<div class="container">
 
-    <% if event.accepted == true %>
-      <p><i class="fas fa-check"></i>  Você aceitou essa proposta</p>
-      <%= link_to "Cancelar", unaccepted_path(event), class: "btn btn-danger", method: :patch %>
-    <% else %>
-      <p><i class="fas fa-times-circle"></i>  Você ainda não aceitou essa proposta</p>
-      <%= link_to "Aceitar proposta", accepted_path(event), class: "btn btn-success", method: :patch %>
+  <div class="event-title text-center">
+    <h1>Seus eventos</h1>
+  </div>
+
+  <% @events.each do |event| %>
+  <div class="card-event">
+    <%= cl_image_tag event.project.photo, class: "card-event-img" %>
+    <div class="card-event-infos">
+      <h2><%= event.project.name %></h2>
+      <p><i class="fas fa-comment-alt"></i>&nbsp;&nbsp;<%= event.description %></p>
+      <p><i class="fas fa-calendar-alt">&nbsp;&nbsp;</i><%= event.datetime %></>
+      <p><i class="fas fa-user"></i>&nbsp;&nbsp;<%= event.user.first_name %> <%= event.user.last_name %><p/>
+
+      <div class="event-buttons">
+        <% if event.accepted == true %>
+          <p><i class="fas fa-check"></i>  Você aceitou essa proposta</p>
+          <%= link_to "Cancelar", unaccepted_path(event), class: "btn btn-danger", method: :patch %>
+        <% else %>
+          <p><i class="fas fa-times-circle"></i>  Você ainda não aceitou essa proposta</p>
+          <%= link_to "Aceitar proposta", accepted_path(event), class: "btn btn-success", method: :patch %>
+        <% end %>
+      </div>
     <% end %>
-  <% end %>
+    </div>
+  </div>
 </div>
