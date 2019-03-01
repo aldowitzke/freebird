@@ -1,5 +1,13 @@
-<div class="container text-center">
+<div class="container">
+
+  <div class="event-title text-center">
+    <h1>Seus artistas</h1>
+  </div>
+
   <% @events.each do |event| %>
+  <div class="card-event">
+    <%= cl_image_tag event.project.photo, class: "card-event-img" %>
+    <div class="card-event-infos">
     <p>Projeto: <%= event.project.name %></p>
     <p>Data: <%= event.datetime %></p>
     <p>Descrição: <%= event.description %>
@@ -9,10 +17,12 @@
     <% if event.accepted == true %>
       <p><i class="fas fa-check"></i><%= "  #{event.project.artist.first_name}" %> aceitou sua proposta</p>
 
-      <!-- Botao aceitar proposta -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Contacte <%= "#{event.project.artist.first_name}" %>
-      </button>
+      <!-- Botao contactar artista -->
+      <div class="event-buttons">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          Contacte <%= "#{event.project.artist.first_name}" %>
+        </button>
+      </div>
 
       <!-- Modal -->
       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -47,6 +57,8 @@
       <% end %>
     <% end %> -->
 
+  </div>
+  </div>
   <% end %>
 </div>
 
