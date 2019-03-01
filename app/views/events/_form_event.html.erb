@@ -1,5 +1,5 @@
 <div class="container">
-  <%= simple_form_for(@event) do |f| %>
+  <%= simple_form_for([project, event]) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 

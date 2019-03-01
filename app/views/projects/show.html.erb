@@ -9,6 +9,49 @@
 
 <div class="container text-center">
 
+
+<div class="container">
+  <div class="show-box">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+          <div class="box-bio">
+
+            <p><i class="fas fa-microphone-alt gray"></i>
+              <%= @project.category.name %>
+              <i class="fas fa-map-marker-alt gray"></i>
+              <%= @project.city %>, <%= @project.state %>
+            </p>
+            <p>
+              <i class="fas fa-music gray"></i>
+              <% @project.genres.each do |t| %>
+              <%= t.name %>
+              <% end %>
+            </p>
+            <p class="white" style="font-size: 18px"><%= @project.description %></p>
+
+            <p>Preço: <%= @project[:price] %></p>
+
+            <% if current_user == @project.artist %>
+            <%= link_to "Editar", edit_project_path(@project), class: "btn btn-primary" %>
+            <%= link_to "Deletar", project_path(@project), method: :delete, class: "btn btn-danger" %>
+            <% elsif user_signed_in? == false %>
+            <%=  link_to "Contratar", new_user_session_path, class: "btn-light" %>
+            <% elsif current_user != @project.artist %>
+            <%= link_to "Contratar", new_project_event_path(@project), class: "btn-light" %>
+            <% end %>
+
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-6 text-center" id="box-video">
+          <iframe width="460" height="275" src="<%= @project[:video] %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="container text-center">
   <h1><%= @project[:name] %></h1>
   <p>Descrição: <%= @project[:description] %></p>
   <p>Cidade: <%= @project[:city] %>, Estado: <%= @project[:state] %></p>
@@ -17,10 +60,9 @@
     <p><%= t.name %></p>
   <% end %>
   <p>Preço: <%= @project[:price] %></p>
-  <%= cl_image_tag @project.photo, height: 300, width: 400, crop: :fill %>
+
   <%= cl_image_tag @project.artist.photo, height: 300, width: 400, crop: :fill %>
   <iframe width="560" height="315" src="<%= @project[:video] %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
   <% @project.reviews.each do |review| %>
     <p><%= review.content %></p>
   <% end %>
@@ -30,7 +72,12 @@
     <%= link_to "Deletar", project_path(@project), method: :delete, class: "btn btn-danger" %>
   <% elsif user_signed_in? == false %>
     <%=  link_to "Contratar", new_user_session_path, class: "btn btn-success" %>
-  <% elsif current_user != @project.artist %>
+  <% elsif current_user != @project.artist && current_user.admin == false %>
+    <%= link_to "Criar novo review", new_project_review_path(@project), class: "btn btn-primary" %>
+    <%= link_to "Contratar", new_project_event_path(@project), class: "btn btn-success" %>
+  <% elsif current_user.admin == true %>
+    <%= link_to "Editar", edit_project_path(@project), class: "btn btn-primary" %>
+    <%= link_to "Deletar", project_path(@project), method: :delete, class: "btn btn-danger" %>
     <%= link_to "Criar novo review", new_project_review_path(@project), class: "btn btn-primary" %>
     <%= link_to "Contratar", new_project_event_path(@project), class: "btn btn-success" %>
   <% end %>
@@ -39,59 +86,72 @@
 
 <div class="container">
 
-  <div class="text-center">
-    <h2>Pergunte algo para <%= @project.artist.first_name %></h2>
-
-    <div class="row">
-
-      <% if current_user != @project.artist && user_signed_in? %>
-        <%= simple_form_for([@project, @anonymous_message]) do |f| %>
-          <div class="form-inputs">
-            <%= f.input :question, placeholder: "Exemplo: Possui disponibilidade para quarta-feira?", label: false %>
-          </div>
-          <div class="form-actions">
-            <%= f.button :submit, "Enviar" %>
-          </div>
-        <% end %>
-      <% elsif user_signed_in? == false %>
-        <div class="text-center">
-          <%=  link_to "Faça uma pergunta", new_user_session_path, class: "btn btn-primary do-a-question" %>
-        </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <% @project.reviews.each do |review| %>
+      <p><%= review.content %></p>
       <% end %>
-
+      <% if current_user != @project.artist %>
+      <%= link_to "Criar novo review", new_project_review_path(@project), class: "btn btn-primary" %>
+      <% end %>
     </div>
-  </div>
 
-  <div class="questions">
+    <div class="col-xs-12 col-md-6">
 
-    <div class="col-xs-offset-2 col-xs-8">
-      <% @project.anonymous_messages.each do |message| %>
+      <div class="text-center">
+        <p>Pergunte algo para <%= @project.artist.first_name %></h2>
+
+
+        <% if current_user != @project.artist && user_signed_in? %>
+        <%= simple_form_for([@project, @anonymous_message]) do |f| %>
+        <div class="form-inputs">
+          <%= f.input :question, placeholder: "Exemplo: Possui disponibilidade para quarta-feira?", label: false %>
+        </div>
+        <div class="form-actions">
+          <%= f.button :submit, "Enviar" %>
+        </div>
+        <% end %>
+        <% elsif user_signed_in? == false %>
+        <div class="text-center">
+          <%=  link_to "Faça uma pergunta", new_user_session_path, class: "btn-solid" %>
+        </div>
+        <% end %>
+
+      </div>
+    </div>
+
+    <div class="questions">
+
+      <div class="col-xs-offset-2 col-xs-8">
+        <% @project.anonymous_messages.each do |message| %>
         <div class="card-product">
           <div class="card-product-infos">
 
             <p><i class="far fa-comment icon"></i><%= message.question %></p>
 
             <% if message.answer.nil? %>
-              <p><i class="far fa-comments icon"></i><strong><%= @project.artist.first_name %> ainda não respondeu sua pergunta</p></strong>
+            <p><i class="far fa-comments icon"></i><strong><%= @project.artist.first_name %> ainda não respondeu sua pergunta</p></strong>
 
             <% else %>
 
-              <p><i class="far fa-comments icon"></i><%= message.answer %></p>
+            <p><i class="far fa-comments icon"></i><%= message.answer %></p>
             <% end %>
 
             <% if current_user == @project.artist && message.answer.nil? %>
-              <%= simple_form_for([@project, message]) do |f| %>
-                <div class="form-inputs">
-                  <%= f.input :answer %>
-                </div>
-                <div class="form-actions">
-                  <%= f.button :submit, "Enviar" %>
-                </div>
-              <% end %>
+            <%= simple_form_for([@project, message]) do |f| %>
+            <div class="form-inputs">
+              <%= f.input :answer %>
+            </div>
+            <div class="form-actions">
+              <%= f.button :submit, "Enviar" %>
+            </div>
+            <% end %>
             <% end %>
           </div>
         </div>
-      <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
+</div>
 </div>

@@ -38,29 +38,31 @@
   width: inherit;
 }
 
-.polaroid-images a:nth-child(2n)
-{
-  -webkit-transform: rotate(4deg);
-  -moz-transform: rotate(4deg);
-  transform: rotate(4deg);
-}
-.polaroid-images a:nth-child(3n) {
-  -webkit-transform: rotate(-24deg);
-  -moz-transform: rotate(-24deg);
-  transform: rotate(-24deg);
-}
-.polaroid-images a:nth-child(4n)
-{
-  -webkit-transform: rotate(14deg);
-  -moz-transform: rotate(14deg);
-  transform: rotate(14deg);
-}
-.polaroid-images a:nth-child(5n)
-{
-  -webkit-transform: rotate(-18deg);
-  -moz-transform: rotate(-18deg);
-  transform: rotate(-18deg);
-}
+// messy effect
+
+// .polaroid-images a:nth-child(2n)
+// {
+//   -webkit-transform: rotate(4deg);
+//   -moz-transform: rotate(4deg);
+//   transform: rotate(4deg);
+// }
+// .polaroid-images a:nth-child(3n) {
+//   -webkit-transform: rotate(-24deg);
+//   -moz-transform: rotate(-24deg);
+//   transform: rotate(-24deg);
+// }
+// .polaroid-images a:nth-child(4n)
+// {
+//   -webkit-transform: rotate(14deg);
+//   -moz-transform: rotate(14deg);
+//   transform: rotate(14deg);
+// }
+// .polaroid-images a:nth-child(5n)
+// {
+//   -webkit-transform: rotate(-18deg);
+//   -moz-transform: rotate(-18deg);
+//   transform: rotate(-18deg);
+// }
 
 .polaroid-images a:hover{
   -webkit-transform: rotate(0deg);
@@ -81,6 +83,6 @@
 }
 
 .wrapper {
-  margin: 20px 0px 0px 140px;
+  margin: 20px 0px 0px 40px;
   text-align: center;
 }

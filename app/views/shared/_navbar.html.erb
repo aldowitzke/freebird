@@ -1,4 +1,4 @@
-<div class="<%= controller_name == 'pages' ? 'navbar-wagon navbar-landing' : 'navbar-wagon' %>">
+<div class="<%= controller_name == 'pages' ? 'navbar-wagon navbar-landing' : 'navbar-wagon navbar-fixed-top' %>">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
     <%= image_tag "logo.png", height: 50 %>
@@ -11,7 +11,7 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <% if user_signed_in? %>
-      <% if current_user.artist == true %>
+      <% if current_user.artist == true || current_user.admin == true %>
         <%= link_to "Meus eventos", my_events_path, class: "navbar-wagon-item navbar-wagon-link" %>
         <%= link_to "Contratados", my_events_user_path, class: "navbar-wagon-item navbar-wagon-link"%>
       <% else %>
@@ -26,8 +26,8 @@
           <% else %>
           <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% end %>
-          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu"><!--
-            <li>
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <!-- <li>
               <%= link_to user_registration_path do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
               <% end %>

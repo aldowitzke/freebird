@@ -1,10 +1,12 @@
+<div class="home-banner">
 <div class="wrapper">
+
 
       <div class="container text-center">
         <% if user_signed_in? %>
-        <% if current_user.artist == true %>
-        <%= link_to "Crie seu projeto", new_project_path, class: "btn btn-primary" %>
-        <% end %>
+          <% if current_user.artist == true || current_user.admin == true %>
+          <%= link_to "Crie seu projeto", new_project_path, class: "btn btn-primary" %>
+          <% end %>
         <% end %>
       </div>
 
@@ -30,4 +32,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>
