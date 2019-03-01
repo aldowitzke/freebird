@@ -1,4 +1,15 @@
 <div class="container text-center">
+<<<<<<< Updated upstream
+=======
+  <div class="show-banner text-center" style="background-image: url('<%= @project.photo %>')">
+    <h1 class="shadow"><%= @project[:name] %></h1>
+  </div>
+</div>
+
+  <%= cl_image_tag @project.artist.photo, class: "musician-avatar" %>
+
+<div class="container text-center">
+>>>>>>> Stashed changes
   <h1><%= @project[:name] %></h1>
   <p>Descrição: <%= @project[:description] %></p>
   <p>Cidade: <%= @project[:city] %>, Estado: <%= @project[:state] %></p>
