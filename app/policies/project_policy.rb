@@ -23,12 +23,12 @@ class ProjectPolicy < ApplicationPolicy
 
   def update?
     # if user created, returns true, authorize
-    record.artist == user
+    record.artist == user || user.admin == true
   end
 
   def destroy?
     # if user created, returns true, authorize
-    record.artist == user
+    record.artist == user || user.admin == true
   end
 
   def search?

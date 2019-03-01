@@ -20,7 +20,12 @@
     <%= link_to "Deletar", project_path(@project), method: :delete, class: "btn btn-danger" %>
   <% elsif user_signed_in? == false %>
     <%=  link_to "Contratar", new_user_session_path, class: "btn btn-success" %>
-  <% elsif current_user != @project.artist %>
+  <% elsif current_user != @project.artist && current_user.admin == false %>
+    <%= link_to "Criar novo review", new_project_review_path(@project), class: "btn btn-primary" %>
+    <%= link_to "Contratar", new_project_event_path(@project), class: "btn btn-success" %>
+  <% elsif current_user.admin == true %>
+    <%= link_to "Editar", edit_project_path(@project), class: "btn btn-primary" %>
+    <%= link_to "Deletar", project_path(@project), method: :delete, class: "btn btn-danger" %>
     <%= link_to "Criar novo review", new_project_review_path(@project), class: "btn btn-primary" %>
     <%= link_to "Contratar", new_project_event_path(@project), class: "btn btn-success" %>
   <% end %>
