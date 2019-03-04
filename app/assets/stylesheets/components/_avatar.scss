@@ -2,10 +2,26 @@
   height: 30vh;
   width: 30vh;
   border-radius: 100px;
+  object-fit: cover;
+  border: solid;
+  border-color: $green;
+  border-margin: 3px;
+  padding: 3px;
+  background-color: $black;
+}
+
+.avatar-show {
   position: absolute;
-  left: 132px;
+  left: 160px;
   top: 426px;
-  size: cover;
+  z-index: 1;
+}
+
+.user-avatar-sm {
+  height: 10vh;
+  width: 10vh;
+  border-radius: 100px;
+  object-fit: cover;
   border: solid;
   border-color: $green;
   border-margin: 3px;
