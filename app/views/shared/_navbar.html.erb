@@ -1,32 +1,30 @@
 <div class="<%= controller_name == 'pages' ? 'navbar-wagon navbar-landing' : 'navbar-wagon navbar-fixed-top' %>">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png", height: 50 %>
+  <%= image_tag "logo.png", height: 50 %>
   <% end %>
   <% unless controller_name == "pages" %>
-    <%= render 'shared/search' %>
+  <%= render 'shared/search' %>
   <% end  %>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <% if user_signed_in? %>
-      <% if current_user.artist == true || current_user.admin == true %>
-        <%= link_to "Meus eventos", my_events_path, class: "navbar-wagon-item navbar-wagon-link" %>
-        <%= link_to "Contratados", my_events_user_path, class: "navbar-wagon-item navbar-wagon-link"%>
-      <% else %>
-        <%= link_to "Contratados", my_events_user_path, class: "navbar-wagon-item navbar-wagon-link"%>
-      <% end %>
+    <% if current_user.artist == true || current_user.admin == true %>
+    <%= link_to "Meus eventos", my_events_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "Contratados", my_events_user_path, class: "navbar-wagon-item navbar-wagon-link"%>
+    <% else %>
+    <%= link_to "Contratados", my_events_user_path, class: "navbar-wagon-item navbar-wagon-link"%>
+    <% end %>
 
-      <!-- Avatar with dropdown menu -->
-      <div class="navbar-wagon-item">
-        <div class="dropdown">
-          <% if current_user && current_user.photo %>
-          <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-          <% else %>
-          <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
-          <% end %>
-          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+    <!-- Avatar with dropdown menu -->
+    <div class="navbar-wagon-item">
+      <div class="dropdown">
+        <% if current_user %>
+        <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle background-green", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+        <% end %>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <!-- <li>
               <%= link_to user_registration_path do %>
                 <i class="fa fa-user"></i> <%= t(".profile", default: "Profile") %>
@@ -34,32 +32,32 @@
             </li> -->
             <li>
               <%= link_to edit_user_registration_path do %>
-                <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
+              <i class="fa fa-cog"></i>  <%= t(".settings", default: "Settings") %>
               <% end %>
             </li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
-                <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
+              <i class="fa fa-sign-out"></i>  <%= t(".sign_out", default: "Log out") %>
               <% end %>
             </li>
           </ul>
         </div>
       </div>
-    <% else %>
+      <% else %>
       <!-- Login link (when logged out) -->
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
 
-  <!-- Dropdown list appearing on mobile only -->
-  <div class="navbar-wagon-item hidden-md hidden-lg">
-    <div class="dropdown">
-      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
-      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Some mobile link</a></li>
-        <li><a href="#">Other one</a></li>
-        <li><a href="#">Other one</a></li>
-      </ul>
+    <!-- Dropdown list appearing on mobile only -->
+    <div class="navbar-wagon-item hidden-md hidden-lg">
+      <div class="dropdown">
+        <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><a href="#">Some mobile link</a></li>
+          <li><a href="#">Other one</a></li>
+          <li><a href="#">Other one</a></li>
+        </ul>
+      </div>
     </div>
   </div>
-</div>

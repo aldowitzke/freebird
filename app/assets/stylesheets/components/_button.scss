@@ -1,6 +1,6 @@
 .btn-light {
   height: 45px;
-  width: 100px;
+  min-width: 120px;
   border: 3px solid;
   border-color: $green;
   border-radius: 40px;
@@ -10,24 +10,26 @@
   opacity: 0.8;
   transition: opacity 0.3s ease;
   text-align: center;
-  margin-top: 10px;
 }
 
 .btn-light:hover {
   opacity: 0.6;
   height: 44px;
   width: 99px;
+  text-decoration: none;
 }
 
 .btn-solid {
   height: 45px;
-  width: 100px;
+  min-width: 120px;
   border: 3px solid;
   border-color: $green;
   border-radius: 40px;
-  padding: 8px 30px;
+  padding: 6px 14px 6px 14px;
   background-color: $green;
   color: $white;
+  font-size: 20px;
+  font-style: bold;
   opacity: 0.9;
   transition: opacity 0.3s ease;
   text-align: center;
@@ -37,7 +39,32 @@
   opacity: 0.5;
   height: 44px;
   width: 99px;
+  text-decoration: none;
 }
+
+.btn-solid-blue {
+  height: 45px;
+  min-width: 120px;
+  border: 3px solid;
+  border-color: $blue;
+  border-radius: 40px;
+  padding: 6px 14px 6px 14px;
+  background-color: $blue;
+  color: $white;
+  font-size: 20px;
+  font-style: bold;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+  text-align: center;
+}
+
+.btn-solid-blue:hover {
+  opacity: 0.5;
+  height: 44px;
+  width: 99px;
+  text-decoration: none;
+}
+
 
 .do-a-question {
   margin-bottom: 20px;

@@ -5,11 +5,12 @@ $red: #EE5F5B;
 $yellow: #FDB631;
 $orange: #E67E22;
 
-$black: #05060a;
-$lightblack: #131626;
+$black: #06070c;
+$lightblack: #151828;
 $white: #f4f6f7;
 $blue:  #3079ab;
 $green: #79f1e3;
+$darkgreen: #2D625F;
 $gray: #605555;
 
 .gray {
@@ -20,11 +21,20 @@ $gray: #605555;
   color: $green;
 }
 
+
 .white {
   color: $white;
+}
+
+.background-green {
+  background-color: $green;
 }
 
 .background-black {
   background-color: $black;
   min-height: 100vh;
+}
+
+.background-lightblack {
+  background-color:$lightblack;
 }
