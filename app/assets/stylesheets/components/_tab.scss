@@ -32,8 +32,19 @@ top: calc(2em + 4px); /* altura do link + bordas */
 z-index: -2;
 border: 1px solid #CCC;
 background-color: white;
+width: 65vw;
+}
+
+.tab-content-project {
+display: flex;
+justify-content: space-around;
+align-items: center;
 }
 
 .tab:target .tab-content {
 z-index: -1;
+}
+
+.tab-wrapper {
+  margin-top: 70px;
 }

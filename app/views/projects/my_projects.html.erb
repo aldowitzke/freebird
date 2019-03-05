@@ -1,61 +1,95 @@
 <!-- Criando a listagem -->
-<ul class="tabs">
-    <!-- Aqui, criação da primeira aba -->
-    <li class="tab" id="tab-1">
-     <a href="#tab-1">Aba1</a>
-<section class="tab-content"> Conteúdo da Aba 1 </section></li>
-<!-- Aqui, criação da segunda aba -->
-    <li class="tab" id="tab-2">
-     <a href="#tab-2">Aba 2</a>
-<section class="tab-content"> Conteúdo da Aba 2 </section></li>
-<!-- Aqui, criação da terceira aba -->
-    <li class="tab" id="tab-3">
-     <a href="#tab-3">Aba 3</a>
-<section class="tab-content"> Conteúdo da Aba 3 </section></li>
-</ul>
-<div class="container">
-      <% @project.each do |project| %>
-  <div class="row">
-    <div class="col-xs-12 col-md-6">
-      <%= link_to project_path(project) do %>
-      <%= cl_image_tag project.photo, height: 200, width: 250, crop: :fill %>
-      <% end %>
-      <h2><%= project.name %></h2>
-      <p><i class="fas fa-microphone-alt"></i>
-        <%= project.category.name %>
-        <i class="fas fa-map-marker-alt"></i>
-        <%= project.city %>, <%= project.state %>
-      </p>
-      <p>
-        <i class="fas fa-music"></i>
-        <% project.genres.each do |t| %>
-        <%= t.name %>
+
+
+
+<div class="tab-wrapper">
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-xs-12 col-sm-3">
+        <%= cl_image_tag @project.first.artist.photo, class: "musician-avatar" %>
+        <p><%= @project.first.artist.first_name %> <%= @project.first.artist.last_name %></p>
+        <p><%= @project.first.artist.email %></p>
+        <p><%= @project.first.artist.city %></p>
+        <p><%= @project.first.artist.state %></p>
+        <p><%= @project.first.artist.phone %></p>
+        <%= link_to edit_user_registration_path do %>
+        <i class="fa fa-cog"></i>  <%= t(".settings", default: "Editar meu Per") %>
         <% end %>
-      </p>
-    </div>
-    <div class="col-xs-12 col-md-6">
-      <h2>Meus Eventos</h2>
-      <% project.events.each do |e| %>
-      <ul>
-        <li><%= e.datetime %></li>
-        <li><%= e.description %></li>
-        <li><%= e.accepted %></li>
-        <li><%= e.user.first_name %></li>
-      </ul>
-      <%= cl_image_tag e.user.photo, class: "user-avatar-sm" %>
-      <% end %>
-    </div>
+      </div>
 
-    <div class="col-xs-12 col-md-6">
-      <h2>Minhas perguntas:</h2>
-      <% project.anonymous_messages.each do |m| %>
-      <p><%= m.question %></p>
-      <p><%= m.answer %></p>
-      <% end %>
-    </div>
+      <div class="col-xs-12 col-sm-9">
+        <ul class="tabs">
+          <!-- Primeira Aba: Projetos do Artista -->
+          <li class="tab" id="tab-1">
+            <a href="#tab-1">Meus Projetos</a>
+            <section class="tab-content tab-content-project">
+              <% @project.each do |project| %>
+              <div>
+                <%= link_to project_path(project) do %>
+                <%= cl_image_tag project.photo, height: 100, width: 150, crop: :fill %>
+                <% end %>
+                <h2><%= project.name %></h2>
+                <p><i class="fas fa-microphone-alt"></i>
+                  <%= project.category.name %>
+                  <i class="fas fa-map-marker-alt"></i>
+                  <%= project.city %>, <%= project.state %>
+                </p>
+                <p>
+                  <i class="fas fa-music"></i>
+                  <% project.genres.each do |t| %>
+                  <%= t.name %>
+                  <% end %>
+                </p>
+              </div>
+              <% end %>
 
+            </section></li>
+            <!-- Segunda Aba: Eventos do Artista -->
+            <li class="tab" id="tab-2">
+              <a href="#tab-2">Meus Eventos</a>
+              <section class="tab-content tab-content-project">
+               <div>
+                <h2>Meus Eventos</h2>
+                <% @project.each do |project| %>
+
+                <% project.events.each do |e| %>
+                <ul>
+                  <li><%= e.datetime %></li>
+                  <li><%= e.description %></li>
+                  <li><%= e.accepted %></li>
+                  <li><%= e.user.first_name %></li>
+                </ul>
+                <%= cl_image_tag e.user.photo, class: "user-avatar-sm" %>
+                <% end %>
+              <% end %>
+              </div>
+
+            </section></li>
+
+            <!-- Terceira Aba: Perguntas para o Artista -->
+            <li class="tab" id="tab-3">
+             <a href="#tab-3">Minhas Perguntas</a>
+             <section class="tab-content">
+
+              <div>
+                <h2>Minhas perguntas:</h2>
+                <% @project.each do |project| %>
+
+                <% project.anonymous_messages.each do |m| %>
+                <p><%= m.question %></p>
+                <p><%= m.answer %></p>
+                <% end %>
+                <% end %>
+              </div>
+
+            </section></li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
-      <% end %>
-</div>
+
 
 
