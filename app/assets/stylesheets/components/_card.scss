@@ -51,6 +51,20 @@
   margin-top: 20px;
   margin-bottom: 20px;
   height: auto;
+  padding-bottom: 20px;
+}
+
+.card-event-user {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: auto;
+  padding-bottom: 20px;
 }
 
 .event-title {
@@ -58,22 +72,44 @@
   margin-bottom: 55px;
 }
 
+.card-event-user img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+  margin-left: 50px;
+  margin-top: 25px;
+}
+
 .card-event-img {
   height: 100%;
   width: 120px;
   object-fit: cover;
   margin-left: 50px;
-  margin-top: -16px;
+  margin-top: -5px;
 }
 
 .card-event h2 {
   font-size: 16px;
   font-weight: bold;
-  margin-bottom: 20px;
-  margin-top: 0px;
+  margin: 0;
+}
+
+.card-event-user h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+
 }
 
 .card-event p {
+  font-size: 15px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 12px;
+}
+
+.card-event-user p {
   font-size: 15px;
   line-height: 1.4;
   opacity: .7;
@@ -83,6 +119,17 @@
 }
 
 .card-event .card-event-infos {
+  padding: 16px;
+  padding-left: 50px;
+  justify-content: left;
+  width: 100%;
+  margin-top: 25px;
+  a {
+    float: right;
+  }
+}
+
+.card-event-user .card-event-infos {
   padding: 16px;
   padding-left: 50px;
   justify-content: left;
