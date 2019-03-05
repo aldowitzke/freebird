@@ -71,8 +71,6 @@
 
       <div class="text-center">
         <p>Pergunte algo para <%= @project.artist.first_name %></h2>
-
-
           <% if current_user != @project.artist && user_signed_in? %>
           <%= simple_form_for([@project, @anonymous_message]) do |f| %>
           <div class="form-inputs">
@@ -89,8 +87,6 @@
           <% end %>
 
         </div>
-      </div>
-
       <div class="questions">
 
         <div class="col-xs-offset-2 col-xs-8">
@@ -123,6 +119,8 @@
           <% end %>
         </div>
       </div>
+      </div>
+
     </div>
   </div>
 </div>

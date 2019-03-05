@@ -1,0 +1,25 @@
+<div class="home-banner">
+<div class="wrapper">
+      <div class="polaroid-images">
+        <% @project.each do |project| %>
+        <%= link_to project_path(project) do %>
+        <%= cl_image_tag project.photo, height: 200, width: 250, crop: :fill %>
+        <%= project.name %>
+        <p><i class="fas fa-microphone-alt"></i>
+          <%= project.category.name %>
+          <i class="fas fa-map-marker-alt"></i>
+          <%= project.city %>, <%= project.state %>
+        </p>
+        <p>
+          <i class="fas fa-music"></i>
+          <% project.genres.each do |t| %>
+          <%= t.name %>
+          <% end %>
+        </p>
+        <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
