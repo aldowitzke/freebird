@@ -5,6 +5,7 @@
   </div>
 
   <% @events.each do |event| %>
+
   <div class="card-event">
     <%= cl_image_tag event.project.photo, class: "card-event-img" %>
     <div class="card-event-infos">

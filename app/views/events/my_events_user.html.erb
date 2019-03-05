@@ -5,15 +5,14 @@
   </div>
 
   <% @events.each do |event| %>
-  <div class="card-event">
+  <div class="card-event-user">
     <%= cl_image_tag event.project.photo, class: "card-event-img" %>
     <div class="card-event-infos">
-    <p>Projeto: <%= event.project.name %></p>
-    <p>Data: <%= event.datetime %></p>
-    <p>Descrição: <%= event.description %>
-    <p>Quem eu contratei: <%= event.project.artist.first_name %> <%= event.project.artist.last_name %>
+    <h2><%= event.project.name %></h2>
+    <p><i class="fas fa-comment-alt">&nbsp;&nbsp;</i><%= event.description %>
+    <p><i class="fas fa-calendar-alt">&nbsp;&nbsp;</i><%= event.datetime %></p>
+    <p><i class="fas fa-user"></i>&nbsp;&nbsp;<%= event.project.artist.first_name %> <%= event.project.artist.last_name %>
 
-    <p>Aceito?</p>
     <% if event.accepted == true %>
       <p><i class="fas fa-check"></i><%= "  #{event.project.artist.first_name}" %> aceitou sua proposta</p>
 
