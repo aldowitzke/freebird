@@ -12,6 +12,7 @@ class ProjectsController < ApplicationController
     # authorize @project
   end
 
+
   def show
     @anonymous_message = AnonymousMessage.new
   end
@@ -61,6 +62,11 @@ class ProjectsController < ApplicationController
       @result = Project.global_search(parameter)
     end
     authorize @result
+  end
+
+  def my_projects
+    @project = policy_scope(Project).where(artist: current_user)
+    authorize @project
   end
 
   private

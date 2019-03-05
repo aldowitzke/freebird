@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get "/search", to: "projects#search"
+  get "/my_projects", to: "projects#my_projects"
   get "/my_events", to: "events#my_events"
   get "/my_events_user", to: "events#my_events_user"
   patch "/events/:id/accepted", to: "events#accepted", as: 'accepted'

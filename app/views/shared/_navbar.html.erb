@@ -12,6 +12,7 @@
 
     <% if user_signed_in? %>
     <% if current_user.artist == true || current_user.admin == true %>
+    <%= link_to "Meu Estúdio", my_projects_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <%= link_to "Meus eventos", my_events_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <%= link_to "Contratados", my_events_user_path, class: "navbar-wagon-item navbar-wagon-link"%>
     <% else %>

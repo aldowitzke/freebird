@@ -34,4 +34,8 @@ class ProjectPolicy < ApplicationPolicy
   def search?
     @result = true
   end
+
+  def my_projects?
+    true
+  end
 end
