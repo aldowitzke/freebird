@@ -1,0 +1,57 @@
+.tabs {
+position: relative;
+z-index: 0;
+height: auto;
+}
+
+.tab {
+display: inline;
+}
+
+.tab a {
+float: right;
+padding: 0.5em 1em;
+background: $lightblack;
+
+border-width: 1px;
+border-style: solid;
+border-color: $lightblack;
+border-top-right-radius: 8px;
+border-top-left-radius: 8px;
+}
+
+.tab:not(:target) a {
+border-bottom: 0 none;
+display: block;
+}
+
+.tab:target a, a:hover {
+background: $white;
+text-decoration: none;
+}
+
+.tab-content {
+position: absolute;
+left: 0;
+top: calc(2em + 4px); /* altura do link + bordas */
+z-index: -2;
+border: 1px solid $lightblack;
+background-color: $lightblack;
+height: 78vh;
+width: 67vw;
+overflow: scroll;
+}
+
+.tab-content-project {
+display: flex;
+justify-content: space-around;
+align-items: center;
+}
+
+.tab:target .tab-content {
+z-index: -1;
+}
+
+.tab-wrapper {
+  margin-top: 80px;
+}

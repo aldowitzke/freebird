@@ -1,46 +1,97 @@
-<div class="container">
-      <% @project.each do |project| %>
-  <div class="row">
-    <div class="col-xs-12 col-md-6">
-      <%= link_to project_path(project) do %>
-      <%= cl_image_tag project.photo, height: 200, width: 250, crop: :fill %>
-      <% end %>
-      <h2><%= project.name %></h2>
-      <p><i class="fas fa-microphone-alt"></i>
-        <%= project.category.name %>
-        <i class="fas fa-map-marker-alt"></i>
-        <%= project.city %>, <%= project.state %>
-      </p>
-      <p>
-        <i class="fas fa-music"></i>
-        <% project.genres.each do |t| %>
-        <%= t.name %>
+<!-- Criando a listagem -->
+
+
+
+<div class="tab-wrapper">
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-xs-12 col-sm-3">
+        <%= cl_image_tag @project.first.artist.photo, class: "musician-avatar" %>
+        <p><%= @project.first.artist.first_name %> <%= @project.first.artist.last_name %></p>
+        <p><%= @project.first.artist.email %></p>
+        <p><%= @project.first.artist.city %></p>
+        <p><%= @project.first.artist.state %></p>
+        <p><%= @project.first.artist.phone %></p>
+        <%= link_to edit_user_registration_path do %>
+        <i class="fa fa-cog"></i>  <%= t(".settings", default: "Editar meu Per") %>
         <% end %>
-      </p>
-    </div>
-    <div class="col-xs-12 col-md-6">
-      <h2>Meus Eventos</h2>
-      <% project.events.each do |e| %>
-      <ul>
-        <li><%= e.datetime %></li>
-        <li><%= e.description %></li>
-        <li><%= e.accepted %></li>
-        <li><%= e.user.first_name %></li>
+      </div>
+
+      <div class="col-xs-12 col-sm-9">
+        <ul class="tabs">
+          <!-- Primeira Aba: Projetos do Artista -->
+          <li class="tab" id="tab-1">
+            <a href="#tab-1">Meus Projetos</a>
+            <section class="tab-content tab-content-project">
+              <% @project.each do |project| %>
+              <div class="polaroid-images">
+                <%= link_to project_path(project) do %>
+                <%= cl_image_tag project.photo, height: 170, width: 210, crop: :fill %>
+                <%= project.name %>
+                <p><i class="fas fa-microphone-alt"></i>
+                  <%= project.category.name %>
+                  <i class="fas fa-map-marker-alt"></i>
+                  <%= project.city %>, <%= project.state %>
+                </p>
+                <p>
+                  <i class="fas fa-music"></i>
+                  <% project.genres.each do |t| %>
+                  <%= t.name %>
+                  <% end %>
+                </p>
+                <% end %>
+              </div>
+              <% end %>
+
+            </section></li>
+            <!-- Segunda Aba: Eventos do Artista -->
+            <li class="tab" id="tab-2">
+              <a href="#tab-2">Meus Eventos</a>
+              <section class="tab-content tab-content-project">
+              <div class="container">
+                <div class="row">
+                  <div class="col-xs-12 col-sm-4">
+                    <% @project.each do |project| %>
+                    <% project.events.each do |e| %>
+                    <ul>
+                      <li><%= e.datetime %></li>
+                      <li><%= e.description %></li>
+                      <li><%= e.accepted %></li>
+                      <li><%= e.user.first_name %></li>
+                    </ul>
+                    <%= cl_image_tag e.user.photo, class: "user-avatar-sm" %>
+                    <% end %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+          </section></li>
+
+          <!-- Terceira Aba: Perguntas para o Artista -->
+          <li class="tab" id="tab-3">
+           <a href="#tab-3">Minhas Perguntas</a>
+           <section class="tab-content">
+
+            <div>
+              <h2>Minhas perguntas:</h2>
+              <% @project.each do |project| %>
+
+              <% project.anonymous_messages.each do |m| %>
+              <p><%= m.question %></p>
+              <p><%= m.answer %></p>
+              <% end %>
+              <% end %>
+            </div>
+
+          </section></li>
+        </div>
       </ul>
-      <%= cl_image_tag e.user.photo, class: "user-avatar-sm" %>
-      <% end %>
     </div>
-
-    <div class="col-xs-12 col-md-6">
-      <h2>Minhas perguntas:</h2>
-      <% project.anonymous_messages.each do |m| %>
-      <p><%= m.question %></p>
-      <p><%= m.answer %></p>
-      <% end %>
-    </div>
-
   </div>
-      <% end %>
 </div>
+</div>
+
 
 
