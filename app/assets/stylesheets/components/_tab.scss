@@ -1,0 +1,39 @@
+.tabs {
+position: relative;
+}
+
+.tab {
+display: inline;
+}
+
+.tab a {
+float: left;
+padding: 0.5em 1em;
+background: linear-gradient(#FFF, #EEE);
+border-width: 1px;
+border-style: solid;
+border-color: #CCC #CCC #FFF;
+border-top-right-radius: 8px;
+border-top-left-radius: 8px;
+}
+
+.tab:not(:target) a {
+border-bottom: 0 none;
+}
+
+.tab:target a, a:hover {
+background: white;
+}
+
+.tab-content {
+position: absolute;
+left: 0;
+top: calc(2em + 4px); /* altura do link + bordas */
+z-index: -2;
+border: 1px solid #CCC;
+background-color: white;
+}
+
+.tab:target .tab-content {
+z-index: -1;
+}
