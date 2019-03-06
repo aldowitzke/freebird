@@ -28,7 +28,7 @@
 .home-search-name {
   background: transparent;
   border: 0;
-  border-bottom: 1px solid rgba(255,221,204,0.5);
+  border-bottom: 1px solid white;
   &:focus {
     outline: 0;
   }
@@ -39,7 +39,7 @@
   position: relative;
   background: transparent;
   border: 0;
-  border-bottom: 1px solid rgba(255,221,204,0.5) !important;
+  border-bottom: 1px solid white !important;
 }
 
 /* Style the video: 100% width and height to cover the entire window */
@@ -106,3 +106,4 @@
 #home-form {
   margin: 10px auto;
 }
+
