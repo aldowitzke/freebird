@@ -3,7 +3,7 @@
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <div class="form-inputs">
+  <div class="form-inputs form-new-project">
     <%#=  missing genre and category! %>
     <%= f.input :name %>
     <%= f.input :description %>
