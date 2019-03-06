@@ -13,7 +13,8 @@ var options = {
 var typed = new Typed(".home-search-name", options);
 
 $( ".home-search-city select" ).select2({
-    theme: "bootstrap"
+    theme: "bootstrap",
+    placeholder: "Cidade"
 });
 
 import { initUpdateNavbarOnScroll } from '../components/navbar';

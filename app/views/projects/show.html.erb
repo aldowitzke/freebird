@@ -32,15 +32,15 @@
           </div>
           <p class="white" style="font-size: 18px"><%= @project.description %></p>
           <div class="tag">
-            <p style="font-size:18px; margin-bottom:0px">Preço: <%= @project[:price] %></p>
-
+            <p style="font-size:18px; margin-bottom:12px; font-weight: bold;">Preço: R$ <%= @project[:price] %>,00</p>
+            <% if current_user != @project.artist %>
+            <%= link_to "Contratar", new_project_event_path(@project), class: "btn-light" %>
+            <% end %>
+          </div>
+          <div style="display:flex; justify-content:space-around">
             <% if current_user == @project.artist %>
             <%= link_to "Editar", edit_project_path(@project), class: "btn btn-primary" %>
             <%= link_to "Deletar", project_path(@project), method: :delete, class: "btn btn-danger" %>
-            <% elsif user_signed_in? == false %>
-            <%=  link_to "Contratar", new_user_session_path, class: "btn-light" %>
-            <% elsif current_user != @project.artist %>
-            <%= link_to "Contratar", new_project_event_path(@project), class: "btn-light" %>
             <% end %>
           </div>
         </div>
@@ -52,75 +52,94 @@
   </div>
 </div>
 
-<div class="container">
 
+
+
+<div class="container">
   <div class="row">
     <div class="col-xs-12 col-md-6 text-center">
+
       <% if current_user != @project.artist %>
       <%= link_to "Criar novo review", new_project_review_path(@project), class: "btn-solid-blue" %>
       <% end %>
+
       <% @project.reviews.each do |review| %>
       <div class="white background-lightblack box-main tag" id="review-box">
+        <div>
+          <p><%= review.content %></p>
+          <p class="gray font-sm">- <%= review.user.first_name %> <%= review.user.last_name %></p>
+        </div>
         <%= cl_image_tag review.user.photo, class: "user-avatar-sm" %>
-        <p><%= review.content %></p>
       </div>
-      <% end %>
+    <% end %>
     </div>
+  </div>
+</div>
+</div>
+</div>
 
-    <div class="col-xs-12 col-md-6">
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
 
-      <div class="text-center">
-        <p>Pergunte algo para <%= @project.artist.first_name %></h2>
-          <% if current_user != @project.artist && user_signed_in? %>
-          <%= simple_form_for([@project, @anonymous_message]) do |f| %>
-          <div class="form-inputs">
-            <%= f.input :question, placeholder: "Exemplo: Possui disponibilidade para quarta-feira?", label: false %>
-          </div>
-          <div class="form-actions">
-            <%= f.button :submit, "Enviar" %>
-          </div>
-          <% end %>
-          <% elsif user_signed_in? == false %>
-          <div class="text-center">
-            <%=  link_to "Faça uma pergunta", new_user_session_path, class: "btn-solid" %>
-          </div>
-          <% end %>
 
+      <p>Pergunte algo para <%= @project.artist.first_name %></h2>
+        <% if current_user != @project.artist && user_signed_in? %>
+        <%= simple_form_for([@project, @anonymous_message]) do |f| %>
+        <div class="form-inputs">
+          <%= f.input :question, placeholder: "Exemplo: Possui disponibilidade para quarta-feira?", label: false %>
         </div>
+        <div class="form-actions">
+          <%= f.button :submit, "Enviar" %>
+        </div>
+        <% end %>
+        <% elsif user_signed_in? == false %>
+        <div class="text-center">
+          <%=  link_to "Faça uma pergunta", new_user_session_path, class: "btn-solid" %>
+        </div>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+
       <div class="questions">
+        <% @project.anonymous_messages.each do |message| %>
+        <div class="card-product">
+          <div class="card-product-infos">
 
-        <div class="col-xs-offset-2 col-xs-8">
-          <% @project.anonymous_messages.each do |message| %>
-          <div class="card-product">
-            <div class="card-product-infos">
+            <p><i class="far fa-comment icon"></i><%= message.question %></p>
 
-              <p><i class="far fa-comment icon"></i><%= message.question %></p>
+            <% if message.answer.nil? %>
+            <p><i class="far fa-comments icon"></i><strong><%= @project.artist.first_name %> ainda não respondeu sua pergunta</p></strong>
 
-              <% if message.answer.nil? %>
-              <p><i class="far fa-comments icon"></i><strong><%= @project.artist.first_name %> ainda não respondeu sua pergunta</p></strong>
+            <% else %>
 
-              <% else %>
+            <p><i class="far fa-comments icon"></i><%= message.answer %></p>
+            <% end %>
 
-              <p><i class="far fa-comments icon"></i><%= message.answer %></p>
-              <% end %>
-              <% if current_user == @project.artist && message.answer.nil? %>
-              <%= simple_form_for([@project, message]) do |f| %>
-              <div class="form-inputs">
-                <%= f.input :answer %>
-              </div>
-              <div class="form-actions">
-                <%= f.button :submit, "Enviar" %>
-              </div>
-              <% end %>
-              <% end %>
-
+            <% if current_user == @project.artist && message.answer.nil? %>
+            <%= simple_form_for([@project, message]) do |f| %>
+            <div class="form-inputs">
+              <%= f.input :answer %>
             </div>
-          </div>
-          <% end %>
-        </div>
-      </div>
-      </div>
+            <div class="form-actions">
+              <%= f.button :submit, "Enviar" %>
+            </div>
+            <% end %>
+            <% end %>
 
+          </div>
+        </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
