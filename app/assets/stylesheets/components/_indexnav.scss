@@ -15,5 +15,32 @@
 }
 
 .select2-container *:focus {
-        outline: none;
+  outline: none;
+}
+
+// .select2-dropdown {
+//   position: static !important;
+// }
+
+// .select2-dropdown .select2-dropdown--above {
+//   margin-top: 336px !important;
+// }
+#search_name::-webkit-input-placeholder {
+  color: white;
+}
+
+#search_name::-moz-input-placeholder {
+  color: white;
+}
+
+#search_name::-ms-input-placeholder {
+  color: white;
+}
+
+#search_name::-moz-input-placeholder { /* Firefox 18- */
+  color: white;
+}
+
+.select2-search_city-container.title {
+  color: white;
 }
