@@ -1,9 +1,10 @@
-.polaroid-images
+.polaroid-images a
 {
   background: $white;
   display: inline;
-  // margin: 0 0px 30px;
-  // padding: 10px 10px 10px;
+  float: left;
+  margin: 0 15px 30px;
+  padding: 10px 10px 10px;
   text-align: center;
   text-decoration: none;
   font-family: 'Permanent Marker', cursive;
@@ -14,10 +15,6 @@
   -moz-transition: all .15s linear;
   transition: all .15s linear;
   z-index:0;
-  height: auto;
-  width: 100%;
-  overflow-y: hidden;
-  min-height: 15.5em;
 }
 
 .polaroid-images p {
@@ -28,7 +25,7 @@
   margin: 0px;
 }
 
-.polaroid-images:after {
+.polaroid-images a:after {
   color: #333;
   font-size: 20px;
   content: attr(title);
@@ -41,33 +38,8 @@
   width: inherit;
 }
 
-// messy effect
 
-// .polaroid-images a:nth-child(2n)
-// {
-//   -webkit-transform: rotate(4deg);
-//   -moz-transform: rotate(4deg);
-//   transform: rotate(4deg);
-// }
-// .polaroid-images a:nth-child(3n) {
-//   -webkit-transform: rotate(-24deg);
-//   -moz-transform: rotate(-24deg);
-//   transform: rotate(-24deg);
-// }
-// .polaroid-images a:nth-child(4n)
-// {
-//   -webkit-transform: rotate(14deg);
-//   -moz-transform: rotate(14deg);
-//   transform: rotate(14deg);
-// }
-// .polaroid-images a:nth-child(5n)
-// {
-//   -webkit-transform: rotate(-18deg);
-//   -moz-transform: rotate(-18deg);
-//   transform: rotate(-18deg);
-// }
-
-.polaroid-images:hover{
+.polaroid-images a:hover{
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
         transform: rotate(0deg);
@@ -88,4 +60,63 @@
 .wrapper {
   margin: 20px 0px 0px 40px;
   text-align: center;
+}
+
+//////////////////////////////////////////////////
+
+// polaroid projects //
+
+.polaroid-project
+{
+  background: $white;
+  display: inline;
+  // margin: 0 0px 30px;
+  // padding: 10px 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  font-family: 'Permanent Marker', cursive;
+  -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+  -moz-box-shadow: 0 4px 6px rgba(0,0,0,.3);
+  box-shadow: 0 4px 6px rgba(0,0,0,.3);
+  -webkit-transition: all .15s linear;
+  -moz-transition: all .15s linear;
+  transition: all .15s linear;
+  z-index:0;
+  height: auto;
+  width: 100%;
+  overflow-y: hidden;
+  min-height: 15.5em;
+  margin-bottom: 15px;
+}
+
+.polaroid-project p {
+  font-family: Open Sans;
+  font-size: 12px;
+  color: $gray;
+  opacity: 0.6;
+  margin: 0px;
+}
+
+.polaroid-project:after {
+  color: #333;
+  font-size: 20px;
+  content: attr(title);
+  position: relative;
+  top: 15px;
+}
+
+.polaroid-project img {
+  display: block;
+  width: inherit;
+}
+
+
+.wrapper {
+  margin: 20px 0px 0px 40px;
+  text-align: center;
+}
+
+.my-projects-card {
+  padding-top: 100px;
+  padding-left: 30px;
 }

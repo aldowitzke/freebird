@@ -11,13 +11,12 @@ display: inline;
 .tab a {
 float: right;
 padding: 0.5em 1em;
-background: $lightblack;
+background: white;
 
 border-width: 1px;
 border-style: solid;
 border-color: $lightblack;
-border-top-right-radius: 8px;
-border-top-left-radius: 8px;
+border-radius: 8px;
 }
 
 #tab-link:not(:target) a {
@@ -26,7 +25,7 @@ display: block;
 }
 
 #tab-link:target a, a:hover {
-background: $white;
+background: #d1cfcf;
 text-decoration: none;
 }
 

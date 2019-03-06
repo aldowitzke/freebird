@@ -36,10 +36,10 @@
           <li class="tab" id="tab-1">
             <a href="#tab-1" id="tab-link">Meus Projetos</a>
             <section class="tab-content tab-content-project">
-              <div class="row">
+              <div class="row my-projects-card">
                 <% @project.each do |project| %>
                   <div class="col-xs-4">
-                    <%= link_to project_path(project), class: "polaroid-images" do %>
+                    <%= link_to project_path(project), class: "polaroid-project" do %>
                         <%= cl_image_tag project.photo, height: 170, width: 210, crop: :fill %>
                         <%= project.name %>
                         <p>
