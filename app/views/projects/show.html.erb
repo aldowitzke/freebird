@@ -62,6 +62,7 @@
       <% if current_user != @project.artist %>
       <%= link_to "Criar novo review", new_project_review_path(@project), class: "btn-solid-blue" %>
       <% end %>
+
       <% @project.reviews.each do |review| %>
       <div class="white background-lightblack box-main tag" id="review-box">
         <div>
