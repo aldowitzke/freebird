@@ -21,3 +21,14 @@
   color: white;
   min-height: 540px;
 }
+
+.send-button {
+  background-color: black;
+  a:hover {
+    background-color: white;
+  }
+  height: auto;
+  width: 100px;
+  text-align: center;
+  font-size: 14px;
+}

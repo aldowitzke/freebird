@@ -77,12 +77,12 @@
 
                               <% if event.accepted == true %>
                               <div id="event-status">
-                              <p><i class="fas fa-check"></i>proposta aceita!</p>
+                              <p><i class="fas fa-check"></i>&nbsp;&nbsp;Proposta aceita!</p>
                               <%= link_to "Cancelar", unaccepted_path(event), class: "btn btn-green", method: :patch %>
                               </div>
                               <% else %>
                               <div id="event-status">
-                              <p><i class="fas fa-times-circle"></i>proposta pendente!</p>
+                              <p><i class="fas fa-times-circle"></i>&nbsp;&nbsp;Proposta pendente!</p>
                               <%= link_to "Aceitar", accepted_path(event), class: "btn btn-green", method: :patch %>
                               </div>
                               <% end %>
@@ -101,7 +101,7 @@
 
               <!-- Terceira Aba: Perguntas para o Artista -->
               <li class="tab" id="tab-3">
-               <a href="#tab-3"  id="tab-link">Minhas Perguntas</a>
+               <a href="#tab-3" id="tab-link">Minhas Perguntas</a>
                <section class="tab-content">
 
             <div class="questions">
@@ -125,8 +125,8 @@
                                 <div class="form-inputs large-size text-center">
                                   <%= f.input :answer, label: false, placeholder: "Insira sua resposta aqui" %>
                                 </div>
-                                <div class="form-actions btn btn-primary">
-                                  <%= f.button :submit, "Enviar" %>
+                                <div class="form-actions">
+                                  <%= f.button :submit, "Enviar", class: "btn btn-green send-button" %>
                                 </div>
 
                             <% end %>
