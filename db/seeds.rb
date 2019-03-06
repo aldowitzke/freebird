@@ -28,7 +28,7 @@ freebird = User.create!(
 aldo = User.create!(
    first_name: 'Aldo',
    last_name: 'Witzke',
-   email: 'aldinholindo@gmail.com',
+   email: 'aldolindo@gmail.com',
    password: '123456',
    remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1551298205/aldo.jpg",
    phone: "(11)9999-4567",
@@ -42,7 +42,7 @@ aldo = User.create!(
    email: 'ianlindo@gmail.com',
    artist: true,
    password: '123456',
-   remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1551366676/l5ieipykboabm83yebd3.jpg",
+   remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1551877677/IMG_3035.jpg",
    phone: "(14)99789-1234",
    city: "Marília",
    state: "SP",

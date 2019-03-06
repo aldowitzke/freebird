@@ -8,15 +8,17 @@
     <div class="row">
 
       <div class="col-xs-12 col-sm-3">
+        <div class="profile-card text-center">
+
         <%= cl_image_tag @project.first.artist.photo, class: "musician-avatar" %>
-        <p><%= @project.first.artist.first_name %> <%= @project.first.artist.last_name %></p>
-        <p><%= @project.first.artist.email %></p>
-        <p><%= @project.first.artist.city %></p>
-        <p><%= @project.first.artist.state %></p>
-        <p><%= @project.first.artist.phone %></p>
+        <p><i class="fas fa-user"></i>&nbsp;&nbsp;<%= @project.first.artist.first_name %> <%= @project.first.artist.last_name %></p>
+        <p><i class="fas fa-envelope"></i>&nbsp;&nbsp;<%= @project.first.artist.email %></p>
+        <p><i class="fas fa-city"></i>&nbsp;&nbsp;<%= @project.first.artist.city %></p>
+        <p><i class="fas fa-mobile-alt">&nbsp;&nbsp;</i><%= @project.first.artist.phone %></p>
         <%= link_to edit_user_registration_path do %>
-        <i class="fa fa-cog"></i>  <%= t(".settings", default: "Editar meu Per") %>
+        <i class="fa fa-cog"></i>  <%= t(".settings", default: "Editar meu Perfil") %>
         <% end %>
+        </div>
       </div>
 
       <div class="col-xs-12 col-sm-9">
@@ -96,22 +98,48 @@
 
               </section></li>
 
+
               <!-- Terceira Aba: Perguntas para o Artista -->
               <li class="tab" id="tab-3">
                <a href="#tab-3"  id="tab-link">Minhas Perguntas</a>
                <section class="tab-content">
 
-                <div>
-                  <h2>Minhas perguntas:</h2>
+            <div class="questions">
+              <div class="col-xs-offset-2 col-xs-8">
                   <% @project.each do |project| %>
 
-                  <% project.anonymous_messages.each do |m| %>
-                  <p><%= m.question %></p>
-                  <p><%= m.answer %></p>
-                </div>
+                  <h1 class="text-center"><%= project.name %></h1>
+
+                  <% if project.anonymous_messages.empty? %>
+                    <p class="text-center"><i class="fas fa-times-circle"></i>&nbsp;&nbsp;<strong>Você não possui perguntas para esse projeto</strong></p>
                   <% end %>
+
+                    <% project.anonymous_messages.each do |m| %>
+                      <div class="card-product">
+                        <div class="card-product-infos">
+
+                            <p><i class="far fa-comment icon"></i><%= m.question %></p>
+
+                          <% if m.answer == nil %>
+                            <%= simple_form_for([project, m]) do |f| %>
+                                <div class="form-inputs large-size text-center">
+                                  <%= f.input :answer, label: false, placeholder: "Insira sua resposta aqui" %>
+                                </div>
+                                <div class="form-actions btn btn-primary">
+                                  <%= f.button :submit, "Enviar" %>
+                                </div>
+
+                            <% end %>
+                          <% else %>
+                            <p><i class="far fa-comments icon"></i><%= m.answer %></p>
+                          <% end %>
+                        </div>
+                      </div>
+
+                    <% end %>
                   <% end %>
-                </div>
+              </div>
+            </div>
 
               </section></li>
             </div>

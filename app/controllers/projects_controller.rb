@@ -12,7 +12,6 @@ class ProjectsController < ApplicationController
     # authorize @project
   end
 
-
   def show
     @anonymous_message = AnonymousMessage.new
   end
