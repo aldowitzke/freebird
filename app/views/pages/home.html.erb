@@ -7,15 +7,15 @@
     <%= video_tag 'banner_freebird.mp4', id: 'myVideo', autoplay: "autoplay", controls: false, loop: true, preload: true, type: "video/mp4"%>
 
     <div class="content">
-      <a class="btn-green">Todos</a>
-      <div class="search">
+<!--       <a class="btn-green">Todos</a>
+ -->      <div class="search">
         <h1 class="green">Freebird</h1>
         <h2 class="white">Artistas para seu momento!</h2>
-        <%= form_tag(search_path, method: :get) do %>
+        <%= form_tag(search_path, method: :get, class: "main-search") do %>
         <div class="input-group">
-          <%= search_field_tag :search_name, params[:search_name], placeholder: "Gênero ou Tipo do projeto", class: "home-search-name" %>
+          <%= search_field_tag :search_name, params[:search_name], placeholder: "", class: "home-search-name" %>
           <%# select_tag :search_city, params[:search_city], placeholder: "Cidade", class: "home-search-city", options_for_select: Project.all.pluck(:city).uniq %>
-          <span class="home-search-city gray">
+          <span class="home-search-city gray" style="color: white;">
             <%= select nil, :search_city, Project.all.pluck(:city).uniq %>
           </span>
           <button class="btn-round"><i class="fas fa-play"></i></button>
