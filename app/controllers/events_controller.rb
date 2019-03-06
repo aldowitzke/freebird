@@ -59,13 +59,13 @@ class EventsController < ApplicationController
   def accepted
     @event.update(accepted: true)
     authorize @event
-    redirect_to my_events_path
+    redirect_to my_projects_path
   end
 
   def unaccepted
     @event.update(accepted: false)
     authorize @event
-    redirect_to my_events_path
+    redirect_to my_projects_path
   end
 
   private
