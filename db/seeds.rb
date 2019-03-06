@@ -120,7 +120,7 @@ balanca = Project.create!(
   category: pauleira,
   name: "Balança a cabeça com o Ian",
   description: "Ian inovando com toda sua rebeldia e irreverência",
-  city: "Marilia",
+  city: "Marília",
   state: "SP",
   price: 1500,
   remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1551297724/metal.jpg",
@@ -184,6 +184,17 @@ onemanband = Project.create!(
   video: "https://www.youtube.com/embed/EgbAqk24kQY",
   )
 
+karaoke = Project.create!(
+  artist: ian,
+  category: solo,
+  name: "Karaoke com o Ianzão!",
+  description: "Karaoke com Ianzão é diversão garantida! Mostre todo seu potencial vocal com uma banda ao vivo! Contrate o Ian e ele toca pra você!",
+  city: "São Paulo",
+  state: "SP",
+  price: 2000,
+  remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1551899527/karaoke.jpg",
+  video: "https://www.youtube.com/embed/8lELdGWHlDg",
+  )
 
 puts 'Creating project genres'
 
@@ -212,6 +223,8 @@ ProjectGenre.create!(genre: mpb, project: onemanband)
 ProjectGenre.create!(genre: rock, project: onemanband)
 ProjectGenre.create!(genre: folk, project: onemanband)
 
+ProjectGenre.create!(genre: mpb, project: karaoke)
+ProjectGenre.create!(genre: rock, project: karaoke)
 
 puts 'Creating events'
 
