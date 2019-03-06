@@ -33,34 +33,33 @@
 
           <!-- Primeira Aba: Projetos do Artista -->
 
-          <li class="tab" id="tab-2">
-            <a href="#tab-2" id="tab-link">Meus Projetos</a>
+          <li class="tab" id="tab-1">
+            <a href="#tab-1" id="tab-link">Meus Projetos</a>
             <section class="tab-content tab-content-project">
-              <% @project.each do |project| %>
-              <div class="polaroid-images">
-                <%= link_to project_path(project) do %>
-                <%= cl_image_tag project.photo, height: 170, width: 210, crop: :fill %>
-                <%= project.name %>
-                <p>
-                  <i class="fas fa-microphone-alt"></i>
-                  <%= project.category.name %>
-                  <i class="fas fa-map-marker-alt"></i>
-                  <%= project.city %>, <%= project.state %>
-                </p>
-                <p>
-                  <i class="fas fa-music"></i>
-                  <% project.genres.each do |t| %>
-                  <%= t.name %>
-                  <% end %>
-                </p>
+              <div class="row">
+                <% @project.each do |project| %>
+                  <div class="col-xs-4">
+                    <%= link_to project_path(project), class: "polaroid-images" do %>
+                        <%= cl_image_tag project.photo, height: 170, width: 210, crop: :fill %>
+                        <%= project.name %>
+                        <p>
+                          <i class="fas fa-microphone-alt"></i>
+                          <%= project.category.name %>
+                          <i class="fas fa-map-marker-alt"></i>
+                          <%= project.city %>, <%= project.state %>
+                        </p>
+                        <p>
+                          <i class="fas fa-music"></i>
+                          <% project.genres.each do |t| %>
+                            <%= t.name %>
+                          <% end %>
+                        </p>
+                    <% end %>
+                  </div>
                 <% end %>
               </div>
-              <% end %>
 
-            </section>
-          </li>
-
-
+            </section></li>
 
 
           <!-- Segunda Aba: Perguntas para o Artista -->
