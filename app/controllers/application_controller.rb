@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
-  protect_from_forgery with: :null_session
+  protect_from_forgery with: :exception, prepend: true
+
   # configure permitted parameters: access to user params without UsersController
   before_action :authenticate_user!, :configure_permitted_parameters, if: :devise_controller?
 
