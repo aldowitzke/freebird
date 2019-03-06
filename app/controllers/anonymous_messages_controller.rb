@@ -14,7 +14,7 @@ class AnonymousMessagesController < ApplicationController
     @anonymous_message = AnonymousMessage.find(params[:id])
     @anonymous_message.update(anonymous_message_params)
     authorize @anonymous_message
-    redirect_to project_path(@anonymous_message.project)
+    redirect_to my_projects_path
   end
 
   private
