@@ -23,7 +23,7 @@
         <ul class="tabs">
           <!-- Primeira Aba: Projetos do Artista -->
           <li class="tab" id="tab-1">
-            <a href="#tab-1">Meus Projetos</a>
+            <a href="#tab-1" id="tab-link">Meus Projetos</a>
             <section class="tab-content tab-content-project">
               <% @project.each do |project| %>
               <div class="polaroid-images">
@@ -48,12 +48,76 @@
             </section></li>
             <!-- Segunda Aba: Eventos do Artista -->
             <li class="tab" id="tab-2">
-              <a href="#tab-2">Meus Eventos</a>
+              <a href="#tab-2"  id="tab-link">Meus Eventos</a>
               <section class="tab-content tab-content-project">
-              <div class="container">
-                <div class="row">
-                  <div class="col-xs-12 col-sm-4">
-                    <% @project.each do |project| %>
+                <div class="container events-container">
+
+                  <% @project.each do |project| %>
+                  <% project.events.each do |event| %>
+
+                  <div class="row">
+                    <div class="card-event">
+                      <div class="col-xs-12 col-sm-3">
+                        <%= cl_image_tag event.project.photo, class: "card-event-img" %>
+                      </div>
+                      <div class="col-xs-12 col-sm-6">
+
+                        <div class="card-event-infos">
+                          <h2><%= event.project.name %></h2>
+                          <p><i class="fas fa-comment-alt"></i>&nbsp;&nbsp;<%= event.description %></p>
+                          <p><i class="fas fa-calendar-alt">&nbsp;&nbsp;</i><%= event.datetime %></>
+                          <p><i class="fas fa-user"></i>&nbsp;&nbsp;<%= event.user.first_name %> <%= event.user.last_name %><p/>
+                        </div>
+
+                      </div>
+
+                      <div class="col-xs-12 col-sm-3 text-center">
+
+                              <% if event.accepted == true %>
+                              <p><i class="fas fa-check"></i>proposta aceita!</p>
+                              <%= link_to "Cancelar", unaccepted_path(event), class: "btn btn-green", method: :patch %>
+                              <% else %>
+                              <p><i class="fas fa-times-circle"></i>proposta pendente!</p>
+                              <%= link_to "Aceitar", accepted_path(event), class: "btn btn-green", method: :patch %>
+                              <% end %>
+
+                      </div>
+                    </div>
+                  </div>
+
+                      <% end %>
+                      <% end %>
+
+                </div>
+
+              </section></li>
+
+              <!-- Terceira Aba: Perguntas para o Artista -->
+              <li class="tab" id="tab-3">
+               <a href="#tab-3"  id="tab-link">Minhas Perguntas</a>
+               <section class="tab-content">
+
+                <div>
+                  <h2>Minhas perguntas:</h2>
+                  <% @project.each do |project| %>
+
+                  <% project.anonymous_messages.each do |m| %>
+                  <p><%= m.question %></p>
+                  <p><%= m.answer %></p>
+                </div>
+                  <% end %>
+                  <% end %>
+                </div>
+
+              </section></li>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--                     <% @project.each do |project| %>
                     <% project.events.each do |e| %>
                     <ul>
                       <li><%= e.datetime %></li>
@@ -63,35 +127,6 @@
                     </ul>
                     <%= cl_image_tag e.user.photo, class: "user-avatar-sm" %>
                     <% end %>
-                    <% end %>
-                  </div>
-                </div>
-              </div>
-          </section></li>
-
-          <!-- Terceira Aba: Perguntas para o Artista -->
-          <li class="tab" id="tab-3">
-           <a href="#tab-3">Minhas Perguntas</a>
-           <section class="tab-content">
-
-            <div>
-              <h2>Minhas perguntas:</h2>
-              <% @project.each do |project| %>
-
-              <% project.anonymous_messages.each do |m| %>
-              <p><%= m.question %></p>
-              <p><%= m.answer %></p>
-              <% end %>
-              <% end %>
-            </div>
-
-          </section></li>
-        </div>
-      </ul>
-    </div>
-  </div>
-</div>
-</div>
-
+                    <% end %> -->
 
 

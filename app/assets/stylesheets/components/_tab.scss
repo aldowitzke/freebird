@@ -20,12 +20,12 @@ border-top-right-radius: 8px;
 border-top-left-radius: 8px;
 }
 
-.tab:not(:target) a {
+#tab-link:not(:target) a {
 border-bottom: 0 none;
 display: block;
 }
 
-.tab:target a, a:hover {
+#tab-link:target a, a:hover {
 background: $white;
 text-decoration: none;
 }
@@ -54,4 +54,10 @@ z-index: -1;
 
 .tab-wrapper {
   margin-top: 80px;
+}
+
+.events-container {
+  position: absolute;
+  top: 1em;
+  width: 100%;
 }
