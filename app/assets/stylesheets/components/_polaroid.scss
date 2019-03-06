@@ -3,7 +3,7 @@
   background: $white;
   display: inline;
   float: left;
-  margin: 0 15px 30px;
+  margin: 0 0px 30px;
   padding: 10px 10px 10px;
   text-align: center;
   text-decoration: none;
@@ -15,6 +15,9 @@
   -moz-transition: all .15s linear;
   transition: all .15s linear;
   z-index:0;
+  height: auto;
+  overflow-y: hidden;
+  min-height: 15.5em;
 }
 
 .polaroid-images p {
