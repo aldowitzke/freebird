@@ -16,7 +16,7 @@
           <%= search_field_tag :search_name, params[:search_name], placeholder: "", class: "home-search-name" %>
           <%# select_tag :search_city, params[:search_city], placeholder: "Cidade", class: "home-search-city", options_for_select: Project.all.pluck(:city).uniq %>
           <span class="home-search-city gray" style="color: white;">
-            <%= select nil, :search_city, Project.all.pluck(:city).uniq %>
+            <%= select nil, :search_city, Project.all.pluck(:city).uniq.unshift(nil) %>
           </span>
           <button class="btn-round"><i class="fas fa-play"></i></button>
         </div>
