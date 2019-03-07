@@ -1,4 +1,10 @@
 <div class="container">
+    <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class="form-card">
+        <h1 class="text-center new-project-title">Crie seu projeto!</h1>
+
+
   <%= simple_form_for(@project) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
@@ -14,7 +20,7 @@
     <%#= f.input :photo_cache, as: :hidden %>
     <!-- association pulls categories as dropdown and genres as checkbox to form -->
     <%= f.association :category, label: "Categoria" %>
-    <%= f.association :genres, label: "Gênero", as: :check_boxes %>
+    <%= f.association :genres, label: "Estilo", as: :check_boxes %>
   </div>
 
     <!-- added button for user to add a photo -->
@@ -23,10 +29,13 @@
     <%= f.input :photo_cache, as: :hidden %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Enviar" %>
+  <div class="form-actions text-center">
+    <%= f.button :submit, "Enviar", class: "btn btn-primary" %>
   </div>
 
 
   <% end %>
+  </div>
+</div>
+</div>
 </div>
