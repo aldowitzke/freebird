@@ -15,8 +15,15 @@
         <div class="col-xs-12 col-sm-4">
 
           <div class="box-bio">
-            <!-- Old version - category and genre together -->
-            <!-- <div class="tag"> -->
+
+            <div class="text-center box-stars">
+              Avaliação: <%= @project.rating_average.to_i %>&nbsp&nbsp&nbsp
+              <div class="orange" style="font-size: 18px"><%= stars(@project.rating_average.to_i) %></div>
+            </div>
+            <div class="text-center" style="margin-bottom: 6px">
+              de <%= @project.reviews.count %> reviews
+            </div>
+
           <div class="text-center">
               <p>
               <i class="fas fa-microphone-alt gray"></i>

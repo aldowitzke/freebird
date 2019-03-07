@@ -25,4 +25,8 @@ class Project < ApplicationRecord
   validates :state, presence: true
   validates :price, presence: true
   validates :description, presence: true
+
+  def rating_average
+    self.reviews.where.not(rate: nil).average(:rate)
+  end
 end

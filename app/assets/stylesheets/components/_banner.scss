@@ -51,6 +51,12 @@
   position: relative;
 }
 
+.box-stars {
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
 .tag {
   display: flex;
   align-items: center;

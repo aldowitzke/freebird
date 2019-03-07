@@ -1,7 +1,8 @@
-<h1>Crie um novo review</h1>
+<h1>Crie novo review</h1>
 
 <%= simple_form_for [@project, @review] do |f| %>
   <%= f.input :content %>
+  <%= f.input :rate, label: "Nota" %>
   <%= f.submit "Adicionar review", class: "btn btn-primary" %>
 <% end %>
 

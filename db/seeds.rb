@@ -267,12 +267,14 @@ Review.create!(
 Review.create!(
   project: encanta,
   content: "O Ian é um gato, se puder me ligar depois te agradeço!",
+  rate: 6,
   user: aldo,
   )
 
 Review.create!(
   project: encanta,
   content: "Lindo, emocionante e sensível",
+  rate: 3,
   user: aldo,
   )
 
