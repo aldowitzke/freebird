@@ -36,7 +36,7 @@
                 </button>
               </div>
               <div class="modal-body">
-                <%= cl_image_tag event.project.artist.photo, height: 64, width: 64 %>
+                <%= cl_image_tag event.project.artist.photo, id: "modal-avatar" %>
                 <p><i class="fas fa-user"></i><%=  " #{event.project.artist.first_name}  #{event.project.artist.last_name}" %></p>
                 <p><i class="fas fa-mobile-alt"></i><%= " #{event.project.artist.phone}" %></p>
                 <p><i class="fas fa-envelope"></i><%= " #{event.project.artist.email}" %></p>
