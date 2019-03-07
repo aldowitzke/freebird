@@ -39,7 +39,7 @@
 }
 
 .box-bio {
-  padding: 100px 15px 15px 15px;
+  padding: 40px 15px 15px 15px;
   font-family: Open Sans;
   font-size: 14px;
   font-style: bold;
@@ -49,6 +49,8 @@
   position: sticky;
   min-height: 350px;
   position: relative;
+  width: 475px;
+  margin-left: 55px;
 }
 
 .tag {
@@ -69,6 +71,7 @@
 }
 
 #box-video {
-  padding: 40px;
+  padding-left: 180px;
+  padding-top: 40px;
 }
 
