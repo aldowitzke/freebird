@@ -13,22 +13,27 @@
     <div class="background-lightblack box-main">
       <div class="row">
         <div class="col-xs-12 col-sm-4">
+
           <div class="box-bio">
-            <div class="tag"><p><i class="fas fa-microphone-alt gray"></i>
+            <!-- Old version - category and genre together -->
+            <!-- <div class="tag"> -->
+          <div class="text-center">
+              <p>
+              <i class="fas fa-microphone-alt gray"></i>
               <%= @project.category.name %>
             </p>
             <p>
               <i class="fas fa-map-marker-alt gray"></i>
               <%= @project.city %>, <%= @project.state %>
             </p>
-          </div>
-          <div class="text-center">
+          <!-- </div> -->
             <p>
               <i class="fas fa-music gray"></i>
               <% @project.genres.each do |t| %>
               <%= t.name %>
               <% end %>
             </p>
+
           </div>
           <p class="white" style="font-size: 18px"><%= @project.description %></p>
           <div class="tag">
@@ -85,7 +90,7 @@
     <div class="col-xs-8 col-xs-offset-2">
 
 
-      <p>Pergunte algo para <%= @project.artist.first_name %></h2>
+      <h3 class="green text-center">Pergunte algo para <%= @project.artist.first_name %></h2>
         <% if current_user != @project.artist && user_signed_in? %>
         <%= simple_form_for([@project, @anonymous_message]) do |f| %>
         <div class="form-inputs">
