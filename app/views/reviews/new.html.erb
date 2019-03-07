@@ -1,8 +1,18 @@
-<h1>Crie novo review</h1>
+<div class="container text-center">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <div class="form-new-review">
 
-<%= simple_form_for [@project, @review] do |f| %>
-  <%= f.input :content %>
-  <%= f.input :rate, label: "Nota" %>
-  <%= f.submit "Adicionar review", class: "btn btn-primary" %>
-<% end %>
+      <h1 class="review-title">Crie um novo review</h1>
+
+      <%= simple_form_for [@project, @review] do |f| %>
+        <%= f.input :content, label: false, placeholder: "Escreva seu review" %>
+        <%= f.input :rate, label: "Nota" %>       
+        <%= f.submit "Adicionar review", class: "btn btn-primary submit-review" %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
 
