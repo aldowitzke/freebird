@@ -1,7 +1,4 @@
 <!-- Criando a listagem -->
-
-
-
 <div class="tab-wrapper">
   <div class="container">
 
@@ -10,149 +7,180 @@
       <div class="col-xs-12 col-sm-3">
         <div class="profile-card text-center">
 
-        <%= cl_image_tag @current_user.photo, class: "musician-avatar" %>
-        <p><i class="fas fa-user"></i>&nbsp;&nbsp;<%= @current_user.first_name %> <%= @current_user.last_name %></p>
-        <p><i class="fas fa-envelope"></i>&nbsp;&nbsp;<%= @current_user.email %></p>
-        <p><i class="fas fa-city"></i>&nbsp;&nbsp;<%= @current_user.city %></p>
-        <p><i class="fas fa-mobile-alt">&nbsp;&nbsp;</i><%= @current_user.phone %></p>
-        <%= link_to edit_user_registration_path do %>
-        <i class="fa fa-cog"></i>  <%= t(".settings", default: "Editar meu Perfil") %>
-        <% end %>
+          <%= cl_image_tag @current_user.photo, class: "musician-avatar" %>
+          <p>
+            <i class="fas fa-user"></i>&nbsp;&nbsp;<%= @current_user.first_name %> <%= @current_user.last_name %>
+          </p>
+          <p>
+            <i class="fas fa-envelope"></i>&nbsp;&nbsp;<%= @current_user.email %>
+          </p>
+          <p>
+            <i class="fas fa-city"></i>&nbsp;&nbsp;<%= @current_user.city %>
+          </p>
+          <p>
+            <i class="fas fa-mobile-alt">&nbsp;&nbsp;</i><%= @current_user.phone %>
+          </p>
+          <%= link_to edit_user_registration_path do %>
+          <i class="fa fa-cog"></i>  <%= t(".settings", default: "Editar meu Perfil") %>
+          <% end %>
         </div>
       </div>
 
       <div class="col-xs-12 col-sm-9">
         <ul class="tabs">
 
-          <!-- Primeira Aba: Eventos do Artista -->
+
+
+          <!-- Primeira Aba: Projetos do Artista -->
 
           <li class="tab" id="tab-1">
-              <a href="#tab-1"  id="tab-link">Meus Eventos</a>
-              <section class="tab-content tab-content-project">
-                <div class="container events-container">
-
-                  <% @project.each do |project| %>
-                  <% project.events.each do |event| %>
-
-                  <div class="row">
-                    <div class="card-event">
-                      <div class="col-xs-12 col-sm-3">
-                        <%= cl_image_tag event.project.photo, class: "card-event-img" %>
-                      </div>
-                      <div class="col-xs-12 col-sm-6">
-
-                        <div class="card-event-infos">
-                          <h2><%= event.project.name %></h2>
-                          <p><i class="fas fa-comment-alt"></i>&nbsp;&nbsp;<%= event.description %></p>
-                          <p><i class="fas fa-calendar-alt">&nbsp;&nbsp;</i><%= event.datetime %></>
-                          <p><i class="fas fa-user"></i>&nbsp;&nbsp;<%= event.user.first_name %> <%= event.user.last_name %><p/>
-                        </div>
-
-                      </div>
-
-                      <div class="col-xs-12 col-sm-3 text-center">
-
-                              <% if event.accepted == true %>
-                              <div id="event-status">
-                              <p><i class="fas fa-check"></i>&nbsp;&nbsp;Proposta aceita!</p>
-                              <%= link_to "Cancelar", unaccepted_path(event), class: "btn btn-green", method: :patch %>
-                              </div>
-                              <% else %>
-                              <div id="event-status">
-                              <p><i class="fas fa-times-circle"></i>&nbsp;&nbsp;Proposta pendente!</p>
-                              <%= link_to "Aceitar", accepted_path(event), class: "btn btn-green", method: :patch %>
-                              </div>
-                              <% end %>
-
-                      </div>
-                    </div>
-                  </div>
-
-                      <% end %>
-                      <% end %>
-
-                </div>
-
-              </section></li>
-
-
-            <!-- Segunda Aba: Projetos do Artista -->
-
-          <li class="tab" id="tab-2">
-            <a href="#tab-2" id="tab-link">Meus Projetos</a>
+            <a href="#tab-1" id="tab-link">Meus Projetos</a>
             <section class="tab-content tab-content-project">
-              <% @project.each do |project| %>
-              <div class="polaroid-images">
-                <%= link_to project_path(project) do %>
-                <%= cl_image_tag project.photo, height: 170, width: 210, crop: :fill %>
-                <%= project.name %>
-                <p><i class="fas fa-microphone-alt"></i>
-                  <%= project.category.name %>
-                  <i class="fas fa-map-marker-alt"></i>
-                  <%= project.city %>, <%= project.state %>
-                </p>
-                <p>
-                  <i class="fas fa-music"></i>
-                  <% project.genres.each do |t| %>
-                  <%= t.name %>
-                  <% end %>
-                </p>
+              <div class="row my-projects-card">
+                <% @project.each do |project| %>
+                  <div class="col-xs-4">
+                    <%= link_to project_path(project), class: "polaroid-project" do %>
+                        <%= cl_image_tag project.photo, height: 170, width: 210, crop: :fill %>
+                        <%= project.name %>
+                        <p>
+                          <i class="fas fa-microphone-alt"></i>
+                          <%= project.category.name %>
+                          <i class="fas fa-map-marker-alt"></i>
+                          <%= project.city %>, <%= project.state %>
+                        </p>
+                        <p>
+                          <i class="fas fa-music"></i>
+                          <% project.genres.each do |t| %>
+                            <%= t.name %>
+                          <% end %>
+                        </p>
+                    <% end %>
+                  </div>
                 <% end %>
               </div>
-              <% end %>
 
             </section></li>
 
 
-              <!-- Terceira Aba: Perguntas para o Artista -->
-              <li class="tab" id="tab-3">
-               <a href="#tab-3" id="tab-link">Minhas Perguntas</a>
-               <section class="tab-content">
+          <!-- Segunda Aba: Perguntas para o Artista -->
+          <li class="tab" id="tab-1">
+           <a href="#tab-1" id="tab-link">Minhas Perguntas</a>
+           <section class="tab-content">
 
             <div class="questions">
               <div class="col-xs-offset-2 col-xs-8">
-                  <% @project.each do |project| %>
+                <% @project.each do |project| %>
 
-                  <h1 class="text-center"><%= project.name %></h1>
+                <h1 class="text-center"><%= project.name %></h1>
 
-                  <% if project.anonymous_messages.empty? %>
-                    <p class="text-center"><i class="fas fa-times-circle"></i>&nbsp;&nbsp;<strong>Você não possui perguntas para esse projeto</strong></p>
-                  <% end %>
+                <% if project.anonymous_messages.empty? %>
+                <p class="text-center">
+                  <i class="fas fa-times-circle"></i>&nbsp;&nbsp;<strong>Você não possui perguntas para esse projeto</strong>
+                </p>
+                <% end %>
 
-                    <% project.anonymous_messages.each do |m| %>
-                      <div class="card-product">
-                        <div class="card-product-infos">
+                <% project.anonymous_messages.each do |m| %>
+                <div class="card-product">
+                  <div class="card-product-infos">
 
-                            <p><i class="far fa-comment icon"></i><%= m.question %></p>
+                    <p>
+                      <i class="far fa-comment icon"></i><%= m.question %>
+                    </p>
 
-                          <% if m.answer == nil %>
-                            <%= simple_form_for([project, m]) do |f| %>
-                                <div class="form-inputs large-size text-center">
-                                  <%= f.input :answer, label: false, placeholder: "Insira sua resposta aqui" %>
-                                </div>
-                                <div class="form-actions">
-                                  <%= f.button :submit, "Enviar", class: "btn btn-green send-button" %>
-                                </div>
-
-                            <% end %>
-                          <% else %>
-                            <p><i class="far fa-comments icon"></i><%= m.answer %></p>
-                          <% end %>
-                        </div>
-                      </div>
+                    <% if m.answer == nil %>
+                    <%= simple_form_for([project, m]) do |f| %>
+                    <div class="form-inputs large-size text-center">
+                      <%= f.input :answer, label: false, placeholder: "Insira sua resposta aqui" %>
+                    </div>
+                    <div class="form-actions">
+                      <%= f.button :submit, "Enviar", class: "btn btn-green send-button" %>
+                    </div>
 
                     <% end %>
-                  <% end %>
+                    <% else %>
+                    <p>
+                      <i class="far fa-comments icon"></i><%= m.answer %>
+                    </p>
+                    <% end %>
+                  </div>
+                </div>
+
+                <% end %>
+                <% end %>
               </div>
             </div>
 
-              </section></li>
+          </section>
+        </li>
+
+        <!-- Primeira aba: Eventos do Artista -->
+
+        <li class="tab" id="tab-3">
+          <a href="#tab-3"  id="tab-link">Meus Eventos</a>
+          <section class="tab-content tab-content-project">
+            <div class="container events-container">
+
+              <% @project.each do |project| %>
+              <% project.events.each do |event| %>
+
+              <div class="row">
+                <div class="card-event">
+                  <div class="col-xs-12 col-sm-3">
+                    <%= cl_image_tag event.project.photo, class: "card-event-img" %>
+                  </div>
+                  <div class="col-xs-12 col-sm-6">
+
+                    <div class="card-event-infos">
+                      <h2><%= event.project.name %></h2>
+                      <p>
+                        <i class="fas fa-comment-alt"></i>&nbsp;&nbsp;<%= event.description %>
+                      </p>
+                      <p>
+                        <i class="fas fa-calendar-alt">&nbsp;&nbsp;</i><%= event.datetime %>
+                      </p>
+                      <p>
+                        <i class="fas fa-user"></i>&nbsp;&nbsp;<%= event.user.first_name %> <%= event.user.last_name %>
+                      </p>
+                    </div>
+
+                  </div>
+
+                  <div class="col-xs-12 col-sm-3 text-center">
+
+                    <% if event.accepted == true %>
+                    <div id="event-status">
+                      <p>
+                        <i class="fas fa-check"></i>&nbsp;&nbsp;Proposta aceita!
+                      </p>
+                      <%= link_to "Cancelar", unaccepted_path(event), class: "btn btn-green", method: :patch %>
+                    </div>
+                    <% else %>
+                    <div id="event-status">
+                      <p>
+                        <i class="fas fa-times-circle"></i>&nbsp;&nbsp;Proposta pendente!
+                      </p>
+                      <%= link_to "Aceitar", accepted_path(event), class: "btn btn-green", method: :patch %>
+                    </div>
+                    <% end %>
+
+                  </div>
+                </div>
+              </div>
+
+              <% end %>
+              <% end %>
+
             </div>
-          </ul>
-        </div>
+
+          </section>
+        </li>
+
       </div>
-    </div>
+    </ul>
   </div>
+</div>
+</div>
+</div>
 
 <!--                     <% @project.each do |project| %>
                     <% project.events.each do |e| %>
