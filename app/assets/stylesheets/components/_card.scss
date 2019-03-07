@@ -44,19 +44,25 @@
   border-radius: 10px;
     p {
     word-wrap: break-word;
+    color: white
+  }
+  h1 {
+    color: white;
+    text-decoration: bold;
   }
 }
 
 .card-event {
   overflow: hidden;
   height: 120px;
-  background: white;
+  background: #141725;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
   margin: 10px;
   height: auto;
   padding-bottom: 20px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
 }
 
 .card-event-user {
@@ -100,13 +106,14 @@
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  color: white;
+  text-decoration: bold;
 }
 
 .card-event-user h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
-
 }
 
 .card-event p {
@@ -115,6 +122,7 @@
   opacity: .7;
   margin-bottom: 0;
   margin-top: 12px;
+  color: white;
 }
 
 .card-event-user p {
