@@ -5,7 +5,7 @@
   </div>
 
 <div class="row">
-  <div class="col-xs-12 col-md-6">
+  <div class="col-xs-12 <%= @events.size == 1 ? '' : 'col-md-6'%>">
     <% @events.each do |event| %>
     <div class="card-event-user">
       <%= cl_image_tag event.project.photo, class: "card-event-img" %>
