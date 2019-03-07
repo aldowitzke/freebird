@@ -29,3 +29,12 @@
   padding: 3px;
   background-color: $black;
 }
+
+#modal-avatar {
+  height: 25vh;
+  width: 25vh;
+  border-radius: 100px;
+  object-fit: cover;
+  padding: 3px;
+  margin: 10px;
+}
