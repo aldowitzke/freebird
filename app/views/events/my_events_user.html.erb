@@ -43,7 +43,9 @@
               </div>
 
               <% if event.accepted %>
-              <%= link_to "seu review", new_project_review_path(event.project), class: "btn btn-danger review-button-contracts" %>
+
+              <%= link_to "Review", new_project_review_path(event.project), class: "btn btn-danger review-button-contracts" %>
+  
               <% end %>
 </div>
 
