@@ -64,6 +64,12 @@ align-items: center;
 justify-content: center;
 }
 
+.review-stars {
+  display: flex;
+  align-items: top;
+  justify-content: space-between;
+}
+
 .tag {
   display: flex;
   align-items: center;

@@ -84,11 +84,16 @@
 
       <% @project.reviews.each do |review| %>
       <div class="white background-lightblack box-main tag" id="review-box">
+
         <div>
           <p><%= review.content %></p>
           <p class="gray font-sm">- <%= review.user.first_name %> <%= review.user.last_name %></p>
         </div>
+        <div class="review-stars">
+        <div class="orange" style="font-size: 18px"><%= stars(review.rate) %></div>
         <%= cl_image_tag review.user.photo, class: "user-avatar-sm" %>
+        </div>
+
       </div>
       <% end %>
     </div>
