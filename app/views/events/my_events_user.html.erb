@@ -4,89 +4,87 @@
     <h1>Seus artistas</h1>
   </div>
 
-  <div class="row">
-    <% @events.each do |event| %>
-    <div class="col-xs-12 col-md-6">
-      <div class="card-event-user" style="background:#151827; border-radius:10px;">
+  <% @events.each do |event| %>
+  <div class="<%= @events.size == 1 ? 'col-xs-12 text-center' : 'col-md-6'%>">
+    <div class="card-event-user" style="background:#151827; border-radius:10px;">
 
-        <div class="row">
-          <div class="col-xs-12 col-md-4">
+      <div class="row">
+        <div class="col-xs-12 col-md-4">
 
-            <div>
+          <div>
 
-              <%= cl_image_tag event.project.photo, class: "card-event-photo" %>
-
-            </div>
+            <%= cl_image_tag event.project.photo, class: "card-event-photo" %>
 
           </div>
 
-          <div class="col-xs-12 col-md-8">
+        </div>
 
-            <div class="card-event-infos">
-              <h2><%= event.project.name %></h2>
-              <p><i class="fas fa-comment-alt">&nbsp;&nbsp;</i><%= event.description %>
-                <p><i class="fas fa-calendar-alt">&nbsp;&nbsp;</i><%= event.datetime.strftime("%d/%m/%Y") %></p>
-                <p><i class="fas fa-user"></i>&nbsp;&nbsp;<%= event.project.artist.first_name %> <%= event.project.artist.last_name %>
+        <div class="col-xs-12 col-md-8">
 
-                  <% if event.accepted == true %>
-                  <p><i class="fas fa-check"></i><%= "  #{event.project.artist.first_name}" %> aceitou sua proposta</p>
+          <div class="card-event-infos">
+            <h2><%= event.project.name %></h2>
+            <p><i class="fas fa-comment-alt">&nbsp;&nbsp;</i><%= event.description %>
+              <p><i class="fas fa-calendar-alt">&nbsp;&nbsp;</i><%= event.datetime.strftime("%d/%m/%Y") %></p>
+              <p><i class="fas fa-user"></i>&nbsp;&nbsp;<%= event.project.artist.first_name %> <%= event.project.artist.last_name %>
 
-                  <div class="event-btn-line">
+                <% if event.accepted == true %>
+                <p><i class="fas fa-check"></i><%= "  #{event.project.artist.first_name}" %> aceitou sua proposta</p>
+
+                <div class="event-btn-line">
 
 
-                    <!-- Botao contactar artista -->
-                    <div class="event-buttons">
-                      <button type="button" class="btn btn-primary contact-artist" data-toggle="modal" data-target="#exampleModal">
-                        Contacte <%= "#{event.project.artist.first_name}" %>
-                      </button>
-                    </div>
-
-                    <!-- Botao review-->
-                    <% if event.accepted %>
-
-                    <%= link_to "Review", new_project_review_path(event.project), class: "btn btn-danger review-button-contracts" %>
-
-                    <% end %>
+                  <!-- Botao contactar artista -->
+                  <div class="event-buttons">
+                    <button type="button" class="btn btn-primary contact-artist" data-toggle="modal" data-target="#exampleModal">
+                      Contacte <%= "#{event.project.artist.first_name}" %>
+                    </button>
                   </div>
 
-                  <!-- Modal -->
-                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content text-center">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel"><%= "Informaçōes de #{event.project.artist.first_name}" %></h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <%= cl_image_tag event.project.artist.photo, id: "modal-avatar" %>
-                          <p><i class="fas fa-user"></i><%=  " #{event.project.artist.first_name}  #{event.project.artist.last_name}" %></p>
-                          <p><i class="fas fa-mobile-alt"></i><%= " #{event.project.artist.phone}" %></p>
-                          <p><i class="fas fa-envelope"></i><%= " #{event.project.artist.email}" %></p>
-                          <p><i class="fas fa-home"></i><%= " #{event.project.artist.city}" %></p>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
+                  <!-- Botao review-->
+                  <% if event.accepted %>
+
+                  <%= link_to "Review", new_project_review_path(event.project), class: "btn btn-danger review-button-contracts" %>
+
+                  <% end %>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content text-center">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"><%= "Informaçōes de #{event.project.artist.first_name}" %></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        <%= cl_image_tag event.project.artist.photo, id: "modal-avatar" %>
+                        <p><i class="fas fa-user"></i><%=  " #{event.project.artist.first_name}  #{event.project.artist.last_name}" %></p>
+                        <p><i class="fas fa-mobile-alt"></i><%= " #{event.project.artist.phone}" %></p>
+                        <p><i class="fas fa-envelope"></i><%= " #{event.project.artist.email}" %></p>
+                        <p><i class="fas fa-home"></i><%= " #{event.project.artist.city}" %></p>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                       </div>
                     </div>
                   </div>
-                  <% else %>
-                  <p><i class="fas fa-times-circle"></i><%= "  #{event.project.artist.first_name} ainda não aceitou sua proposta" %></p>
-                  <% end %>
+                </div>
+                <% else %>
+                <p><i class="fas fa-times-circle"></i><%= "  #{event.project.artist.first_name} ainda não aceitou sua proposta" %></p>
+                <% end %>
 
-      <!-- <% if current_user == event.project.artist %>
-        <% link_to "Aceitar proposta" do %>
-          <% event.accepted = true %>
-        <% end %>
-        <% end %> -->
-      </div>
+    <!-- <% if current_user == event.project.artist %>
+      <% link_to "Aceitar proposta" do %>
+        <% event.accepted = true %>
+      <% end %>
+      <% end %> -->
     </div>
-
   </div>
-</div>
-</div>
+
+    </div>
+  </div>
 <% end %>
 </div>
 
