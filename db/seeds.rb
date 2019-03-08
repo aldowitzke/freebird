@@ -56,9 +56,11 @@ lucianauser = User.create!(
   last_name: 'Pires',
   email: 'lupires.canta@gmail.com',
   artist: true,
-  password: '123123',
-  remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1552062324/lucianapires.png",
-  phone: "(14)98159-9492"
+  password: '123456',
+  remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1551451065/luciana.png",
+  phone: "(14)98159-9492",
+  city: "Bauru",
+  state: "SP",
   )
 
 kreo = User.create!(
@@ -66,9 +68,12 @@ kreo = User.create!(
   last_name: 'Fidélis',
   email: 'kreofidelis@hotmail.com',
   artist: true,
-  password: '123123',
-  remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1552062476/kreofidelis.jpg",
-  phone: "(14)99761-3196"
+
+  password: '123456',
+  remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1551451435/kreoperfil.jpg",
+  phone: "(14)99761-3196",
+  city: "Marília",
+  state: "SP",
   )
 
 puts 'Creating categories'
