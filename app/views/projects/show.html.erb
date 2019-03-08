@@ -12,7 +12,9 @@
   <div class="container">
     <div class="background-lightblack box-main">
       <div class="row">
-        <div class="col-xs-12 col-sm-4">
+          <div class="box-first">
+        <div class="col-xs-12 col-md-6">
+
 
           <div class="box-bio">
 
@@ -60,14 +62,14 @@
             </div>
 
           </div>
-          <div class="col-xs-12 col-sm-8 text-center" id="box-video">
+          <div class="col-xs-12 col-md-6 text-center" id="box-video">
             <iframe width="460" height="275" src="<%= @project[:video] %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
         </div>
       </div>
     </div>
 
-
+</div>
 
 
 <div class="container">
@@ -88,6 +90,7 @@
 
       <% @project.reviews.each do |review| %>
       <div class="white background-lightblack box-main tag" id="review-box">
+
         <div>
           <p><%= review.content %></p>
           <% if review.user %>
@@ -97,11 +100,11 @@
           <% end %>
         </div>
 
-        <% if review.user %>
-          <%= cl_image_tag review.user.photo, class: "user-avatar-sm"%>
-        <% else %>
-          <%= image_tag 'headphone.png', class: "user-avatar-sm" %>
-        <% end %>
+        <div class="review-stars">
+        <div class="orange" style="font-size: 18px"><%= stars(review.rate) %></div>
+        <%= cl_image_tag review.user.photo, class: "user-avatar-sm" %>
+        </div>
+
       </div>
       <% end %>
     </div>
