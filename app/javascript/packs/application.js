@@ -12,7 +12,8 @@ var options = {
 
 var typed = new Typed(".home-search-name", options);
 
-$( ".home-search-city select" ).select2({
+//$( ".home-search-city select" ).select2({
+$( "#search_city" ).select2({
     theme: "bootstrap",
     placeholder: "Cidade"
 });
