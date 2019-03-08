@@ -29,12 +29,14 @@
     color: #79f1e3;
     font-size: 18px;
   }
-
 }
 
 /* Logo */
 .navbar-wagon-brand img {
   height: 50px;
+}
+.navbar-wagon-brand:hover {
+  background: inherit;
 }
 
 /* User Avatar */
@@ -77,6 +79,7 @@
   background-color: #79f1e3;
   text-decoration: none;
 }
+
 
 /* Dropdown menu */
 .navbar-wagon-dropdown-menu {
