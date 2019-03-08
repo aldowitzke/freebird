@@ -2,6 +2,9 @@
 puts 'Destroying users'
 User.destroy_all
 
+puts 'Destroying reviews'
+Review.destroy_all
+
 puts 'Destroying project genres'
 ProjectGenre.destroy_all
 
@@ -19,7 +22,7 @@ puts 'Creating new users...'
 freebird = User.create!(
    first_name: 'admin',
    last_name: 'admin',
-   email: 'freebird@freebird.com',
+   email: 'contato@freebird.show',
    admin: true,
    password: '123456',
    remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1551298452/darth.jpg",

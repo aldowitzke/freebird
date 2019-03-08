@@ -84,9 +84,18 @@
       <div class="white background-lightblack box-main tag" id="review-box">
         <div>
           <p><%= review.content %></p>
-          <p class="gray font-sm">- <%= review.user.first_name %> <%= review.user.last_name %></p>
+          <% if review.user %>
+            <p class="gray font-sm">- <%= review.user.first_name %> <%= review.user.last_name %></p>
+          <% else %>
+            <p class="gray font-sm">- Anônimo</p>
+          <% end %>
         </div>
-        <%= cl_image_tag review.user.photo, class: "user-avatar-sm" %>
+
+        <% if review.user %>
+          <%= cl_image_tag review.user.photo, class: "user-avatar-sm"%>
+        <% else %>
+          <%= image_tag 'headphone.png', class: "user-avatar-sm" %>
+        <% end %>
       </div>
       <% end %>
     </div>
