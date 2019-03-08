@@ -173,7 +173,7 @@ general = Project.create!(
 imaginaria = Project.create!(
   artist: kreo,
   category: banquinho,
-  name: "Krêo Fidélis e a Banda Imaginária",
+  name: "Krêo e a Banda Imaginária",
   description: "Banda Imaginária é o projeto mais recente do músico, que já fez história e histórias com bandas, solos, gravações autorais e covers cada vez mais reconhecidos.
   Vem aí um grande projeto em uma fase em que ele busca achar na simplicidade o que buscou a carreira toda: viver de música com muito prazer em criar e tocar. Conheça mais sobre Kreo Fidelis.",
   city: "Marília",
