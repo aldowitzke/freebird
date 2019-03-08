@@ -10,13 +10,16 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     @review.project = Project.find(params[:project_id])
     @review.save
+
     authorize @review
     redirect_to @review.project
   end
 
+  # validates :rate, inclusion: { in: (0..5) }
+
   private
 
   def review_params
-    params.require(:review).permit(:content, :user_id)
+    params.require(:review).permit(:content, :rate, :user_id)
   end
 end

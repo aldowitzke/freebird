@@ -7,10 +7,12 @@
 
       <%= simple_form_for [@project, @review] do |f| %>
         <%= f.input :content, label: false, placeholder: "Escreva seu review" %>
+        <%= f.input :rate, label: "Nota" %>       
         <%= f.submit "Adicionar review", class: "btn btn-primary submit-review" %>
       <% end %>
       </div>
     </div>
   </div>
 </div>
+
 
