@@ -74,6 +74,12 @@
   <div class="row">
     <div class="col-xs-8 col-xs-offset-2">
 
+      <h2 class="text-center" style="margin-bottom: 30px;">Reviews de <%= @project.artist.first_name %></h2>
+
+      <% if @project.reviews.empty? == true %>
+        <p class="text-center"><%= @project.artist.first_name %> não possui reviews ainda.</p>
+      <% end %>
+
       <% if current_user != @project.artist %>
       <div class="review-section text-center">
         <%= link_to "Criar novo review", new_project_review_path(@project), class: "btn-solid-blue" %>
@@ -111,7 +117,7 @@
           <h3 class="green text-center ask-margin-bottom">Pergunte algo para <%= @project.artist.first_name %></h3>
         <%= simple_form_for([@project, @anonymous_message]) do |f| %>
         <div class="form-inputs">
-          <%= f.input :question, placeholder: "Exemplo: Possui disponibilidade para quarta-feira?", label: false %>
+          <%= f.input :question, placeholder: "Exemplo: Você traz seu próprio equipamento?", label: false %>
         </div>
         <div class="form-actions text-center margin-bottom-button">
           <%= f.button :submit, "Enviar" %>
