@@ -6,3 +6,12 @@
 .submit-review {
   margin-top: 35px;
 }
+
+.inline {
+  display: inline;
+  padding: 5px;
+}
+
+fieldset.radio_buttons legend.col-form-label {
+    border: none;
+}
