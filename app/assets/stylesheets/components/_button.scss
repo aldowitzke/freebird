@@ -33,6 +33,8 @@
   opacity: 0.9;
   transition: opacity 0.3s ease;
   text-align: center;
+  color: black;
+  margin-top: 15px;
 }
 
 .btn-solid:hover {
@@ -40,6 +42,7 @@
   height: 44px;
   width: 99px;
   text-decoration: none;
+  background: #79f1e3;
 }
 
 .btn-solid-blue {
