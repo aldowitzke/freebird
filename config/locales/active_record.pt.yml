@@ -1,0 +1,30 @@
+pt:
+  activerecord:
+    models:
+      project: "Projeto"
+    attributes:
+      project:
+        name: "Nome"
+        category: "Categoria"
+        description: "Descrição"
+        city: "Cidade"
+        state: "Estado"
+        price: "Preço"
+    errors:
+      models:
+        project:
+          attributes:
+            name:
+              blank: " Não pode ficar em branco."
+            description:
+              blank: " Não pode ficar em branco."
+            category:
+              required: " É mandatório."
+            city:
+              blank: "Não pode ficar em branco."
+            state:
+              blank: "Não pode ficar em branco."
+            price:
+              blank: "Não pode ficar em branco."
+
+
