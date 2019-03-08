@@ -123,7 +123,7 @@
           <%= f.input :question, placeholder: "Exemplo: Você traz seu próprio equipamento?", label: false %>
         </div>
         <div class="form-actions text-center margin-bottom-button">
-          <%= f.button :submit, "Enviar" %>
+          <%= f.button :submit, "Enviar", class: "btn btn-primary" %>
         </div>
         <% end %>
         <% elsif user_signed_in? == false %>
@@ -164,7 +164,7 @@
                 <%= simple_form_for([@project, message]) do |f| %>
                 <%= f.input :answer %>
               <div class="text-center margin-bottom-button">
-                <%= f.button :submit, "Enviar" %>
+                <%= f.button :submit, "Enviar", class: "btn btn-primary" %>
               </div>
                 <% end %>
               <% end %>
