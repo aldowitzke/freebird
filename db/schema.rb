@@ -74,7 +74,6 @@ ActiveRecord::Schema.define(version: 2019_02_28_153228) do
     t.string "city"
     t.string "state"
     t.integer "price"
-    t.integer "rating"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["artist_id"], name: "index_projects_on_artist_id"

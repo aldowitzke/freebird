@@ -262,12 +262,13 @@ Review.create!(
   project: balanca,
   content: "Essa Coca é fanta... de Rock não tem nada!",
   user: aldo,
+  rate: 5,
   )
 
 Review.create!(
   project: encanta,
   content: "O Ian é um gato, se puder me ligar depois te agradeço!",
-  rate: 6,
+  rate: 4,
   user: aldo,
   )
 
@@ -282,18 +283,21 @@ Review.create!(
   project: casar,
   content: "Animou muito meu casamento, agora é trabaiar",
   user: aldo,
+  rate: 1,
   )
 
 Review.create!(
   project: onemanband,
   content: "Perfeito!!!!!",
   user: ian,
+  rate: 0,
   )
 
 Review.create!(
   project: general_style,
   content: "Detestei vocês não recomendo! Horrível... horrível",
   user: ian,
+  rate: 2,
   )
 
 puts 'done!'
