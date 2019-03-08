@@ -167,6 +167,20 @@
 #event-status {
   display: flex;
   flex-direction: column;
+  a {
+    float: right;
+    padding: 0.5em 1em;
+    background: #06c9c6;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #151828;
+    border-radius: 8px;
+    color: black;
+    opacity: 0.7;
+  }
+  a:hover {
+    opacity: 1;
+  }
 }
 
 
