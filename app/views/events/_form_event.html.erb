@@ -6,7 +6,7 @@
       <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
       <div class="form-inputs">
-        <%= f.input :datetime, label:"Data" %>
+        <%= f.input :datetime, label:"Data",  as: :string, input_html: {class: "datepicker"} %>
         <%= f.input :description, label:"Descrição" %>
         <%#= f.input :photo_cache, as: :hidden %>
         <div class="text-center">
