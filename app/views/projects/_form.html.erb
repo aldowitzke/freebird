@@ -11,7 +11,7 @@
 
   <div class="form-inputs form-new-project">
     <%#=  missing genre and category! %>
-    <%= f.input :name, label: "Nome" %>
+    <%= f.input :name, label: "Nome (limite 25 caracteres)", :maxlength => 25 %>
     <%= f.input :description, label: "Descrição" %>
     <%= f.input :city, label: "Cidade" %>
     <%= f.input :state, label: "Estado" %>
