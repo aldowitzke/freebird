@@ -53,6 +53,7 @@ class EventsController < ApplicationController
 
   def my_events_user
     @events = current_user.events
+    @events_size = @events.size
     authorize @events
   end
 
