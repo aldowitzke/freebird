@@ -58,7 +58,9 @@ luciana = User.create!(
   artist: true,
   password: '123456',
   remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1551451065/luciana.png",
-  phone: "(14)98159-9492"
+  phone: "(14)98159-9492",
+  city: "Bauru",
+  state: "SP",
   )
 
 kreo = User.create!(
@@ -68,7 +70,9 @@ kreo = User.create!(
   artist: true,
   password: '123456',
   remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1551451435/kreoperfil.jpg",
-  phone: "(14)99761-3196"
+  phone: "(14)99761-3196",
+  city: "Marília",
+  state: "SP",
   )
 
 puts 'Creating categories'
