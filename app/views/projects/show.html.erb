@@ -54,7 +54,7 @@
                 <% end %>
               </div>
               <div style="display:flex; justify-content:space-around">
-                <% if current_user == @project.artist %>
+                <% if current_user == @project.artist || current_user.admin == true %>
                 <%= link_to "Editar", edit_project_path(@project), class: "btn btn-primary" %>
                 <%= link_to "Deletar", project_path(@project), method: :delete, class: "btn btn-danger" %>
                 <% end %>
