@@ -37,25 +37,30 @@
             <a href="#tab-1" id="tab-link">Meus Projetos</a>
             <section class="tab-content tab-content-project">
               <div class="row my-projects-card">
-                <% @project.each do |project| %>
-                  <div class="col-xs-4">
-                    <%= link_to project_path(project), class: "polaroid-project" do %>
-                        <%= cl_image_tag project.photo, height: 170, width: 210, crop: :fill %>
-                        <%= project.name %>
-                        <p>
-                          <i class="fas fa-microphone-alt"></i>
-                          <%= project.category.name %>
-                          <i class="fas fa-map-marker-alt"></i>
-                          <%= project.city %>, <%= project.state %>
-                        </p>
-                        <p>
-                          <i class="fas fa-music"></i>
-                          <% project.genres.each do |t| %>
-                            <%= t.name %>
-                          <% end %>
-                        </p>
-                    <% end %>
-                  </div>
+                <% if @projects.any? %>
+                  <% @projects.each do |project| %>
+                    <div class="col-xs-4">
+
+                      <%= link_to project_path(project), class: "polaroid-project" do %>
+                          <%= cl_image_tag project.photo, height: 170, width: 210, crop: :fill %>
+                          <%= project.name %>
+                          <p>
+                            <i class="fas fa-microphone-alt"></i>
+                            <%= project.category.name %>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <%= project.city %>, <%= project.state %>
+                          </p>
+                          <p>
+                            <i class="fas fa-music"></i>
+                            <% project.genres.each do |t| %>
+                              <%= t.name %>
+                            <% end %>
+                          </p>
+                      <% end %>
+                    </div>
+                  <% end %>
+                <% else %>
+                  <h3>Não tem projetos!</h3>
                 <% end %>
               </div>
 
@@ -69,7 +74,7 @@
 
             <div class="questions">
               <div class="col-xs-offset-2 col-xs-8">
-                <% @project.each do |project| %>
+                <% @projects.each do |project| %>
 
                       <h1 class="text-center"><%= project.name %></h1>
                 <div class="row">
@@ -128,7 +133,7 @@
           <section class="tab-content tab-content-project">
             <div class="container events-container">
 
-              <% @project.each do |project| %>
+              <% @projects.each do |project| %>
               <% project.events.each do |event| %>
 
               <div class="row">
