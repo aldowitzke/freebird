@@ -42,12 +42,6 @@ overflow-y: scroll;
 overflow-x: hidden;
 }
 
-.tab-content-project {
-display: flex;
-justify-content: space-around;
-align-items: center;
-}
-
 .tab:target .tab-content {
 z-index: -1;
 }

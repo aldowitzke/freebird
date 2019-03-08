@@ -64,8 +64,8 @@ class ProjectsController < ApplicationController
   end
 
   def my_projects
-    @project = policy_scope(Project).where(artist: current_user)
-    authorize @project
+    @projects = policy_scope(Project).where(artist: current_user)
+    authorize @projects
   end
 
   private
