@@ -60,7 +60,7 @@
                     </div>
                   <% end %>
                 <% else %>
-                  <h3>Não tem projetos!</h3>
+                  <h3 class="text-center">Você não tem projetos ainda</h3>
                 <% end %>
               </div>
 
@@ -132,62 +132,58 @@
           <a href="#tab-3"  id="tab-link">Meus Eventos</a>
           <section class="tab-content tab-content-project">
             <div class="container events-container">
+              <% if @projects.map { |p| p.events }.flatten.any? %>
 
               <% @projects.each do |project| %>
-              <% project.events.each do |event| %>
+                  <% project.events.each do |event| %>
 
-              <div class="row">
-                <div class="card-event">
-                  <div class="col-xs-12 col-sm-3">
-                    <%= cl_image_tag event.project.photo, class: "card-event-img" %>
-                  </div>
-                  <div class="col-xs-12 col-sm-6">
-
-                    <div class="card-event-infos">
-                      <h2><%= event.project.name %></h2>
-                      <p>
-                        <i class="fas fa-comment-alt"></i>&nbsp;&nbsp;<%= event.description %>
-                      </p>
-                      <p>
-                        <i class="fas fa-calendar-alt">&nbsp;&nbsp;</i><%= event.datetime.strftime("%d/%m/%Y") %>
-                      </p>
-                      <p>
-                        <i class="fas fa-user"></i>&nbsp;&nbsp;<%= event.user.first_name %> <%= event.user.last_name %>
-                      </p>
+                  <div class="row">
+                    <div class="card-event">
+                      <div class="col-xs-12 col-sm-3">
+                        <%= cl_image_tag event.project.photo, class: "card-event-img" %>
+                      </div>
+                        <div class="col-xs-12 col-sm-6">
+                          <div class="card-event-infos">
+                            <h2><%= event.project.name %></h2>
+                            <p>
+                              <i class="fas fa-comment-alt"></i>&nbsp;&nbsp;<%= event.description %>
+                            </p>
+                            <p>
+                              <i class="fas fa-calendar-alt">&nbsp;&nbsp;</i><%= event.datetime.strftime("%d/%m/%Y") %>
+                            </p>
+                            <p>
+                              <i class="fas fa-user"></i>&nbsp;&nbsp;<%= event.user.first_name %> <%= event.user.last_name %>
+                            </p>
+                        </div>
+                      </div>
+                    <div class="col-xs-12 col-sm-3 text-center">
+                      <% if event.accepted == true %>
+                        <div id="event-status">
+                          <p>
+                            <i class="fas fa-check"></i>&nbsp;&nbsp;Proposta aceita!
+                          </p>
+                          <%= link_to "Cancelar", unaccepted_path(event), class: "btn btn-green", method: :patch %>
+                        </div>
+                      <% else %>
+                        <div id="event-status">
+                          <p>
+                            <i class="fas fa-times-circle"></i>&nbsp;&nbsp;Proposta pendente!
+                          </p>
+                          <%= link_to "Aceitar", accepted_path(event), class: "btn btn-green", method: :patch %>
+                        </div>
+                      <% end %>
                     </div>
-
-                  </div>
-
-                  <div class="col-xs-12 col-sm-3 text-center">
-
-                    <% if event.accepted == true %>
-                    <div id="event-status">
-                      <p>
-                        <i class="fas fa-check"></i>&nbsp;&nbsp;Proposta aceita!
-                      </p>
-                      <%= link_to "Cancelar", unaccepted_path(event), class: "btn btn-green", method: :patch %>
-                    </div>
-                    <% else %>
-                    <div id="event-status">
-                      <p>
-                        <i class="fas fa-times-circle"></i>&nbsp;&nbsp;Proposta pendente!
-                      </p>
-                      <%= link_to "Aceitar", accepted_path(event), class: "btn btn-green", method: :patch %>
-                    </div>
-                    <% end %>
-
                   </div>
                 </div>
-              </div>
 
               <% end %>
-              <% end %>
-
+            <% end %>
+                <% else %>
+                  <h3 class="text-center">Você não possui nenhum evento ainda</h3>
+                <% end %>
             </div>
-
           </section>
         </li>
-
       </div>
     </ul>
   </div>
