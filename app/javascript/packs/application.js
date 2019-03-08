@@ -21,3 +21,4 @@ $( "#search_city" ).select2({
 
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 initUpdateNavbarOnScroll();
+
