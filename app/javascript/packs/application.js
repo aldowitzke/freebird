@@ -2,9 +2,10 @@ import "bootstrap";
 import "select2";
 // Can also be included with a regular script tag
 import Typed from 'typed.js';
+import "../plugins/flatpickr";
 
 var options = {
-  strings: [" ", "Som de Barzinho", "Mpb", "Rap", "Banda de Casamento", "Rock"],
+  strings: [" ", "Casamento", "MPB", "Corporativo", "Samba", "Tributo"],
   typeSpeed: 40,
   attr: "placeholder",
   loop: true

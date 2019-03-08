@@ -4,7 +4,7 @@
   "dependencies": {
     "@rails/webpacker": "3.5",
     "bootstrap": "3.4.0",
-    "flatpickr": "^4.5.6",
+    "flatpickr": "^4.5.7",
     "jquery": "^3.3.1",
     "select2": "^4.0.6-rc.1",
     "typed.js": "^2.0.10"
