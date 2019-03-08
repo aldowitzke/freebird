@@ -74,7 +74,9 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-8 col-xs-offset-2">
+
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+
 
       <h2 class="text-center" style="margin-bottom: 30px;">Reviews de <%= @project.artist.first_name %></h2>
 
@@ -87,6 +89,7 @@
         <%= link_to "Criar novo review", new_project_review_path(@project), class: "btn-solid-blue" %>
       </div>
       <% end %> -->
+
 
       <% @project.reviews.each do |review| %>
       <div class="white background-lightblack box-main tag" id="review-box">

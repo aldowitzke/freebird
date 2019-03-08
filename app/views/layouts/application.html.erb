@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= favicon_link_tag asset_path('favicon.ico') %>
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
-    <title>freebird.show</title>
+    <title>FreeBird | Artistas para o seu momento</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+    <%= stylesheet_pack_tag 'application' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body class="background-black">
     <%= render 'shared/navbar' %>
