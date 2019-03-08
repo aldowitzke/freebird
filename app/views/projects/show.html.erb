@@ -74,6 +74,12 @@
   <div class="row">
     <div class="col-xs-8 col-xs-offset-2">
 
+      <h2 class="text-center" style="margin-bottom: 30px;">Reviews de <%= @project.artist.first_name %></h2>
+
+      <% if @project.reviews.empty? == true %>
+        <p class="text-center"><%= @project.artist.first_name %> não possui reviews ainda.</p>
+      <% end %>
+
       <% if current_user != @project.artist %>
       <div class="review-section text-center">
         <%= link_to "Criar novo review", new_project_review_path(@project), class: "btn-solid-blue" %>
