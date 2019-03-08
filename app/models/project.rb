@@ -1,4 +1,7 @@
 class Project < ApplicationRecord
+  before_save :adjust_video
+  before_update :adjust_video
+
   mount_uploader :photo, PhotoUploader
   belongs_to :artist, class_name: 'User', foreign_key: :artist_id
   belongs_to :category
@@ -28,5 +31,11 @@ class Project < ApplicationRecord
 
   def rating_average
     self.reviews.where.not(rate: nil).average(:rate)
+  end
+
+  private
+
+  def adjust_video
+    self.video = self.video.gsub("watch?v=", "embed/")
   end
 end

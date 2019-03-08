@@ -20,7 +20,7 @@
 
             <div class="text-center box-stars">
               Avaliação: <%= @project.rating_average.to_i %>&nbsp&nbsp&nbsp
-              <div class="orange" style="font-size: 18px"><%= stars(@project.rating_average.to_i) %></div>
+              <div class="orange"><%= stars(@project.rating_average.to_i) %></div>
             </div>
             <div class="text-center" style="margin-bottom: 6px">
               de <%= @project.reviews.count %> reviews
@@ -84,11 +84,11 @@
         <p class="text-center"><%= @project.artist.first_name %> não possui reviews ainda.</p>
       <% end %>
 
-      <% if current_user != @project.artist %>
+   <!--    <% if current_user != @project.artist %>
       <div class="review-section text-center">
         <%= link_to "Criar novo review", new_project_review_path(@project), class: "btn-solid-blue" %>
       </div>
-      <% end %>
+      <% end %> -->
 
 
       <% @project.reviews.each do |review| %>
@@ -104,7 +104,7 @@
         </div>
 
         <div class="review-stars">
-        <div class="orange" style="font-size: 18px"><%= stars(review.rate) %></div>
+        <div class="orange stars-position" style="font-size: 18px"><%= stars(review.rate) %></div>
         <%= cl_image_tag review.user.photo, class: "user-avatar-sm" %>
         </div>
 
@@ -126,11 +126,11 @@
           <%= f.input :question, placeholder: "Exemplo: Você traz seu próprio equipamento?", label: false %>
         </div>
         <div class="form-actions text-center margin-bottom-button">
-          <%= f.button :submit, "Enviar" %>
+          <%= f.button :submit, "Enviar", class: "btn btn-primary" %>
         </div>
         <% end %>
         <% elsif user_signed_in? == false %>
-        <div class="text-center">
+        <div class="text-center" style="margin-top: 20px; margin-bottom: 20px;">
           <%=  link_to "Faça uma pergunta", new_user_session_path, class: "btn-solid" %>
         </div>
         <% end %>
@@ -167,7 +167,7 @@
                 <%= simple_form_for([@project, message]) do |f| %>
                 <%= f.input :answer %>
               <div class="text-center margin-bottom-button">
-                <%= f.button :submit, "Enviar" %>
+                <%= f.button :submit, "Enviar", class: "btn btn-primary" %>
               </div>
                 <% end %>
               <% end %>
