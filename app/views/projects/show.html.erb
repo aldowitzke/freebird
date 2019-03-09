@@ -12,7 +12,7 @@
   <div class="container">
     <div class="background-lightblack box-main">
       <div class="row">
-          <div class="box-first">
+        <div class="box-first">
         <div class="col-xs-12 col-md-6">
 
 
@@ -48,16 +48,20 @@
               <div class="tag">
                 <p style="font-size:18px; margin-bottom:12px; font-weight: bold; margin-bottom: 30px; margin-left: 110px;">Preço por hora: R$ <%= @project[:price] %>,00</p>
               </div>
-              <div class="text-center contract-button">
-                <% if current_user != @project.artist %>
-                <%= link_to "Contratar", new_project_event_path(@project), class: "btn-light" %>
-                <% end %>
-              </div>
+<!--               <div class="text-center contract-button">
+
+              </div> -->
               <div style="display:flex; justify-content:space-around">
-                <% if current_user == @project.artist || current_user.admin == true %>
-                <%= link_to "Editar", edit_project_path(@project), class: "btn btn-primary" %>
-                <%= link_to "Deletar", project_path(@project), method: :delete, class: "btn btn-danger" %>
+
+                <% if user_signed_in? == false  %>
+                  <%= link_to "Contratar", user_session_path, class: "btn-light" %>
+                <% elsif current_user == @project.artist || current_user.admin == true %>
+                  <%= link_to "Editar", edit_project_path(@project), class: "btn btn-primary" %>
+                  <%= link_to "Deletar", project_path(@project), method: :delete, class: "btn btn-danger" %>
+                <% elsif current_user != @project.artist  %>
+                  <%= link_to "Contratar", new_project_event_path(@project), class: "btn-light" %>
                 <% end %>
+
               </div>
             </div>
 
