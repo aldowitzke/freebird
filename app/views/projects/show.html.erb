@@ -1,6 +1,10 @@
 <div class="container">
 
-  <div class="show-banner text-center" style="background-image: url('<%= @project.photo %>')">
+  <div class="show-banner text-center" style="background-image: linear-gradient(-225deg, rgba(21,24,40,0.5) 0%, rgba(21,24,40,0.5) 50%), url('<%= @project.photo %>')">
+
+  <!-- Old layout without filter -->
+  <!-- <div class="show-banner text-center" style="background-image: url('<%= @project.photo %>')"> -->
+
     <h1 class="shadow"><%= @project[:name] %></h1>
   </div>
 
@@ -53,8 +57,14 @@
                 <% if user_signed_in? == false  %>
                 <%= link_to "Contratar", user_session_path, class: "btn-light" %>
                 <% elsif current_user == @project.artist || current_user.admin == true %>
-                <%= link_to "Editar", edit_project_path(@project), class: "btn btn-primary" %>
-                <%= link_to "Deletar", project_path(@project), method: :delete, class: "btn btn-danger" %>
+                <%= link_to edit_project_path(@project), class: "btn-naked blue" do %>
+                  <i class="far fa-edit"></i> Editar
+                <% end %>
+
+                <%= link_to project_path(@project), method: :delete, class: "btn-naked red" do %>
+                  <i class="fas fa-recycle"></i> Deletar
+                <% end %>
+
                 <% elsif current_user != @project.artist  %>
                 <%= link_to "Contratar", new_project_event_path(@project), class: "btn-light" %>
                 <% end %>

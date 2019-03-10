@@ -23,9 +23,11 @@
 }
 
 .shadow {
-  background-color: $black;
-  opacity: 0.5;
+  // old layout without filter
+  // background-color: $black;
+  opacity: 0.9;
   padding: 10px;
+  color: $white;
 }
 
 .show-box {
