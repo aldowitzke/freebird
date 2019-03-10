@@ -1,3 +1,8 @@
+<!--https://www.lewagon.com/blog/setup-meta-tags-rails-->
+<% content_for :meta_title, "#{@project.name} is on #{DEFAULT_META["meta_product_name"]}" %>
+<% content_for :meta_description, @project.description %>
+<% content_for :meta_image, cl_image_path(@project.photo) %>
+
 <div class="container">
 
   <div class="show-banner text-center" style="background-image: linear-gradient(-225deg, rgba(21,24,40,0.5) 0%, rgba(21,24,40,0.5) 50%), url('<%= @project.photo %>')">
