@@ -17,6 +17,11 @@ class ApplicationController < ActionController::Base
     redirect_to(root_path)
   end
 
+  # https://www.lewagon.com/blog/setup-meta-tags-rails
+  def default_url_options
+    { host: ENV["HOST"] || "localhost:3000" }
+  end
+
   protected
 
   def configure_permitted_parameters
