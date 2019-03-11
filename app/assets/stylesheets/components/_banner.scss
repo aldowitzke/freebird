@@ -23,9 +23,11 @@
 }
 
 .shadow {
-  background-color: $black;
-  opacity: 0.5;
+  // old layout without filter
+  // background-color: $black;
+  opacity: 0.9;
   padding: 10px;
+  color: $white;
 }
 
 .show-box {
@@ -40,7 +42,9 @@
 
 .box-first {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
 }
 
 .box-bio {
@@ -54,8 +58,7 @@
   position: sticky;
   min-height: 350px;
   position: relative;
-  width: 475px;
-  margin-left: 55px;
+  // width: 475px;
 }
 
 .box-stars {
@@ -88,6 +91,5 @@ justify-content: center;
 }
 
 #box-video {
-
 }
 

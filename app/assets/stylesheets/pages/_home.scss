@@ -33,6 +33,11 @@
     outline: 0;
   }
 }
+
+.search-margin {
+  margin: 3px;
+}
+
 #select2-search_city-container {
   margin-top: 2px;
   min-width: 20rem;
@@ -74,6 +79,12 @@
 //     outline: 0;
 //   }
 // }
+
+.search-home {
+  display: flex;
+  align-items: top;
+  justify-content: space-around;
+}
 
 .search-name {
   &:focus {
