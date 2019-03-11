@@ -100,6 +100,7 @@
   object-fit: cover;
   margin-left: 50px;
   margin-top: -5px;
+
 }
 
 .card-event h2 {
@@ -152,16 +153,16 @@
   width: 100%;
   // margin-top: 25px;
   margin: 25px 10px 10px 10px;
-  a {
-    float: right;
-  }
+  // a {
+  //   float: right;
+  // }
 }
 
-.event-btn-line {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
+// .event-btn-line {
+//   display: flex;
+//   justify-content: space-around;
+//   align-items: center;
+// }
 
 
 #event-status {
