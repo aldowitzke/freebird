@@ -81,6 +81,7 @@
 // }
 
 .search-home {
+  margin-right: 37px;
   display: flex;
   align-items: top;
   justify-content: space-around;
@@ -118,3 +119,10 @@
   margin: 10px auto;
 }
 
+#search_name {
+  width: 200px;
+}
+
+.nav-img {
+  padding-top: 8px;
+}
