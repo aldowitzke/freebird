@@ -1,7 +1,7 @@
 <div class="<%= controller_name == 'pages' ? 'navbar-wagon navbar-landing' : 'navbar-wagon navbar-fixed-top' %>">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-  <%= image_tag "logo2.png", height: 50 %>
+  <%= image_tag "logo2.png", height: 50, class: "nav-img"  %>
   <% end %>
   <% unless controller_name == "pages" %>
   <%= render 'shared/search' %>
