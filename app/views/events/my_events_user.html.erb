@@ -37,18 +37,17 @@
 
 
                     <!-- Botao contactar artista -->
-                    <div class="event-buttons">
-                      <button type="button" class="btn-invisible green contact-artist" data-toggle="modal" data-target="#exampleModal">
-                        Contacte <%= "#{event.project.artist.first_name}" %>
-                      </button>
-                    </div>
 
-                    <!-- Botao review-->
-                    <% if event.accepted %>
+                      <div class="event-buttons">
+                        <button type="button" class="btn-invisible green contact-artist" data-toggle="modal" data-target="#exampleModal">
+                          Contacte <%= "#{event.project.artist.first_name}" %>
+                        </button>
 
-                    <%= link_to "Deixe seu review", new_project_review_path(event.project), class: "btn-invisible-blue blue review-button-contracts text-center" %>
+                        <%= link_to "Deixe seu review", new_project_review_path(event.project), class: "btn-invisible green review-button-contracts text-center" %>
+                      </div>
 
-                    <% end %>
+                      <!-- Botao review-->
+
                   </div>
 
                   <!-- Modal -->
@@ -75,7 +74,19 @@
                     </div>
                   </div>
                   <% else %>
-                  <p><i class="fas fa-times-circle"></i><%= "  #{event.project.artist.first_name} ainda não aceitou sua proposta" %></p>
+                    <p><i class="fas fa-times-circle"></i><%= "  #{event.project.artist.first_name} ainda não aceitou sua proposta" %></p>
+                    <div class="event-btn-line">
+                      <div class="contactar-review-margin">
+                        <div class="event-buttons">
+                          <button disabled type="button" class="btn-invisible green contact-artist">
+                            Contacte <%= "#{event.project.artist.first_name}" %>
+                          </button>
+                          <a href="#" class="btn-invisible green review-button-contracts text-center" disabled>
+                            Deixe seu review
+                          </a>
+                        </div>
+                      </div>
+                    </div>
                   <% end %>
                 </div>
               </div>

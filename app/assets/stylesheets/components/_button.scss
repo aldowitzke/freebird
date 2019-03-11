@@ -150,8 +150,6 @@
 }
 
 .review-button-contracts {
-  margin-top: 30px;
-  margin-left: 25px;
   width: 130px;
 }
 
@@ -191,7 +189,7 @@
   font-size: 16px;
   font-family: Open Sans;
   cursor: pointer;
-  margin: 10px;
+  margin-bottom: 10px;
   border-radius: 5px;
   text-decoration: none;
   padding: 10px;
@@ -202,10 +200,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $lightblack;
+  background-color: #009f9d;
   border: none;
   font-weight: bold;
-
+  width: 100%;
 }
 .btn-invisible:hover {
   color: $black;
@@ -213,3 +211,11 @@
   text-decoration: none;
 }
 
+.btn-invisible:disabled,
+.btn-invisible[disabled] {
+  background-color: gray;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: not-allowed;
+  margin-bottom: 10px;
+
+}
