@@ -38,7 +38,7 @@
 
                     <!-- Botao contactar artista -->
                     <div class="event-buttons">
-                      <button type="button" class="btn btn-primary contact-artist" data-toggle="modal" data-target="#exampleModal">
+                      <button type="button" class="btn-invisible green contact-artist" data-toggle="modal" data-target="#exampleModal">
                         Contacte <%= "#{event.project.artist.first_name}" %>
                       </button>
                     </div>
@@ -46,7 +46,7 @@
                     <!-- Botao review-->
                     <% if event.accepted %>
 
-                    <%= link_to "Review", new_project_review_path(event.project), class: "btn btn-danger review-button-contracts" %>
+                    <%= link_to "Review", new_project_review_path(event.project), class: "btn-invisible blue review-button-contracts" %>
 
                     <% end %>
                   </div>

@@ -177,10 +177,37 @@
   -moz-transition: .3s;
   -o-transition: .4s;
   display: inline-block;
-
+  background-color: $lightblack;
+  border: none;
 
 }
 .btn-naked:hover {
+  color: $black;
+  background-color: $green;
+  text-decoration: none;
+}
+
+.btn-invisible {
+  font-size: 16px;
+  font-family: Open Sans;
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  padding: 10px;
+  transition: .4s;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -o-transition: .4s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $lightblack;
+  border: none;
+  font-weight: bold;
+
+}
+.btn-invisible:hover {
   color: $black;
   background-color: $green;
   text-decoration: none;
