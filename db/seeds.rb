@@ -45,7 +45,7 @@ aldo = User.create!(
    email: 'ian@sala33.com.br',
    artist: true,
    password: '123123',
-   remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1551877677/IMG_3035.jpg",
+   remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1552330572/ianwagon.jpg",
    phone: "(14)99789-1234",
    city: "Marília",
    state: "SP",
@@ -56,7 +56,7 @@ lucianauser = User.create!(
   last_name: 'Pires',
   email: 'lupires.canta@gmail.com',
   artist: true,
-  password: '123456',
+  password: '123123',
   remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1551451065/luciana.png",
   phone: "(14)98159-9492",
   city: "Bauru",
@@ -68,12 +68,23 @@ kreo = User.create!(
   last_name: 'Fidélis',
   email: 'kreofidelis@hotmail.com',
   artist: true,
-
-  password: '123456',
+  password: '123123',
   remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1551451435/kreoperfil.jpg",
   phone: "(14)99761-3196",
   city: "Marília",
   state: "SP",
+  )
+
+rei = User.create!(
+  first_name: 'Rafael',
+  last_name: 'Venstra',
+  email: 'rafaelveenstra@gmail.com',
+  artist: true,
+  password: '123123',
+  remote_photo_url: 'https://res.cloudinary.com/dwzrkks74/image/upload/v1552331675/rafael.jpg',
+  phone: "(41)9133-1333",
+  city: "Curitiba",
+  state: "PR",
   )
 
 puts 'Creating categories'
@@ -89,6 +100,7 @@ churrasco = Category.create!(name: 'Churrasco')
 corporativo = Category.create!(name: 'Corporativo')
 formatura = Category.create!(name: 'Formatura')
 roda = Category.create!(name: 'Roda de Samba')
+openmic = Category.create!(name: 'Open Mic')
 
 puts 'Creating genres'
 
@@ -212,6 +224,44 @@ kreo_autoral = Project.create!(
   video: "https://www.youtube.com/watch?v=8aKw-nNu-ss",
   )
 
+openmicproject1 = Project.create!(
+  artist: ian,
+  category: openmic,
+  name: "Ian Banda Show",
+  description: "Libere sua criatividade musical com Ian Banda Show ! Com mais de 10 anos de experiência no mercado, nós tocamos um enredo variado para você e seus amigos liberarem a voz!",
+  city: "São Paulo",
+  state: "SP",
+  price: 500,
+  remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1552073941/d7y3m3m7lkzqwb7nfgsd.jpg",
+  video: "https://www.youtube.com/watch?v=Sg9AciUSwT8",
+  )
+
+openmicproject2 = Project.create!(
+  artist: rei,
+  category: openmic,
+  name: "Rei dos Palcos",
+  description: "Solte a franga com o Rei dos Palcos! Conhecido como o filho do Freddie Mercury, o Bradley Cooper do batch#211! Aquele que canta e encanta!",
+  city: "São Paulo",
+  state: "SP",
+  price: 1000,
+  remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1552332497/openmic.jpg",
+  video: "https://www.youtube.com/watch?v=aC46B8R5bQo&t=5s",
+  )
+
+karaokreo = Project.create!(
+  artist: kreo,
+  category: openmic,
+  name: "Karaokrêo",
+  description: "Já pensou em soltar sua voz e a franga hoje?
+                bora ativar o modo Felipe Dylon que vai rolar o Karaokrêo!
+                Karaokê com banda AO VIVO!! Aqui a estrela será você.
+                Venha e chama seu FÃ CLUBE!!",
+  city: "São Paulo",
+  state: "SP",
+  price: 2000,
+  remote_photo_url: "https://res.cloudinary.com/dwzrkks74/image/upload/v1552332841/karaokreo.jpg",
+  video: "https://www.youtube.com/watch?v=1NDAC-hbYCE",
+  )
 
 puts 'Creating project genres'
 
@@ -243,6 +293,11 @@ ProjectGenre.create!(genre: mpb, project: kreo_autoral)
 ProjectGenre.create!(genre: folk, project: kreo_autoral)
 ProjectGenre.create!(genre: samba, project: kreo_autoral)
 
+ProjectGenre.create!(genre: fuleragem, project: openmicproject1)
+
+ProjectGenre.create!(genre: fuleragem, project: openmicproject2)
+
+ProjectGenre.create!(genre: fuleragem, project: karaokreo)
 
 
 puts 'Creating events'
@@ -261,6 +316,20 @@ Review.create!(
   content: "Lindo, emocionante e sensível",
   rate: 5,
   user: aldo,
+  )
+
+Review.create!(
+  project: openmicproject1,
+  content: "Nunca me diverti tanto!",
+  rate: 5,
+  user: kreo,
+  )
+
+Review.create!(
+  project: openmicproject1,
+  content: "Além de bom ele é bonito!",
+  rate: 5,
+  user: lucianauser,
   )
 
 puts 'done!'
