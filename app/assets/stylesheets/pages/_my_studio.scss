@@ -16,7 +16,10 @@
   margin-top: 41px;
   padding-top: 25px;
   padding-bottom: 25px;
-  box-shadow: 0 0 15px rgba(239,224,224,1);
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(84,92,102,1);
+  // old box-shadow
+  // box-shadow: 0 0 15px rgba(244,246,247,1);
   background-color: #009f9d;
   color: white;
   min-height: 78vh;

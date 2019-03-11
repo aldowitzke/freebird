@@ -22,7 +22,6 @@ class Project < ApplicationRecord
       tsearch: { prefix: true }
     }
 
-  accepts_nested_attributes_for :genres, :project_genres
   validates :name, presence: true
   validates :city, presence: true
   validates :state, presence: true
