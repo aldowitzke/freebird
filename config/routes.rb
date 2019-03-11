@@ -20,11 +20,8 @@ Rails.application.routes.draw do
     resources :events, only: [ :new, :create ]
     resources :reviews, only: [ :new, :create ]
     resources :anonymous_messages, only: [ :create, :update ]
-    resources :videos, only: [ :new, :create ]
   end
   resources :reviews, only: [ :show, :edit, :update, :destroy ]
 
   resources :events, only: [ :show, :index, :edit, :update, :destroy]
-
-  resources :videos, only: [ :show, :edit, :update, :destroy ]
 end
