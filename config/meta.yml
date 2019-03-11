@@ -1,5 +1,5 @@
 meta_product_name: "Freebird"
 meta_title: "Freebird - Artista para seu momento"
 meta_description: "A maneira mais fácil de contratar artistas para seus eventos."
-meta_image: "logo2.png" # should exist in `app/assets/images/`
+meta_image: "cover.png" # should exist in `app/assets/images/`
 # twitter_account: "@product_twitter_account"   # required for Twitter Cards
