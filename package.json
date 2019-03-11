@@ -6,6 +6,7 @@
     "bootstrap": "3.4.0",
     "flatpickr": "^4.5.7",
     "jquery": "^3.3.1",
+    "jquery-bar-rating": "^1.2.2",
     "select2": "^4.0.6-rc.1",
     "typed.js": "^2.0.10"
   },

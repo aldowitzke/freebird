@@ -10,9 +10,13 @@ var options = {
   attr: "placeholder",
   loop: true
 }
+if (document.querySelector(".home-search-name")){
+  var typed = new Typed(".home-search-name", options);
+}
 
-var typed = new Typed(".home-search-name", options);
+import { initStarRating } from '../plugins/init_star_rating';
 
+initStarRating();
 //$( ".home-search-city select" ).select2({
 $( "#search_city" ).select2({
     theme: "bootstrap",
@@ -21,4 +25,6 @@ $( "#search_city" ).select2({
 
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 initUpdateNavbarOnScroll();
+
+
 
