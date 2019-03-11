@@ -11,6 +11,7 @@
   <!-- <div class="show-banner text-center" style="background-image: url('<%= @project.photo %>')"> -->
 
     <h1 class="shadow"><%= @project[:name] %></h1>
+    
   </div>
 
 </div>
@@ -53,8 +54,8 @@
                 </p>
               </div>
               <p class="white text-center" style="font-size: 18px"><%= @project.description %></p>
-              <div class="tag">
-                <p style="font-size:18px; margin-bottom:12px; font-weight: bold; margin-bottom: 30px; margin-left: 110px;">Preço por hora: R$ <%= @project[:price] %>,00</p>
+              <div class="text-center">
+                <p>Preço por hora: R$ <%= @project[:price] %>,00</p>
               </div>
 
               <div style="display:flex; justify-content:space-around">
