@@ -212,3 +212,29 @@
   background-color: $green;
   text-decoration: none;
 }
+
+.btn-invisible-blue {
+  font-size: 16px;
+  font-family: Open Sans;
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  padding: 10px;
+  transition: .4s;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -o-transition: .4s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $lightblack;
+  border: none;
+  font-weight: bold;
+
+}
+.btn-invisible-blue:hover {
+  color: $black;
+  background-color: $blue;
+  text-decoration: none;
+}
